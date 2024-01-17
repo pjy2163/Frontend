@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ServiceAgreementActivity"
+   >
+
+    <android.widget.Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/previous_text"
+        android:textColor="@color/white"/>
+
+    <!-- 제목 -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="서비스 이용 약관에\n동의해주세요"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+
+
+    <!-- 동의 체크박스 -->
+    <CheckBox
+        android:id="@+id/agreeCheckBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(필수) 서비스 이용 약관에 동의해주세요."/>
+
+    <!-- 동의 체크박스 -->
+    <CheckBox
+        android:id="@+id/agreeCheckBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(필수) 유니 페이 이용 약관 동의"/>
+
+    <!-- 동의 체크박스 -->
+    <CheckBox
+        android:id="@+id/agreeCheckBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(필수) 전자금융거래 이용약관 동의"/>
+    <!-- 동의 체크박스 -->
+    <CheckBox
+        android:id="@+id/agreeCheckBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(필수) 개인정보 수집이용 동의"/>
+
+
+    <!-- 동의 체크박스 -->
+    <CheckBox
+        android:id="@+id/agreeCheckBox5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(필수) 개인정보 제3자 제공 동의"/>
+
+
+    <TextView
+        android:id="@+id/continue_notice_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="동의하고 가입하기”를 누르면\n 전체 약관에 자동 동의됩니다"
+        android:textStyle="bold"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <android.widget.Button
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="동의하고 계속하기"
+        android:textColor="@color/white"/>
+</LinearLayout>

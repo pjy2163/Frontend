@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/soundGuideButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="화면 안내 소리 켜기"
+        android:textSize="18sp"
+        android:backgroundTint="@color/navy"
+        android:drawablePadding="8dp"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/paymentButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke"
+        android:text="결제하기"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/ic_wallet"
+        android:drawablePadding="8dp"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/registerPaymentMethodButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke"
+        android:text="결제수단 등록"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/ic_add_card"
+        android:drawablePadding="8dp"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/editInformationButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="@color/black"
+        android:layout_weight="1"
+        android:background="@drawable/stroke"
+        android:text="정보 수정"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/ic_person"
+        android:drawablePadding="8dp"/>
+</LinearLayout>
