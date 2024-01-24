@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <android.widget.Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/previous_text"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:id="@+id/text_choose_bank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="은행선택"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+
+    <Button
+        android:id="@+id/hanaButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke_round"
+        android:text="하나"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/imgsize_bank_hana"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/kookminButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke_round"
+        android:text="국민"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/imgsize_bank_kookmin"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/shinhanButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke_round"
+        android:text="신한"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/imgsize_bank_shinhan"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/uriButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke_round"
+        android:text="우리"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/imgsize_bank_uri"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/nonghyupButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke_round"
+        android:text="농협"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/imgsize_bank_nonghyup"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/kiupButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke_round"
+        android:text="기업"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_title"
+        android:drawableLeft="@drawable/imgsize_bank_kiup"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <android.widget.Button
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:text="@string/next_text"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

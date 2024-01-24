@@ -7,26 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity2"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:gravity="center"
+    android:background="@color/white">
 
 >
 
     <TextView
         android:id="@+id/slogan_text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="소리로 듣는 안전결제"
         android:textSize="@dimen/title"
         android:textStyle="bold"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="30dp"
+      >
     </TextView>
 
 
     <TextView
         android:id="@+id/splash_explain_text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="보이지 않아도 믿을 수 있는 선택!\n카드 결제의 새로운 차원을 열다"
+        android:textColor="@color/text_grey"
         android:textSize="@dimen/sub_title">
     </TextView>
     <ImageView
@@ -36,4 +41,20 @@
         app:srcCompat="@drawable/img_wallet"
         />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <android.widget.Button
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/next_text"
+        android:textColor="@color/white"/>
+
 </LinearLayout>
+
+

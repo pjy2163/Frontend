@@ -13,13 +13,31 @@
         android:theme="@style/Theme.Graduation"
         tools:targetApi="31">
         <activity
+            android:name=".MyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeletePayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CheckPayInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AuthWayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChooseKindOfPayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChooseBankActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity2"
             android:exported="false" />
         <activity
             android:name=".SplashActivity1"
             android:exported="false" />
         <activity
-            android:name=".PayMethodDelete"
+            android:name=".ChooseWayOfPayActivity"
             android:exported="false" />
         <activity
             android:name=".ServiceAgreementActivity"

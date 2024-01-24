@@ -5,55 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:padding="20dp">
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/soundGuideButton"
-        android:layout_width="match_parent"
+    <android.widget.Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/stroke_round_navy"
+        android:backgroundTint="@null"
         android:text="화면 안내 소리 켜기"
-        android:textSize="18sp"
-        android:backgroundTint="@color/navy"
-        android:drawablePadding="8dp"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"/>
+        android:textSize="20sp"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:layout_gravity="center" />
 
     <Button
         android:id="@+id/paymentButton"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/stroke"
+        android:layout_height="150dp"
+        android:background="@drawable/stroke_round"
         android:text="결제하기"
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/ic_wallet"
-        android:drawablePadding="8dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <Button
         android:id="@+id/registerPaymentMethodButton"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/stroke"
+        android:layout_height="150dp"
+        android:background="@drawable/stroke_round"
         android:text="결제수단 등록"
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/ic_add_card"
-        android:drawablePadding="8dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <Button
         android:id="@+id/editInformationButton"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="150dp"
         android:textColor="@color/black"
-        android:layout_weight="1"
-        android:background="@drawable/stroke"
+        android:background="@drawable/stroke_round"
         android:text="정보 수정"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/ic_person"
-        android:drawablePadding="8dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 </LinearLayout>

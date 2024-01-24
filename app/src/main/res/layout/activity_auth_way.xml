@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthWayActivity"
+    android:orientation="vertical">
+
+
+    <android.widget.Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/previous_text"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="인증 방법 선택"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/stroke_round_yellow"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/chosen_payment_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선택된 은행계좌 또는 카드명"
+            android:textSize="@dimen/sub_title"
+            />
+        <TextView
+            android:id="@+id/chosen_payment_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="계좌번호 뒷자리 또는 카드번호 앞 4자리"
+            android:textSize="@dimen/sub_title"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/accountBtn"
+            android:layout_width="180dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/stroke_round"
+            android:text="계좌"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sub_title" />
+
+        <Button
+            android:id="@+id/cardBtn"
+            android:layout_width="180dp"
+            android:layout_height="300dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/stroke_round"
+            android:text="비밀번호\n입력"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sub_title" />
+
+    </LinearLayout>
+
+
+    <!-- Space for Layout Weight -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Next Button -->
+    <android.widget.Button
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="다음"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white"/>
+</LinearLayout>

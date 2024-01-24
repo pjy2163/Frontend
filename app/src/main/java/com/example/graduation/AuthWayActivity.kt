@@ -3,9 +3,9 @@ package com.example.graduation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class PayMethodDelete : AppCompatActivity() {
+class AuthWayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pay_method_delete)
+        setContentView(R.layout.activity_auth_way)
     }
 }
