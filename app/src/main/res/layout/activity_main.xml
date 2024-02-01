@@ -25,7 +25,7 @@
         android:layout_gravity="center" />
 
     <Button
-        android:id="@+id/paymentButton"
+        android:id="@+id/payBtn"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/stroke_round"
@@ -38,7 +38,7 @@
         android:layout_marginRight="20dp"/>
 
     <Button
-        android:id="@+id/registerPaymentMethodButton"
+        android:id="@+id/registerPayBtn"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/stroke_round"
@@ -51,7 +51,7 @@
         android:layout_marginRight="20dp"/>
 
     <Button
-        android:id="@+id/editInformationButton"
+        android:id="@+id/editInfoBtn"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:textColor="@color/black"
