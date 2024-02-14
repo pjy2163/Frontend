@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <android.widget.Button
-        android:id="@+id/button"
+        android:id="@+id/sound_on_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -25,7 +25,7 @@
         android:layout_gravity="center" />
 
     <Button
-        android:id="@+id/payBtn"
+        android:id="@+id/pay_btn"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/stroke_round"
@@ -38,7 +38,7 @@
         android:layout_marginRight="20dp"/>
 
     <Button
-        android:id="@+id/registerPayBtn"
+        android:id="@+id/register_pay_btn"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/stroke_round"
@@ -51,7 +51,7 @@
         android:layout_marginRight="20dp"/>
 
     <Button
-        android:id="@+id/editInfoBtn"
+        android:id="@+id/editInfo_btn"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:textColor="@color/black"

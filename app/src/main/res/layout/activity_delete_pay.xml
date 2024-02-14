@@ -9,7 +9,7 @@
 
 
     <android.widget.Button
-        android:id="@+id/button"
+        android:id="@+id/prev_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -73,7 +73,7 @@
             app:srcCompat="@drawable/ic_double_arrow_prev"></ImageButton>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/card_tv"
             android:layout_width="280dp"
             android:layout_height="150dp"
             android:background="@drawable/stroke_round_yellow"
@@ -96,7 +96,7 @@
 
 
     <android.widget.Button
-        android:id="@+id/deleteBtn"
+        android:id="@+id/delete_pay_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
