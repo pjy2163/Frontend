@@ -3,7 +3,6 @@ package com.example.graduation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import com.example.graduation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.registerPayBtn.setOnClickListener{
-            val intent = Intent(this, ChooseKindOfPayActivity::class.java)
+            val intent = Intent(this, RegisterMainActivity::class.java)
             startActivity(intent)
         }
 

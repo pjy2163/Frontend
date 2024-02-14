@@ -3,16 +3,14 @@ package com.example.graduation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.graduation.databinding.ActivityChooseBankBinding
-import com.example.graduation.databinding.ActivityChooseKindOfPayBinding
-import com.example.graduation.databinding.ActivityMainBinding
+import com.example.graduation.databinding.ActivityRegisterMainBinding
 
-class ChooseKindOfPayActivity : AppCompatActivity() {
+class RegisterMainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityChooseKindOfPayBinding
+    private lateinit var binding: ActivityRegisterMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =ActivityChooseKindOfPayBinding.inflate(layoutInflater)
+        binding = ActivityRegisterMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.accountBtn.setOnClickListener{
@@ -25,9 +23,11 @@ class ChooseKindOfPayActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.previousBtn.setOnClickListener{
+        binding.prevBtn.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+
     }
 }

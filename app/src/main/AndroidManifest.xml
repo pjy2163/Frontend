@@ -30,19 +30,14 @@
             android:name=".AuthWayActivity"
             android:exported="false" />
         <activity
-            android:name=".ChooseKindOfPayActivity"
+            android:name=".RegisterMainActivity"
             android:exported="false" />
         <activity
             android:name=".ChooseBankActivity"
             android:exported="false" />
+      
         <activity
-            android:name=".SplashActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity1"
-            android:exported="false" />
-        <activity
-            android:name=".ChooseWayOfPayActivity"
+            android:name=".PayMethodSelectionActivity"
             android:exported="false" />
         <activity
             android:name=".ServiceAgreementActivity"
@@ -50,7 +45,7 @@
             android:label="@string/title_activity_service_agreement"
             android:theme="@style/Theme.Graduation" />
         <activity
-            android:name=".PayApprovedActivity"
+            android:name=".PayConfirmationActivity"
             android:exported="false" />
         <activity
             android:name=".PayPasswordActivity"

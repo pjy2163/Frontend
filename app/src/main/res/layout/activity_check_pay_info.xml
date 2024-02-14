@@ -7,9 +7,8 @@
     tools:context=".CheckPayInfoActivity"
     android:orientation="vertical">
 
-    <!-- Previous Button -->
     <android.widget.Button
-        android:id="@+id/button"
+        android:id="@+id/prev_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -105,7 +104,7 @@
 
 
     <android.widget.Button
-        android:id="@+id/next_button"
+        android:id="@+id/next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

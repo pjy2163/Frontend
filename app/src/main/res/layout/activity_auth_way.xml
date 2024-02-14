@@ -9,7 +9,7 @@
 
 
     <android.widget.Button
-        android:id="@+id/button"
+        android:id="@+id/prev_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -32,69 +32,70 @@
         android:layout_marginBottom="30dp"/>
 
 
-    <LinearLayout
+   <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/stroke_round_yellow"
-        android:padding="10dp"
-        android:layout_margin="20dp"
         android:layout_gravity="center"
-        android:gravity="center">
+        android:layout_margin="20dp"
+        android:background="@drawable/stroke_round_yellow"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <TextView
             android:id="@+id/chosen_payment_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="선택된 은행계좌 또는 카드명"
-            android:textSize="@dimen/sub_title"
-            />
+            android:textSize="@dimen/sub_title" />
+
         <TextView
             android:id="@+id/chosen_payment_number_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:text="계좌번호 뒷자리 또는 카드번호 앞 4자리"
-            android:textSize="@dimen/sub_title"
-            android:layout_marginBottom="10dp"/>
-    </LinearLayout>
+            android:textSize="@dimen/sub_title" />
+    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/accountBtn"
-            android:layout_width="180dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="15dp"
+            android:id="@+id/account_btn"
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:layout_margin="10dp"
             android:background="@drawable/stroke_round"
-            android:text="계좌"
+            android:text="지문 인식"
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title" />
 
         <Button
-            android:id="@+id/cardBtn"
-            android:layout_width="180dp"
-            android:layout_height="300dp"
+            android:id="@+id/pwd_btn"
+            android:layout_width="300dp"
+            android:layout_height="180dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/stroke_round"
-            android:text="비밀번호\n입력"
+            android:text="비밀번호 입력"
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title" />
 
     </LinearLayout>
 
-
-    <!-- Space for Layout Weight -->
-    <Space
+    <!-- 여기도 다음이 없어야 한다고 생각해요 -->
+  <!--  <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <!-- Next Button -->
+    &lt;!&ndash; Next Button &ndash;&gt;
     <android.widget.Button
-        android:id="@+id/next_button"
+        android:id="@+id/next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -103,5 +104,5 @@
         android:text="다음"
         android:textSize="20sp"
         android:padding="15dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"/>-->
 </LinearLayout>

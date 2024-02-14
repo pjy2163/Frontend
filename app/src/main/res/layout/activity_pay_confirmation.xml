@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PayApprovedActivity"
+    tools:context=".PayConfirmationActivity"
     android:orientation="vertical">
 
-    <!-- Previous Button -->
     <android.widget.Button
-        android:id="@+id/button"
+        android:id="@+id/prev_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -20,7 +19,6 @@
         android:padding="15dp"
         android:textColor="@color/white" />
 
-    <!-- Title TextView -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -31,57 +29,52 @@
         android:textStyle="bold"
         android:layout_marginBottom="30dp"/>
 
-    <!-- Grouped Payment Details TextView -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:orientation="vertical"
         android:background="@drawable/stroke_round"
         android:padding="10dp"
-        android:layout_margin="20dp"> <!-- Border Style Added -->
+        android:layout_margin="20dp">
 
-        <!-- Payment Place TextView -->
         <TextView
             android:id="@+id/payment_place_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="결제업체명"
             android:textSize="@dimen/sub_title"
-            android:layout_marginBottom="20dp"/>
+            android:layout_margin="40dp"/>
 
-        <!-- Payment Details LinearLayout -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="40dp">
 
-            <!-- Payment Name TextView -->
+
             <TextView
                 android:id="@+id/payment_name_text"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="상품이름"
-                android:layout_marginRight="50dp"
-                android:textSize="@dimen/sub_title"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginRight="40dp"
+                android:textSize="@dimen/sub_title"/>
 
-            <!-- Payment Price TextView -->
             <TextView
                 android:id="@+id/payment_price_text"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="결제 금액"
-                android:textSize="@dimen/sub_title"
-                android:layout_marginBottom="20dp"/>
+                android:textSize="@dimen/sub_title"/>
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Chosen Payment Name TextView -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:orientation="vertical"
         android:background="@drawable/stroke_round_yellow"
         android:padding="10dp"
@@ -94,25 +87,23 @@
         android:layout_height="wrap_content"
         android:text="선택된 은행계좌 또는 카드명"
         android:textSize="@dimen/sub_title"
-        /> <!-- Border Style Added -->
+        />
 
-    <!-- Chosen Payment Number TextView -->
     <TextView
         android:id="@+id/chosen_payment_number_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="계좌번호 뒷자리 또는 카드번호 앞 4자리"
+        android:text="****"
         android:textSize="@dimen/sub_title"
         android:layout_marginBottom="20dp"
-        /> <!-- Border Style Added -->
+        />
     </LinearLayout>
-    <!-- Space for Layout Weight -->
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <!-- Next Button -->
     <android.widget.Button
         android:id="@+id/approveBtn"
         android:layout_width="match_parent"

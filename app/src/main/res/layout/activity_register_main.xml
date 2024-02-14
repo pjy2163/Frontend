@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChooseKindOfPayActivity"
+    tools:context=".RegisterMainActivity"
     android:orientation="vertical">
 
     <android.widget.Button
-        android:id="@+id/previousBtn"
+        android:id="@+id/prev_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"

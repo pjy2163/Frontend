@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DeletePayActivity"
+    tools:context=".MyInfoActivity"
     android:orientation="vertical">
 
 
     <android.widget.Button
-        android:id="@+id/button"
+        android:id="@+id/prev_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -90,7 +90,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/changePwdBtn"
+            android:id="@+id/changePwd_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/transparent"
@@ -100,7 +100,7 @@
             android:layout_marginRight="50dp"/>
 
         <Button
-            android:id="@+id/managePayBtn"
+            android:id="@+id/managePay_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/transparent"
@@ -110,7 +110,7 @@
 
     </LinearLayout>
     <android.widget.Button
-        android:id="@+id/deleteBtn"
+        android:id="@+id/delete_account_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -125,13 +125,13 @@
         android:textSize="20sp"/>
 
 
-
-    <Space
+<!--여기도 다음이 있으면 안되겠네요-->
+   <!-- <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
     <android.widget.Button
-        android:id="@+id/next_button"
+        android:id="@+id/next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -140,6 +140,5 @@
         android:text="@string/next_text"
         android:textSize="20sp"
         android:padding="15dp"
-        android:textColor="@color/white"/>
-
+        android:textColor="@color/white"/>-->
 </LinearLayout>
