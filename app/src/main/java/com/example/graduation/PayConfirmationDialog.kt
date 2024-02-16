@@ -23,7 +23,6 @@ class PayConfirmationDialog: DialogFragment()  {
 
         dialog?.setCancelable(false)    //다이얼로그의 바깥 화면을 눌렀을 때 다이얼로그가 닫히지 않도록 함
 
-
         binding.okBtn.setOnClickListener {
             Log.d("yk","확인 버튼 클릭")
             dismiss()    // 대화상자를 닫는 함수

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--앱에서 진동 알림 주기 허용-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,11 +15,47 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Graduation"
         tools:targetApi="31">
+
+
+        <activity
+            android:name=".Signup_Checkpwd"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".Signup_Pwd"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Signup_Email"
+            android:exported="false" />
+        <activity
+            android:name=".Signup_Name"
+            android:exported="false" />
+        <activity
+            android:name=".Login_Pwd"
+            android:exported="false" />
+        <activity
+            android:name=".Login_Email"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" >
+        </activity>
+
+
         <activity
             android:name=".ChangePwdActivity"
             android:exported="false"
             android:label="@string/title_activity_change_pwd"
             android:theme="@style/Theme.Graduation" />
+
         <activity
             android:name=".MyInfoActivity"
             android:exported="false" />
@@ -53,12 +92,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
