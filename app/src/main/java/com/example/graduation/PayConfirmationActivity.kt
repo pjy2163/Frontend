@@ -1,5 +1,6 @@
 package com.example.graduation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +14,11 @@ class PayConfirmationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding =ActivityPayConfirmationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.prevBtn.setOnClickListener {
+            val intent = Intent(this,PayPasswordActivity::class.java)
+            startActivity(intent)
+        }
 
         //TODO:결제승인 과정에서 오류시 else 처리
         binding.approveBtn.setOnClickListener {

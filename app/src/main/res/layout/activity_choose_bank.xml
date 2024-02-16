@@ -11,13 +11,19 @@
         android:id="@+id/prev_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rectangle_style"
         android:backgroundTint="@null"
         android:text="@string/previous_text"
         android:textSize="20sp"
         android:padding="15dp"
         android:textColor="@color/white" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
 
 
     <TextView
@@ -31,7 +37,15 @@
         android:layout_marginBottom="20dp"/>
 
 
-    <Button
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="본인 명의의 계좌만 등록 가능합니다."
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <android.widget.Button
         android:id="@+id/hanaButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -41,12 +55,14 @@
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/imgsize_bank_hana"
+        android:paddingLeft="30dp"
+        android:drawablePadding="-30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/kookminButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -56,12 +72,16 @@
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/imgsize_bank_kookmin"
+        android:paddingLeft="30dp"
+
+        android:drawablePadding="-30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
+
         />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/shinhanButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -71,12 +91,14 @@
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/imgsize_bank_shinhan"
+        android:paddingLeft="30dp"
+        android:drawablePadding="-30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         />
-
-    <Button
+</LinearLayout>
+   <!-- <android.widget.Button
         android:id="@+id/uriButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -86,11 +108,13 @@
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/imgsize_bank_uri"
+        android:paddingLeft="30dp"
+        android:drawablePadding="-30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"/>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/nonghyupButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -100,11 +124,13 @@
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/imgsize_bank_nonghyup"
+        android:paddingLeft="30dp"
+        android:drawablePadding="-30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"/>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/kiupButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -114,6 +140,8 @@
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
         android:drawableLeft="@drawable/imgsize_bank_kiup"
+        android:paddingLeft="30dp"
+        android:drawablePadding="-30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
@@ -133,6 +161,6 @@
         android:textSize="20sp"
         android:padding="15dp"
         android:text="@string/next_text"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"/>-->
 
 </LinearLayout>

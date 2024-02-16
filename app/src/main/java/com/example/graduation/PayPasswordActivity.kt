@@ -32,7 +32,8 @@ class PayPasswordActivity : AppCompatActivity() {
             //입력버튼의 역할이 뭐지. 이벤트 처리해야함
         }
 
-        binding.deleteBtn.setOnClickListener{
+        //TODO: 구현중
+     /*   binding.deleteBtn.setOnClickListener{
             //비밀번호 한자리씩 지우기
             val currentText = binding.passwordEt.text.toString()
 
@@ -43,6 +44,6 @@ class PayPasswordActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(applicationContext, "삭제할 비밀번호가 없습니다.", Toast.LENGTH_SHORT).show()
             }
-        }
+        }*/
     }
 }
