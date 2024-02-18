@@ -64,7 +64,7 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <Button
+        <android.widget.Button
             android:id="@+id/account_btn"
             android:layout_width="300dp"
             android:layout_height="180dp"
@@ -74,7 +74,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/pwd_btn"
             android:layout_width="300dp"
             android:layout_height="180dp"
