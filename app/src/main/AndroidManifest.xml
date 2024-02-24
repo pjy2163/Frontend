@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <!-- 앱에서 진동 알림 주기 허용 -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 지문 인식 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 지문 인식 권한 -->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
-   <!-- <uses-permission android:name="android.permission.CAMERA"/> 카메라 권한-->
+    <!--오디오 사용 권한-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+<!--    <uses-permission android:name="android.permission.CAMERA"/> &lt;!&ndash;카메라 권한 &ndash;&gt;-->
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="true" />
@@ -18,8 +23,9 @@
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>    <!--저장소 읽기 권한-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>    <!--저장소 쓰기 권한-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 저장소 읽기 권한 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -31,11 +37,16 @@
         android:theme="@style/Theme.Graduation"
         tools:targetApi="31">
 
+
+        <activity
+            android:name=".TransferVoiceActivity"
+            android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.graduation.fileprovider"
-            android:grantUriPermissions="true"
-            android:exported="false">
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
@@ -43,8 +54,9 @@
                 android:name="com.google.firebase.ml.vision.DEPENDENCIES"
                 android:value="ocr" />
         </provider>
+
         <activity
-            android:name=".TransferActivity"
+            android:name=".TransferPicActivity"
             android:exported="false"
             android:label="@string/title_activity_transfer"
             android:theme="@style/Theme.Graduation" />
@@ -55,7 +67,7 @@
             android:theme="@style/Theme.Graduation" />
         <activity
             android:name=".SplashSoundActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".PayFingerActivity"
             android:exported="false" />
@@ -99,7 +111,7 @@
             android:exported="true" />
         <activity
             android:name=".ChoosePayMethodActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ServiceAgreementActivity"
             android:exported="false"

@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         //사진으로 송금하기 버튼
         binding.transferWithPictureBtn.setOnClickListener{
             onSpeech(binding.transferWithPictureBtn.text)
-            val intent = Intent(this, TransferActivity::class.java)
+            val intent = Intent(this, TransferPicActivity::class.java)
             startActivity(intent)
         }
     }

@@ -65,13 +65,7 @@ dependencies {
 
     //계좌번호 카메라로 인식
     implementation ("com.rmtheis:tess-two:5.4.1")
+    implementation ("com.google.android.gms:play-services-mlkit-text-recognition:18.0.2")
 
-    //파이어베이스
-    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
-    implementation("com.google.firebase:firebase-analytics-ktx")
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-firestore-ktx")
-    implementation("com.google.firebase:firebase-functions:20.4.0")
-    implementation("com.google.code.gson:gson:2.8.6")
-    implementation("com.google.firebase:firebase-ml-vision:24.0.3")
+
 }
