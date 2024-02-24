@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Login_Pwd">
+    tools:context=".LoginPwdActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,8 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/navy"
-            app:titleTextColor="@color/white"
-            app:title="이메일 로그인"/>
+            app:title="이메일 로그인"
+            app:titleTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
@@ -61,37 +62,45 @@
         android:inputType="text"
         android:textColor="#000000"
         android:textSize="15sp"
+        android:hint="비밀번호를 입력하세요."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1"
         tools:ignore="SpeakableTextPresentCheck"/>
 
-    <android.widget.Button
-        android:id="@+id/enter"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_enter_navy"
-        android:text="확인"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_input_pwd"/>
-
     <TextView
         android:id="@+id/reset_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:text="비밀번호 찾기"
-        android:textSize="18sp"
         android:textColor="@color/navy"
+        android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/space"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter"/>
+        app:layout_constraintTop_toBottomOf="@+id/login_input_pwd"
+        app:layout_constraintVertical_bias="0.151" />
 
+    <Space
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@id/enter_btn"/>
 
+    <android.widget.Button
+        android:id="@+id/enter_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:padding="15dp"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

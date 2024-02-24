@@ -1,5 +1,6 @@
 package com.example.graduation
 
+import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -22,4 +23,6 @@ class ViewPagerAdapter(cardList: ArrayList<Int>) : RecyclerView.Adapter<ViewPage
 
         val card = itemView.findViewById<ImageView>(R.id.kookmin_card_iv)!!
     }
+
+
 }

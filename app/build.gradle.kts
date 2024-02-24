@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+// Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -24,6 +26,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
         }
     }
     compileOptions {
@@ -56,4 +59,19 @@ dependencies {
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     implementation ("com.google.android.material:material:1.2.0")
+
+    //지문인식
+    implementation ("androidx.biometric:biometric:1.1.0")
+
+    //계좌번호 카메라로 인식
+    implementation ("com.rmtheis:tess-two:5.4.1")
+
+    //파이어베이스
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-functions:20.4.0")
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.google.firebase:firebase-ml-vision:24.0.3")
 }

@@ -65,12 +65,12 @@
         android:orientation="vertical">
 
         <android.widget.Button
-            android:id="@+id/account_btn"
+            android:id="@+id/fingerprint_btn"
             android:layout_width="300dp"
             android:layout_height="180dp"
             android:layout_margin="10dp"
             android:background="@drawable/stroke_round"
-            android:text="지문 인식"
+            android:text="지문 인증"
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title" />
 

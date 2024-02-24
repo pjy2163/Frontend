@@ -2,6 +2,7 @@ package com.example.graduation
 
 import android.content.Intent
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -13,6 +14,7 @@ import com.example.graduation.databinding.ActivityServiceAgreementBinding
 
 class ServiceAgreementActivity : AppCompatActivity() {
 
+    lateinit var mtts:TextToSpeech
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityServiceAgreementBinding
 
@@ -27,4 +29,8 @@ class ServiceAgreementActivity : AppCompatActivity() {
         binding.nextBtn.setOnClickListener{startActivity(intent)}
 
     }
+    private fun onSpeech(text: CharSequence) {
+        mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+
 }

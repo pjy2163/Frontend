@@ -1,8 +1,10 @@
 package com.example.graduation
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import com.example.graduation.databinding.ActivityDeletePayBinding
@@ -10,7 +12,8 @@ import com.example.graduation.databinding.ActivityMainBinding
 import com.example.graduation.databinding.ActivityPayConfirmationBinding
 
 class DeletePayActivity : AppCompatActivity() {
-
+    private lateinit var sharedPreferences: SharedPreferences
+    lateinit var mtts:TextToSpeech
     private lateinit var binding: ActivityDeletePayBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,4 +34,8 @@ class DeletePayActivity : AppCompatActivity() {
         }
 
     }
+    private fun onSpeech(text: CharSequence) {
+        mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+
 }

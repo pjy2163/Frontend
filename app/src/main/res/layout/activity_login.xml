@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Login">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/logo"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.widget.Button
-        android:id="@+id/PwdLogin"
+        android:id="@+id/pwdLogin_btn"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="90dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo"/>
 
     <android.widget.Button
-        android:id="@+id/FingerLogin"
+        android:id="@+id/fingerLogin_btn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -44,20 +44,21 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PwdLogin"/>
+        app:layout_constraintTop_toBottomOf="@+id/pwdLogin_btn"/>
 
-    <TextView
-        android:id="@+id/SignUp"
+    <Button
+        android:id="@+id/signUp_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
         android:text="회원가입"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FingerLogin"/>
+        app:layout_constraintTop_toBottomOf="@+id/fingerLogin_btn"/>
 
 
 
