@@ -32,8 +32,23 @@ override fun onCreate(savedInstanceState: Bundle?) {
         onSpeech("결제 수단 선택 화면입니다")
     }
 
-    binding.viewPagerCard.adapter = ViewPagerAdapter(getCardList()) // Create the adapter
-    binding.viewPagerCard.orientation = ViewPager2.ORIENTATION_HORIZONTAL // Set the orientation
+    val paymentMethods = listOf(
+        PaymentMethod(R.drawable.img_hana_bankbook, "하나은행", "0123456-0123456"),
+        PaymentMethod(R.drawable.img_hana_bankbook2, "하나은행", "0123456-0123456"),
+        PaymentMethod(R.drawable.img_kookmin_bankbook, "국민은행", "0123456-0123456"),
+
+
+        // 추가적인 이미지와 텍스트 쌍을 여기에 추가
+    )
+
+    val adapter = PaymentMethodAdapter(paymentMethods)
+    binding.viewPagerCard.adapter = adapter
+    binding.viewPagerCard.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+    /*
+        binding.viewPagerCard.adapter = ViewPagerAdapter(getCardList()) // Create the adapter
+        binding.viewPagerCard.orientation = ViewPager2.ORIENTATION_HORIZONTAL // Set the orientation
+    */
 
     binding.viewPagerCard.registerOnPageChangeCallback(object :
         ViewPager2.OnPageChangeCallback() {
@@ -41,14 +56,14 @@ override fun onCreate(savedInstanceState: Bundle?) {
             binding.indicator0IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
             binding.indicator1IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
             binding.indicator2IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
-            binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
-
+            /* binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
+*/
             when (position) {
                 0 -> binding.indicator0IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
                 1 -> binding.indicator1IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
                 2 -> binding.indicator2IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
-                3 -> binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
-
+                /*3 -> binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
+*/
             }
         }
     })
@@ -62,16 +77,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
         startActivity(intent)
     }
 
-    binding.nextBtn.setOnClickListener {
-        if (soundState) {
-            onSpeech(binding.nextBtn.text)
-        }
-            val intent = Intent(this, AuthWayActivity::class.java)
-            startActivity(intent)
-        }
-    }
+}
 
-    // Items for the ViewPager
+/*    // Items for the ViewPager
     private fun getCardList(): ArrayList<Int> {
         return arrayListOf(
             R.drawable.img_card_kookmin,
@@ -79,7 +87,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
             R.drawable.img_card_hana,
             R.drawable.img_card_woori
         )
-    }
+    }*/
 
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
