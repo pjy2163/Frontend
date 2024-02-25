@@ -1,6 +1,7 @@
 package com.example.graduation
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -8,22 +9,43 @@ import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
+import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.graduation.databinding.ActivityTransferVoiceBinding
+import java.util.Locale
 
 private lateinit var binding: ActivityTransferVoiceBinding
 
+//다시(-)까지 항상 잘 인식하여 result_tv에 저장됨.
+//TODO: result_tv에 담긴 string을 이동시켜 송금하기
+
 class TransferVoiceActivity : AppCompatActivity() {
     private lateinit var speechRecognizer: SpeechRecognizer
+    lateinit var mtts:TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =  ActivityTransferVoiceBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        // SharedPreferences에서 소리 on/off 상태 불러오기
+        val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
+        val soundState = sharedPreferences.getBoolean("soundState", false)
+
+        mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
+            mtts.language = Locale.KOREAN //언어:한국어
+        }
+
+
+        //화면 정보 읽기
+        if (soundState) {
+            onSpeech("음성으로 송금하기 화면입니다.")
+        }
+
 
         // 권한 설정
         requestPermission()
@@ -34,7 +56,7 @@ class TransferVoiceActivity : AppCompatActivity() {
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ko-KR")         // 언어 설정
 
         // <말하기> 버튼 눌러서 음성인식 시작
-        binding.btnSpeech.setOnClickListener {
+        binding.speechBtn.setOnClickListener {
             // 새 SpeechRecognizer 를 만드는 팩토리 메서드
             speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this@TransferVoiceActivity)
             speechRecognizer.setRecognitionListener(recognitionListener)    // 리스너 설정
@@ -60,11 +82,11 @@ class TransferVoiceActivity : AppCompatActivity() {
         // 말하기 시작할 준비가되면 호출
         override fun onReadyForSpeech(params: Bundle) {
             Toast.makeText(applicationContext, "음성인식 시작", Toast.LENGTH_SHORT).show()
-            binding.tvState.text = "이제 말씀하세요!"
+            binding.stateTv.text = "이제 말씀하세요!"
         }
         // 말하기 시작했을 때 호출
         override fun onBeginningOfSpeech() {
-            binding.tvState.text = "잘 듣고 있어요."
+            binding.stateTv.text = "잘 듣고 있어요."
         }
         // 입력받는 소리의 크기를 알려줌
         override fun onRmsChanged(rmsdB: Float) {}
@@ -72,7 +94,9 @@ class TransferVoiceActivity : AppCompatActivity() {
         override fun onBufferReceived(buffer: ByteArray) {}
         // 말하기를 중지하면 호출
         override fun onEndOfSpeech() {
-            binding.tvState.text = "끝!"
+            binding.stateTv.text = "정상적으로 음성 인식이 완료되었습니다."
+            //화면 정보 읽기
+
         }
         // 오류 발생했을 때 호출
         override fun onError(error: Int) {
@@ -88,17 +112,23 @@ class TransferVoiceActivity : AppCompatActivity() {
                 SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "말하는 시간초과"
                 else -> "알 수 없는 오류임"
             }
-            binding.tvState.text = "에러 발생: $message"
+            binding.stateTv.text = "에러 발생: $message"
         }
         // 인식 결과가 준비되면 호출
         override fun onResults(results: Bundle) {
             // 말을 하면 ArrayList에 단어를 넣고 textView에 단어를 이어줌
             val matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-            for (i in matches!!.indices) binding.textView.text = matches[i]
+            for (i in matches!!.indices) binding.resultTv.text = matches[i]
         }
         // 부분 인식 결과를 사용할 수 있을 때 호출
         override fun onPartialResults(partialResults: Bundle) {}
         // 향후 이벤트를 추가하기 위해 예약
         override fun onEvent(eventType: Int, params: Bundle) {}
     }
+    private fun onSpeech(text: CharSequence) {
+        mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+
+
+
 }

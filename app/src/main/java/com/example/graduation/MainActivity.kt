@@ -16,13 +16,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
+        }
+
+
+        //화면 정보 읽기
+        if (soundState) {
+            onSpeech("소리페이 메인 화면입니다.")
         }
 
 
@@ -56,6 +61,13 @@ class MainActivity : AppCompatActivity() {
         binding.transferWithPictureBtn.setOnClickListener{
             onSpeech(binding.transferWithPictureBtn.text)
             val intent = Intent(this, TransferPicActivity::class.java)
+            startActivity(intent)
+        }
+
+        //음성으로 송금하기 버튼
+        binding.transferWithVoiceBtn.setOnClickListener{
+            onSpeech(binding.transferWithVoiceBtn.text)
+            val intent = Intent(this, TransferVoiceActivity::class.java)
             startActivity(intent)
         }
     }
