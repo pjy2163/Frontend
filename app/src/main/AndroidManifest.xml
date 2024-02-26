@@ -23,7 +23,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_main"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -52,11 +52,7 @@
         <activity
             android:name=".Login"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ChangePwdActivity"
@@ -78,12 +74,7 @@
         <activity
             android:name=".RegisterMainActivity"
             android:exported="false" />
-        <activity
-            android:name=".ChooseBankActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PayMethodSelectionActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ServiceAgreementActivity"
             android:exported="false"
@@ -91,13 +82,34 @@
             android:theme="@style/Theme.Graduation" />
         <activity
             android:name=".PayConfirmationActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".PayPasswordActivity"
             android:exported="true" />
         <activity
+            android:name=".TransferPicActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TransferVoiceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PayFingerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChoosePayMethodActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

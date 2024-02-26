@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterMainActivity"
-    android:orientation="vertical">
+    android:id="@+id/fragmentContainer"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
 
     <android.widget.Button
         android:id="@+id/prev_btn"
@@ -30,13 +37,8 @@
         android:layout_marginBottom="40dp"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
 
-        <Button
+        <android.widget.Button
             android:id="@+id/accountBtn"
             android:layout_width="300dp"
             android:layout_height="180dp"
@@ -46,7 +48,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/cardBtn"
             android:layout_width="300dp"
             android:layout_height="180dp"
@@ -59,22 +61,4 @@
 
     </LinearLayout>
 
-<!-- 여긴 다음버튼이 없어야 할 것 같아요-->
-   <!-- <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <android.widget.Button
-        android:id="@+id/nextBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/rectangle_style"
-        android:backgroundTint="@null"
-        android:text="다음"
-        android:textSize="20sp"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        />-->
-
-</LinearLayout>
+</FrameLayout>

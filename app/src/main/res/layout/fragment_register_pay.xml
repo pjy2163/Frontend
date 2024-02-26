@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterPayFragment"
+    android:background="@color/background">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ChoosePayMethodActivity"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+
+        <android.widget.Button
+            android:id="@+id/prev_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/rectangle_style"
+            android:backgroundTint="@null"
+            android:text="@string/previous_text"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#DD1717"
+            android:text="결제 수단 선택"
+            android:layout_margin="20dp"
+            android:textSize="@dimen/title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/password_notice_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/grey_notice"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="50dp"
+            android:text="왼쪽 또는 오른쪽으로 넘기면\n등록된 결제 수단을 선택할 수 있습니다." />
+
+        <!--결제할 카드가 표시될 뷰페이저-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager_card"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/indicator0_iv_main"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/shape_circle_blue" />
+
+            <ImageView
+                android:id="@+id/indicator1_iv_main"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/indicator0_iv_main"
+                app:layout_constraintStart_toEndOf="@+id/indicator0_iv_main"
+                app:layout_constraintTop_toTopOf="@+id/indicator0_iv_main"
+                app:srcCompat="@drawable/shape_circle_grey" />
+
+            <ImageView
+                android:id="@+id/indicator2_iv_main"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/indicator1_iv_main"
+                app:layout_constraintStart_toEndOf="@+id/indicator1_iv_main"
+                app:layout_constraintTop_toTopOf="@+id/indicator1_iv_main"
+                app:srcCompat="@drawable/shape_circle_grey" />
+
+            <ImageView
+                android:id="@+id/indicator3_iv_main"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/indicator1_iv_main"
+                app:layout_constraintStart_toEndOf="@+id/indicator2_iv_main"
+                app:layout_constraintTop_toTopOf="@+id/indicator2_iv_main"
+                app:srcCompat="@drawable/shape_circle_grey" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <android.widget.Button
+            android:id="@+id/next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/rectangle_style"
+            android:backgroundTint="@null"
+            android:text="@string/next_text"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+</FrameLayout>

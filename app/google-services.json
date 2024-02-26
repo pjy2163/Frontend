@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015977663893",
+    "project_id": "soripay",
+    "storage_bucket": "soripay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015977663893:android:a3be336c0b4d5350e6ea9c",
+        "android_client_info": {
+          "package_name": "com.example.graduation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiWGB865vkKmVIOVcxn3Hw9PMXx4_H49w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

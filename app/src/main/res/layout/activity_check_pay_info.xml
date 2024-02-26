@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CheckPayInfoActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background">
 
     <android.widget.Button
         android:id="@+id/prev_btn"
@@ -19,9 +20,8 @@
         android:padding="15dp"
         android:textColor="@color/white" />
 
-    <!-- Title TextView -->
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -30,69 +30,66 @@
         android:textStyle="bold"
         android:layout_marginBottom="30dp"/>
 
-    <!-- Grouped Payment Details TextView -->
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="337dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        android:background="@drawable/stroke_round"
-        android:paddingTop="50dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="50dp"
-        android:layout_margin="20dp"> <!-- Border Style Added -->
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp">
 
-        <!-- Payment Place TextView -->
         <TextView
-            android:id="@+id/payment_place_text"
+            android:id="@+id/product_place_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="결제업체명"
-            android:textSize="@dimen/sub_title"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:text="결제한 장소 Ex.별다방"
+            android:textSize="@dimen/sub_title" />
 
-        <!-- Payment Details LinearLayout -->
-        <LinearLayout
+        <TextView
+            android:id="@+id/product_name_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="20dp"
+            android:text="결제한 품목 Ex.아메리카노"
+            android:textSize="@dimen/sub_title" />
 
-            <!-- Payment Name TextView -->
-            <TextView
-                android:id="@+id/payment_name_text"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="상품이름"
-                android:layout_marginRight="50dp"
-                android:textSize="@dimen/sub_title"
-                android:layout_marginBottom="20dp"/>
 
-            <!-- Payment Price TextView -->
+
+        <TextView
+            android:id="@+id/product_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:text="결제 금액 Ex.4500원"
+            android:textSize="@dimen/sub_title" />
+
+
+
             <TextView
                 android:id="@+id/payment_price_text"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="결제 금액"
-                android:textSize="@dimen/sub_title"
-                android:layout_marginBottom="20dp"/>
+                android:textSize="@dimen/sub_title"/>
         </LinearLayout>
-    </LinearLayout>
-
 
     <TextView
-        android:id="@+id/password_notice_text"
+        android:id="@+id/check_pay_info_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="30dp"
         android:background="@drawable/grey_notice"
         android:gravity="center"
-        android:paddingLeft="50dp"
+        android:paddingLeft="80dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:paddingRight="50dp"
+        android:paddingRight="80dp"
         android:text="해당 결제 정보를 확인하셨다면\n다음 버튼을 클릭해주세요." />
 
 
@@ -115,3 +112,4 @@
         android:padding="15dp"
         android:textColor="@color/white"/>
 </LinearLayout>
+
