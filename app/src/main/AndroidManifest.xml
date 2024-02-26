@@ -1,0 +1,85 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- 앱에서 진동 알림 주기 허용 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 지문 인식 권한 -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <!--오디오 사용 권한-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--    <uses-permission android:name="android.permission.CAMERA"/> &lt;!&ndash;카메라 권한 &ndash;&gt;-->
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <!-- 저장소 읽기 권한 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Graduation"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".Login_Pwd"
+            android:exported="false"
+            android:parentActivityName=".Login_Email" />
+        <activity
+            android:name=".Login_Email"
+            android:exported="false"
+            android:parentActivityName=".Login" />
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ChangePwdActivity"
+            android:exported="false"
+            android:label="@string/title_activity_change_pwd"
+            android:theme="@style/Theme.Graduation" />
+        <activity
+            android:name=".MyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeletePayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CheckPayInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AuthWayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterMainActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".PayConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"></activity>
+    </application>
+
+</manifest>
+
