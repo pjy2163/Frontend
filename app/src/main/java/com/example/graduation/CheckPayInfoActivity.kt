@@ -30,9 +30,13 @@ class CheckPayInfoActivity : AppCompatActivity() {
             add(Product(7, "쉑쉑버거", "머쉬룸 버거", 15000))
         }
 
-        binding.productPlaceTv.text = buildProductInfoText(productDatas[0])
-        binding.productNameTv.text = buildProductInfoText(productDatas[2])
-        binding.productPriceTv.text = buildProductInfoText(productDatas[3])
+
+        //결제정보 나타내기- 11번가 핸드폰거치대
+        val product = productDatas[0]
+        binding.productPlaceTv.text = "결제업체명: ${product.storeName}"
+        binding.productNameTv.text = "상품명: ${product.productName}"
+        binding.productPriceTv.text = "가격: ${product.price} 원"
+
 
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
@@ -68,8 +72,5 @@ class CheckPayInfoActivity : AppCompatActivity() {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
-    //결제 정보 반환
-    private fun buildProductInfoText(product: Product): String {
-        return "결제업체명: ${product.storeName}\n상품명: ${product.productName}\n가격: ${product.price} 원"
-    }
+
 }

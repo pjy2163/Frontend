@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import com.example.graduation.databinding.ActivityMainBinding
 import com.example.graduation.databinding.ActivityPayConfirmationBinding
+import java.util.Locale
 
 class PayConfirmationActivity : AppCompatActivity() {
 
@@ -24,6 +25,9 @@ class PayConfirmationActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
+        mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
+            mtts.language = Locale.KOREAN //언어:한국어
+        }
 
         binding.prevBtn.setOnClickListener {
             if (soundState) {
@@ -36,13 +40,14 @@ class PayConfirmationActivity : AppCompatActivity() {
 
         //TODO:결제승인 과정에서 오류시 else 처리
         binding.approveBtn.setOnClickListener {
-            // 결제 승인 다이얼로그
+
             if (soundState) {
                 onSpeech(binding.approveBtn.text)
             }
 
-            val dialog =PayConfirmationDialog()
-            dialog.show(supportFragmentManager, "PayConfirmationDialog")
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fl_basic, PayCompletedFragment())
+                .commit()
 
 
         }

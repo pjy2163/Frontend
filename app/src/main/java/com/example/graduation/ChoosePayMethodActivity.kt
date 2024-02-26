@@ -64,9 +64,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
             /* binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
 */
             when (position) {
-                0 -> binding.indicator0IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
-                1 -> binding.indicator1IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
-                2 -> binding.indicator2IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
+                0 -> binding.indicator0IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_blue))
+                1 -> binding.indicator1IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_blue))
+                2 -> binding.indicator2IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_blue))
                 /*3 -> binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
 */
             }

@@ -3,14 +3,19 @@ package com.example.graduation
 import android.content.Context
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.speech.tts.TextToSpeech
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.graduation.databinding.FragmentChooseBankBinding
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.graduation.databinding.FragmentPayCompletedBinding
-import java.util.Locale
+import java.util.*
+
 
 //결제승인 확인 하면 뜨는 결제 완료 프래그먼트
 
@@ -29,6 +34,8 @@ class PayCompletedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentPayCompletedBinding.inflate(layoutInflater)
+
         mtts = TextToSpeech(requireActivity()) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
         }
@@ -46,6 +53,11 @@ class PayCompletedFragment : Fragment() {
         if (soundState) {
             onSpeech("결제가 완료되었습니다. 잠시 후 메인화면으로 이동합니다.")
         }
+
+        //TODO:아직 안됨 5초 후 메인화면으로 이동
+        Handler(Looper.getMainLooper()).postDelayed({
+            navigateToMainActivity()
+        }, 5000)
 
 
         return binding.root
@@ -69,5 +81,8 @@ class PayCompletedFragment : Fragment() {
         mediaPlayerFailure.release()
     }
 
-
+    private fun navigateToMainActivity() {
+        val navController = findNavController()
+        navController.navigate(R.id.action_payCompletedFragment_to_mainActivity)
+    }
 }

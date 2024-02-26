@@ -38,8 +38,7 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:paddingLeft="20dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="50dp">
+        android:paddingRight="10dp">
 
         <TextView
             android:id="@+id/product_place_tv"
@@ -76,8 +75,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="결제 금액"
-                android:textSize="@dimen/sub_title"
-                android:layout_marginBottom="20dp"/>
+                android:textSize="@dimen/sub_title"/>
         </LinearLayout>
 
     <TextView

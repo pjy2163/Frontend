@@ -114,10 +114,9 @@ class PayFingerActivity : AppCompatActivity() {
                 playSuccessSound()
                 Toast.makeText(this@PayFingerActivity, "지문 인증에 성공하였습니다.", Toast.LENGTH_SHORT).show()
 
-                //결제승인 화
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.fl_basic, PayCompletedFragment())
-                    .commit()
+                //결제승인 확인 화면으로 이동
+                val intent = Intent(this@PayFingerActivity, PayConfirmationActivity::class.java)
+                startActivity(intent)
             }
 
             //지문 인식 실패시
