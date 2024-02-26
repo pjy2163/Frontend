@@ -38,6 +38,7 @@ class PayFingerActivity : AppCompatActivity() {
         binding = ActivityPayFingerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
@@ -54,6 +55,16 @@ class PayFingerActivity : AppCompatActivity() {
             onSpeech("지문으로 결제하는 화면입니다. 화면 하단의 버튼을 누르면 지문 인증으로 넘어갑니다.")
         }
 
+        //이전 화면 버튼 클릭시
+        binding.prevBtn.setOnClickListener {
+            if (soundState) {
+                onSpeech(binding.prevBtn.text)
+            }
+
+            val intent = Intent(this, ChoosePayMethodActivity::class.java)
+            startActivity(intent)
+        }
+
 
         //지문 관련 변수
         biometricPrompt = setBiometricPrompt()
@@ -67,6 +78,7 @@ class PayFingerActivity : AppCompatActivity() {
 
             authenticateToEncrypt()  //생체 인증 가능 여부확인
         }
+
 
     }
 
@@ -141,8 +153,8 @@ class PayFingerActivity : AppCompatActivity() {
                 textStatus = "생체 인식 정보가 디바이스에 등록되어 있지 않습니다."
 
                 val dialogBuilder = AlertDialog.Builder(this@PayFingerActivity)
-                dialogBuilder
-                    .setTitle("나의앱")
+                dialogBuilder //지문등록 필요함 안내 다이얼로그
+                    .setTitle("SoriPay")
                     .setMessage("지문 등록이 필요합니다. 지문등록 설정화면으로 이동하시겠습니까?")
                     .setPositiveButton("확인") { dialog, which -> goBiometricSettings() }
 

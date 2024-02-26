@@ -1,6 +1,7 @@
 package com.example.graduation
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import com.google.android.material.snackbar.Snackbar
@@ -31,6 +32,8 @@ class FingerLoginActivity : AppCompatActivity() {
         }
 
         onSpeech("지문 인식 화면입니다.")
+
+
 
 
     }

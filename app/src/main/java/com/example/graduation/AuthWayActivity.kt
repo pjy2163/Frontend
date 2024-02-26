@@ -11,6 +11,7 @@ import java.util.Locale
 class AuthWayActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthWayBinding
     lateinit var mtts:TextToSpeech
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthWayBinding.inflate(layoutInflater)
@@ -36,7 +37,7 @@ class AuthWayActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-    /*    //지문 인식 버튼 이벤트 처리
+        //지문 인식 버튼 이벤트 처리
         binding.fingerprintBtn.setOnClickListener {
             if (soundState) {
                 onSpeech(binding.fingerprintBtn.text)
@@ -54,8 +55,6 @@ class AuthWayActivity : AppCompatActivity() {
             val intent = Intent(this,PayPasswordActivity::class.java)
             startActivity(intent)
         }
-*/
-
 
     }
     private fun onSpeech(text: CharSequence) {

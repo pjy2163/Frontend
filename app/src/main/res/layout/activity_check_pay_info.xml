@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".CheckPayInfoActivity"
     android:orientation="vertical"
-    android:background="@color/background_grey">
+    android:background="@color/background">
 
     <android.widget.Button
         android:id="@+id/prev_btn"
@@ -31,18 +31,16 @@
         android:textStyle="bold"
         android:layout_marginBottom="30dp"/>
 
-    <!-- Grouped Payment Details TextView -->
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/stroke_round"
-        android:paddingTop="50dp"
-        android:paddingLeft="10dp"
+        android:paddingLeft="20dp"
         android:paddingRight="10dp"
         android:paddingBottom="50dp"
-        android:layout_margin="20dp"> <!-- Border Style Added -->
-
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp">
         <!-- Payment Place TextView -->
         <TextView
             android:id="@+id/payment_place_text"
@@ -59,15 +57,6 @@
             android:orientation="horizontal">
 
             <!-- Payment Name TextView -->
-            <TextView
-                android:id="@+id/payment_name_text"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="상품이름"
-                android:layout_marginRight="50dp"
-                android:textSize="@dimen/sub_title"
-                android:layout_marginBottom="20dp"/>
 
             <!-- Payment Price TextView -->
             <TextView
@@ -90,10 +79,10 @@
         android:layout_margin="30dp"
         android:background="@drawable/grey_notice"
         android:gravity="center"
-        android:paddingLeft="50dp"
+        android:paddingLeft="80dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:paddingRight="50dp"
+        android:paddingRight="80dp"
         android:text="해당 결제 정보를 확인하셨다면\n다음 버튼을 클릭해주세요." />
 
 

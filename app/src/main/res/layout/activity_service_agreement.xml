@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ServiceAgreementActivity"
-    android:background="@color/white"
-    >
+    android:background="@color/background">
 
     <android.widget.Button
         android:id="@+id/prev_btn"

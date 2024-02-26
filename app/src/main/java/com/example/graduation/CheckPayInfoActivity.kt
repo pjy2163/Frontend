@@ -18,7 +18,10 @@ class CheckPayInfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckPayInfoBinding.inflate(layoutInflater)
-        setContentView(binding.root) // 수정된 부분
+        setContentView(binding.root)
+
+        //결제할 품목 더미데이터
+        val dummyPayment = PaymentInfo("ExampleStore", "SampleProduct", 29.99)
 
 
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts

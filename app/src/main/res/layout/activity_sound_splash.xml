@@ -8,8 +8,7 @@
     tools:context=".SplashSoundActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/white">
-    >
+    android:background="@color/background">
 
     <TextView
         android:id="@+id/slogan_text"
