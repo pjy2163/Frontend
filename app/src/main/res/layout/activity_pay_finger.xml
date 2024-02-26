@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@color/background">
 
+    <FrameLayout
+        android:id="@+id/fl_basic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fl_basic"
+        android:orientation="vertical"
+        android:gravity="center">
     <android.widget.Button
         android:id="@+id/prev_btn"
         android:layout_width="match_parent"
@@ -70,5 +80,5 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

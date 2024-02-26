@@ -113,6 +113,11 @@ class PayFingerActivity : AppCompatActivity() {
                 super.onAuthenticationSucceeded(result)
                 playSuccessSound()
                 Toast.makeText(this@PayFingerActivity, "지문 인증에 성공하였습니다.", Toast.LENGTH_SHORT).show()
+
+                //결제승인 화
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fl_basic, PayCompletedFragment())
+                    .commit()
             }
 
             //지문 인식 실패시

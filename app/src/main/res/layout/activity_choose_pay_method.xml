@@ -70,7 +70,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/shape_circle_purple"
+                app:srcCompat="@drawable/shape_circle_blue"
                 />
 
             <ImageView
@@ -104,7 +104,10 @@
                 app:srcCompat="@drawable/shape_circle_grey" />
 -->
         </androidx.constraintlayout.widget.ConstraintLayout>
-   <!--     <Space
+
+       <!--통장 선택하고 다음 누르면 넘어가는 방식-->
+    <!--데이터는 인텐트로 전달-->
+        <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
@@ -118,6 +121,6 @@
             android:text="@string/next_text"
             android:textSize="20sp"
             android:padding="15dp"
-            android:textColor="@color/white"/>-->
+            android:textColor="@color/white"/>
 
 </LinearLayout>

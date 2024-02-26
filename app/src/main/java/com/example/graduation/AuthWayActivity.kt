@@ -12,6 +12,8 @@ class AuthWayActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthWayBinding
     lateinit var mtts:TextToSpeech
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthWayBinding.inflate(layoutInflater)

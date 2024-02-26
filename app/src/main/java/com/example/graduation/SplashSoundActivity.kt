@@ -59,7 +59,7 @@ class SplashSoundActivity : AppCompatActivity() {
         }
 
         binding.nextBtn.setOnClickListener{
-            val Intent = Intent(this, LoginActivity::class.java)
+            val Intent = Intent(this, Login::class.java)
             startActivity(Intent)
         }
     }
