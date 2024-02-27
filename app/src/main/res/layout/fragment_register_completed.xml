@@ -26,9 +26,40 @@
                 android:id="@+id/register_completed_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="계좌가 정상적으로 등록되었습니다.\n잠시 후 메인화면으로 이동합니다."
+                android:text="결제 수단이 등록되었습니다.\n잠시 후 메인화면으로 이동합니다."
                 android:gravity="center"
                 android:textSize="20sp"/>
+
+
+            <TextView
+                android:id="@+id/sub_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="[등록된 계좌 정보]"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"/>
+
+
+            <TextView
+                android:id="@+id/registered_account_bank_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="00은행"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/registered_account_number_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="123-456-78910"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"/>
         </LinearLayout>
 
     </FrameLayout>

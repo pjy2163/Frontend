@@ -7,9 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.graduation.databinding.FragmentChooseBankBinding
 import com.example.graduation.databinding.FragmentRegisterCompletedBinding
 import java.util.Locale
+
+//TODO:Activity로 바꿀까..
 
 //결제승인 확인 하면 뜨는 결제 완료 프래그먼트
 
@@ -26,6 +27,9 @@ class RegisterCompletedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRegisterCompletedBinding.inflate(layoutInflater)
+
+        // 데이터 받아오기
+        val recognizedAccountNumberText = arguments?.getString("recognizedText")
 
         mtts = TextToSpeech(requireActivity()) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어

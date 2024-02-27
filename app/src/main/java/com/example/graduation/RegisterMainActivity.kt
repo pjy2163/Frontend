@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import androidx.fragment.app.FragmentTransaction
-import com.example.graduation.databinding.ActivityMainBinding
 import com.example.graduation.databinding.ActivityRegisterMainBinding
 import java.util.Locale
 
@@ -32,7 +31,7 @@ class RegisterMainActivity : AppCompatActivity() {
             onSpeech(binding.accountBtn.text)
 
             val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fragmentContainer, ChooseBankFragment())
+            fragmentTransaction.replace(R.id.fragmentContainer, RegisterChooseBankFragment())
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
@@ -41,7 +40,7 @@ class RegisterMainActivity : AppCompatActivity() {
         binding.cardBtn.setOnClickListener {
             onSpeech(binding.cardBtn.text)
             val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fragmentContainer, ChooseBankFragment())
+            fragmentTransaction.replace(R.id.fragmentContainer, RegisterChooseBankFragment())
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
