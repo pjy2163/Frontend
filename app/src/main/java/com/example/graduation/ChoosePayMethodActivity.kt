@@ -91,6 +91,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
             //인증 방법 선택 화면으로 넘어가기
             val intent = Intent(this, AuthWayActivity::class.java)
             //TODO:결제수단 뭐 골랐는지 intent에 담아야함
+            onSpeech(selectedPaymentMethod!!.bank ) //은행별로 다른 소리 출력
             startActivity(intent)
         } else {
             //결제수단 하나 골라야 한다고 알려주기
@@ -140,12 +141,6 @@ override fun onPaymentMethodClick(paymentMethod: PaymentMethod) {
     }*/
 
 
-      /*  //통장 이미지 클릭 시 처리- 인증화면으로 넘어가기
-        val intent = Intent(this, AuthWayActivity::class.java)
-        // 인텐트에 필요한 데이터를 넘겨줄 수 있음 (예: 계좌 번호 등)
-        intent.putExtra("accountNumber", paymentMethod.accountNumber)
-        onSpeech(paymentMethod.bank) //TODO:은행별로 다른 소리나게
-        startActivity(intent)*/
 
 }
     private fun onSpeech(text: CharSequence) {
