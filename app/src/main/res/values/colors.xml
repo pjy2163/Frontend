@@ -14,5 +14,6 @@
     <color name="purple_200">#C780FE</color>
     <color name="background_grey">#F4F5FA</color>
     <color name="background">#FFFFFF</color>
+    <color name="orange">#FF4500</color>
 
 </resources>

@@ -25,6 +25,25 @@ class PayConfirmationActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
+        //결제해야할 상품 정보 가져오기
+        val sharedPreferences2 = getSharedPreferences("sp2", Context.MODE_PRIVATE)
+        val storeName = sharedPreferences2.getString("storeName", "") ?: ""
+        val productName = sharedPreferences2.getString("productName", "") ?: ""
+        val price = sharedPreferences2.getInt("price", 0)
+
+        //텍스트뷰에 반영하기
+        binding.storeNameTv.text = "결제업체명: $storeName"
+        binding.productNameTv.text = "상품명: $productName"
+        binding.productPriceTv.text = "가격: $price"+"원"
+
+        //선택된 은행계좌와 계좌번호 가져오기
+        val sharedPreferences3 = getSharedPreferences("sp3", Context.MODE_PRIVATE)
+        val selectedAccountName = sharedPreferences3.getString("selectedAccountName", "")
+        val selectedAccountNumber = sharedPreferences3.getString("selectedAccountNumber", "")
+        binding.chosenPaymentNameText.text =selectedAccountName
+        binding.chosenPaymentNumberText.text=selectedAccountNumber
+
+        //소리 설정
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
         }
