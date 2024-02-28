@@ -48,7 +48,7 @@ class TransferPicActivity : AppCompatActivity() {
         binding.apply {
             takePicBtn.setOnClickListener {
                 takeImage()
-                textView.text = ""
+                binding.recognizedAccountNumberTv.text = ""
                 if (soundState) {
                     onSpeech(binding.takePicBtn.text)
                 }
@@ -81,7 +81,7 @@ class TransferPicActivity : AppCompatActivity() {
             val extras: Bundle? = data?.extras
             imageBitmap= extras?.get("data") as Bitmap
             if (imageBitmap!=null) {
-                binding.imageView.setImageBitmap(imageBitmap)
+                binding.takenResultPicIv.setImageBitmap(imageBitmap)
             }
         }
     }
@@ -100,7 +100,8 @@ class TransferPicActivity : AppCompatActivity() {
                     .addOnSuccessListener { visionText ->
                         //모든 텍스트는 숫자로만 인식(계좌번호)하지만 -는 -로 인식
                         val modifiedText =  maketextNumeric(visionText.text)
-                        binding.textView.text = modifiedText
+                        //인식된 계좌번호를 텍스트뷰에 띄우기
+                        binding.recognizedAccountNumberTv.text = modifiedText
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(this, "이미지 인식 실패", Toast.LENGTH_SHORT).show()

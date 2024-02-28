@@ -65,6 +65,18 @@ class CheckPayInfoActivity : AppCompatActivity() {
             }
 
             val intent = Intent(this, ChoosePayMethodActivity::class.java)
+
+            //상품 정보 담기
+            val product = productDatas[0]
+
+            //SharedPrefrence에 데이터 저장하기
+            val sharedPreferences = getSharedPreferences("sp2", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("storeName", product.storeName)
+            editor.putString("productName", product.productName)
+            editor.putInt("price", product.price)
+            editor.apply()
+
             startActivity(intent)
         }
     }

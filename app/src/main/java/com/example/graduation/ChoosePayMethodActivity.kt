@@ -41,9 +41,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
         PaymentMethod(R.drawable.img_hana_bankbook, "하나은행", "0123456-0123456"),
         PaymentMethod(R.drawable.img_hana_bankbook2, "하나은행", "0123456-0123456"),
         PaymentMethod(R.drawable.img_kookmin_bankbook, "국민은행", "0123456-0123456"),
+        //여기서 입력한 정보가 PayConfirmationActivity로 넘어가게 됨
 
-
-        // 추가적인 이미지와 텍스트 쌍을 여기에 추가
     )
 
     val adapter = PaymentMethodAdapter(paymentMethods, this)
@@ -90,9 +89,21 @@ override fun onCreate(savedInstanceState: Bundle?) {
         if (selectedPaymentMethod != null) {
             //인증 방법 선택 화면으로 넘어가기
             val intent = Intent(this, AuthWayActivity::class.java)
-            //TODO:결제수단 뭐 골랐는지 intent에 담아야함
-            onSpeech(selectedPaymentMethod!!.bank ) //은행별로 다른 소리 출력
+
+            //SharedPrefrence에 데이터 저장하기
+            val sharedPreferences = getSharedPreferences("sp3", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+
+            //은행이름과 계좌번호 저장 : paymentMethod 데이터 클래스 참고
+            editor.putString("selectedAccountName", selectedPaymentMethod!!.bank)
+            editor.putString("selectedAccountNumber", selectedPaymentMethod!!.accountNumber)
+            editor.apply()
+
+            //은행별로 다른 소리 출력
+            onSpeech(selectedPaymentMethod!!.bank )
             startActivity(intent)
+
+
         } else {
             //결제수단 하나 골라야 한다고 알려주기
             Toast.makeText(this, "결제 수단을 선택해주세요.", Toast.LENGTH_SHORT).show()
