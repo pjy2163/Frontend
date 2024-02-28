@@ -18,7 +18,7 @@ class LoginUser(uid: String)
 object LoginInformation {
     var currentLoginUser: LoginUser?
     var loginType: Int
-    //private val db = "DB 경로"//
+    //val db = TODO("DB 경로")
     init {
         currentLoginUser=null
         loginType=LoginUser.logout
