@@ -1,18 +1,13 @@
-package com.example.graduation
+package com.example.graduation.myInfo
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import androidx.fragment.app.Fragment
-import com.example.graduation.databinding.ActivityChangePwdBinding
+import com.example.graduation.DeletePayActivity
+import com.example.graduation.MainActivity
 import com.example.graduation.databinding.ActivityMyInfoBinding
 import java.util.Locale
 
@@ -55,17 +50,7 @@ class MyInfoActivity : AppCompatActivity(){
             startActivity(changePwdIntent)
         }
 
-        //결제수단 관리 버튼 이벤트처리
-        binding.managePayBtn.setOnClickListener{
-            if (soundState) {
-                onSpeech(binding.managePayBtn.text)
-            }
-
-            val DeletePayIntent = Intent(this, DeletePayActivity::class.java)
-            startActivity(DeletePayIntent)
-        }
-
-        //결제수단 관리 버튼 이벤트처리
+        //계정탈퇴 이벤트처리
         binding.deleteAccountBtn.setOnClickListener{
             if (soundState) {
                 onSpeech(binding.deleteAccountBtn.text)

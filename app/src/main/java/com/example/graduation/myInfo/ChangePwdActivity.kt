@@ -1,13 +1,11 @@
-package com.example.graduation
+package com.example.graduation.myInfo
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import com.example.graduation.databinding.ActivityChangePwdBinding
-import com.example.graduation.databinding.ActivityMainBinding
 import java.util.Locale
 
 

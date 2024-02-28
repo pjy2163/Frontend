@@ -5,7 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import com.example.graduation.myInfo.MyInfoActivity
 import com.example.graduation.databinding.ActivityMainBinding
+import com.example.graduation.register.RegisterChooseBankActivity
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -46,8 +48,9 @@ class MainActivity : AppCompatActivity() {
             if (soundState) {
                 onSpeech(binding.registerPayBtn.text)
             }
-            val intent = Intent(this, RegisterMainActivity::class.java)
+            val intent = Intent(this, RegisterChooseBankActivity::class.java)
             startActivity(intent)
+            //TODO:RegisterChooseBankActivity로 이동
         }
 
         //정보수정 버튼

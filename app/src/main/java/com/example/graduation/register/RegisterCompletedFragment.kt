@@ -1,18 +1,14 @@
-package com.example.graduation
+package com.example.graduation.register
 
 import android.content.Context
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.graduation.databinding.FragmentRegisterCompletedBinding
 import java.util.Locale
-
-//TODO:Activity로 바꿀까..
-
-//결제승인 확인 하면 뜨는 결제 완료 프래그먼트
 
 class RegisterCompletedFragment : Fragment() {
     private lateinit var binding: FragmentRegisterCompletedBinding

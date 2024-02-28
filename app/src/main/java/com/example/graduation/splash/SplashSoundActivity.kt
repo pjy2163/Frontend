@@ -1,4 +1,4 @@
-package com.example.graduation
+package com.example.graduation.splash
 
 import android.content.Context
 import android.content.Intent
@@ -6,12 +6,8 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.graduation.Login
 import com.example.graduation.databinding.ActivitySoundSplashBinding
 import java.util.Locale
 
