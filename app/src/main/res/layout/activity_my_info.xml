@@ -2,8 +2,6 @@
 <FrameLayout
     android:id="@+id/myInfoContainer"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
 
@@ -31,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="등록된 결제 수단"
+        android:text="내 정보"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:textSize="@dimen/title"
@@ -52,6 +50,7 @@
         android:text="왼쪽 또는 오른쪽으로 넘기면\n등록된 결제 수단을 확인할 수 있습니다." />
 
 
+<!--
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -75,8 +74,7 @@
             android:background="@drawable/stroke_round_yellow"
             android:gravity="center"
             android:text="은행계좌 또는 카드명\n\n계좌번호 앞자리\n또는\n카드번호 앞 4자리" />
-
-        <ImageButton
+    <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -89,39 +87,32 @@
 
 
     </LinearLayout>
-
+-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"/>
 
-        <Button
-            android:id="@+id/changePwd_btn"
+        <android.widget.Button
+            android:id="@+id/change_pwd_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/transparent"
+            android:layout_gravity="center"
+            android:background="@drawable/transparent_with_navy_stroke"
             android:gravity="center"
-            android:text="비밀번호 변경"
-            android:textColor="@color/black"
-            android:layout_marginRight="50dp"/>
-
-        <Button
-            android:id="@+id/managePay_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/transparent"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:text="결제수단 관리" />
-
-    </LinearLayout>
+            android:paddingLeft="60dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="60dp"
+            android:text="회원 비밀번호 변경"
+            android:textSize="20sp"/>
     <android.widget.Button
         android:id="@+id/delete_account_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_margin="20dp"
         android:background="@drawable/transparent_with_navy_stroke"
         android:gravity="center"
         android:paddingLeft="100dp"

@@ -1,7 +1,6 @@
-package com.example.graduation
+package com.example.graduation.register
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -17,11 +16,10 @@ import androidx.core.content.ContextCompat
 import com.example.graduation.databinding.ActivityRegisterPayVoiceBinding
 import java.util.Locale
 
-private lateinit var binding: ActivityRegisterPayVoiceBinding
-
 class RegisterPayVoiceActivity : AppCompatActivity() {
     private lateinit var speechRecognizer: SpeechRecognizer
-    lateinit var mtts:TextToSpeech
+    lateinit var mtts: TextToSpeech
+    private lateinit var binding: ActivityRegisterPayVoiceBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +27,7 @@ class RegisterPayVoiceActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // SharedPreferences에서 소리 on/off 상태 불러오기
-        val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("sp1", MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
@@ -54,7 +52,8 @@ class RegisterPayVoiceActivity : AppCompatActivity() {
         // <말하기> 버튼 눌러서 음성인식 시작
         binding.speechBtn.setOnClickListener {
             // 새 SpeechRecognizer 를 만드는 팩토리 메서드
-            speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this@RegisterPayVoiceActivity)
+            speechRecognizer =
+                SpeechRecognizer.createSpeechRecognizer(this@RegisterPayVoiceActivity)
             speechRecognizer.setRecognitionListener(recognitionListener)    // 리스너 설정
             speechRecognizer.startListening(intent)                         // 듣기 시작
         }
@@ -65,11 +64,16 @@ class RegisterPayVoiceActivity : AppCompatActivity() {
     private fun requestPermission() {
         // 버전 체크, 권한 허용했는지 체크
         if (Build.VERSION.SDK_INT >= 23 &&
-            ContextCompat.checkSelfPermission(this@RegisterPayVoiceActivity, Manifest.permission.RECORD_AUDIO)
+            ContextCompat.checkSelfPermission(
+                this@RegisterPayVoiceActivity,
+                Manifest.permission.RECORD_AUDIO
+            )
             != PackageManager.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(this@RegisterPayVoiceActivity,
-                arrayOf(Manifest.permission.RECORD_AUDIO), 0)
+            ActivityCompat.requestPermissions(
+                this@RegisterPayVoiceActivity,
+                arrayOf(Manifest.permission.RECORD_AUDIO), 0
+            )
         }
     }
 
@@ -92,24 +96,16 @@ class RegisterPayVoiceActivity : AppCompatActivity() {
         override fun onEndOfSpeech() {
             binding.stateTv.text = "정상적으로 음성 인식이 완료되었습니다."
 
-            //TODO:받아진 result_tv를 RegisterCompletedFragment와 ChoosePayMethodActivity에 반영하는 작업
+            //TODO:받아진 result_tv를 RegisterAccountInfoEnterActivity와 ChoosePayMethodActivity에 반영하는 작업
 
             //인식된 결과를 가져오기
             val recognizedText = binding.resultTv.text.toString()
 
-
-            // RegisterPayVoiceActivity에서 RegisterCompletedFragment로 전환하는 코드
-            //TODO:???
-            val intent = Intent(this@RegisterPayVoiceActivity, MainActivity::class.java)
+            //인식된 계좌번호를 인텐트에 담아 RegisterAccountInfoEnterActivity로 이동
+            val intent =
+                Intent(this@RegisterPayVoiceActivity, RegisterAccountInfoEnterActivity::class.java)
             intent.putExtra("recognizedText", recognizedText)
-
-            val fragment = RegisterCompletedFragment()
-            fragment.arguments = intent.extras
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fl_basic, fragment)
-                .addToBackStack(null)
-                .commit()
-
+            startActivity(intent)
         }
 
         // 오류 발생했을 때 호출

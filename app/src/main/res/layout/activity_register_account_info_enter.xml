@@ -34,21 +34,55 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="계좌 정보 입력"
+            android:text="등록할 계좌 정보 확인"
             android:textSize="@dimen/title"
             android:textStyle="bold" />
 
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/sub_title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             android:gravity="left"
             android:paddingLeft="20dp"
             android:text="계좌 정보 입력(최초 1회만)\n가상 계좌 및 적금 펀드 계좌는 등록 불가" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/light_grey"
+            android:layout_marginBottom="10dp">
+
         <TextView
+            android:id="@+id/bank_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="은행명"
+            android:textSize="13dp"
+            android:textColor="@color/text_grey"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/bank_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="00은행"
+            android:textSize="13dp"
+            android:textColor="@color/text_grey"
+            >
+        </TextView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/account_number_title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
@@ -58,14 +92,16 @@
             android:textColor="@color/text_grey"
             >
         </TextView>
-        <EditText
-            android:id="@+id/hanaButton"
+
+        <TextView
+            android:id="@+id/account_number_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="숫자만 입력해 주세요."
             android:paddingLeft="20dp"
-            android:layout_marginBottom="20dp"
-            />
+            android:paddingBottom="20dp"
+            android:text="123-456-78910">
+
+        </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,14 +110,14 @@
             android:background="@color/light_grey">
 
             <TextView
+                android:id="@+id/name_title_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:text="이름"
                 android:textSize="13dp"
-                android:textColor="@color/text_grey"
-                >
+                android:textColor="@color/text_grey">
             </TextView>
 
             <TextView

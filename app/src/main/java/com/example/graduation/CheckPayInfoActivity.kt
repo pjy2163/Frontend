@@ -21,8 +21,8 @@ class CheckPayInfoActivity : AppCompatActivity() {
 
         // 결제할 품목 더미데이터
         productDatas.apply {
-            add(Product(1, "11번가", "핸드폰 거치대", 1000))
-            add(Product(2, "스타벅스", "아메리카노", 4500))
+            add(Product(1, "스타벅스", "아이스 아메리카노", 4500))
+            add(Product(2, "이디야", "카페라떼", 4000))
             add(Product(3, "도미노 피자", "페퍼로니 피자", 20000))
             add(Product(4, "포라임", "양지 쌀국수", 12000))
             add(Product(5, "두끼 떡볶이", "성인", 12000))

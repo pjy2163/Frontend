@@ -19,8 +19,8 @@ class PaymentMethodAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.bank_account_iv)
         val textView: TextView = itemView.findViewById(R.id.bank_name_tv)
-  /*      val bankbookNumber: TextView = itemView.findViewById(R.id.account_number_tv)
-*/
+        val bankbookNumber: TextView = itemView.findViewById(R.id.account_number_tv)
+
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
@@ -53,6 +53,7 @@ class PaymentMethodAdapter(
         val paymentMethod = paymentMethods[position]
         holder.imageView.setImageResource(paymentMethod.imageResId)
         holder.textView.text = paymentMethod.bank
+        holder.bankbookNumber.text=" ("+paymentMethod.accountNumber+")"
 
         //선택된 아이템 하이라이트
         holder.itemView.isSelected = selectedPosition == position
