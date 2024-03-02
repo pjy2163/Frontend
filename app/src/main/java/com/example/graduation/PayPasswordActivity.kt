@@ -133,8 +133,8 @@ class PayPasswordActivity : AppCompatActivity() {
             enteredPassword = stringBuilder.toString()
             Log.d("ykleepasswordCheck",  enteredPassword ) //정상출력됨 확인함 (0도 잘 입력됨)
 
-            //다음 버튼은 원래 회색. 비밀번호 입력완료하면 네이비색으로 바뀜
-            binding.nextBtn.setBackgroundColor(this.getResources().getColor(R.color.navy));
+            //다음 버튼은 원래 회색. 비밀번호 입력완료하면 파랑색으로 바뀜
+            binding.nextBtn.setBackgroundColor(this.getResources().getColor(R.color.blue));
 
             // TODO: enteredPassword 변수 활용 (signup 작업 완료되어 전달받으면 주석 해제 예정)
 

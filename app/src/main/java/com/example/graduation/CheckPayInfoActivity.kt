@@ -33,9 +33,9 @@ class CheckPayInfoActivity : AppCompatActivity() {
 
         //결제정보 나타내기- 11번가 핸드폰거치대
         val product = productDatas[0]
-        binding.productPlaceTv.text = "결제업체명: ${product.storeName}"
-        binding.productNameTv.text = "상품명: ${product.productName}"
-        binding.productPriceTv.text = "가격: ${product.price} 원"
+        binding.productPlaceTv.text = product.storeName
+/*        binding.productNameTv.text = "상품명: ${product.productName}"*/
+        binding.productPriceTv.text = "${product.price.toString()} 원"
 
 
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts

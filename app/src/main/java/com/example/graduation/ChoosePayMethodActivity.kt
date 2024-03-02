@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.graduation.databinding.ActivityChoosePayMethodBinding
 import java.util.Locale
@@ -87,6 +88,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
         }
 
         if (selectedPaymentMethod != null) {
+
             //인증 방법 선택 화면으로 넘어가기
             val intent = Intent(this, AuthWayActivity::class.java)
 
@@ -124,20 +126,34 @@ override fun onCreate(savedInstanceState: Bundle?) {
     }*/
 override fun onPaymentMethodClick(paymentMethod: PaymentMethod) {
 
+    val selectedPosition = binding.viewPagerCard.currentItem
+    val selectedView = binding.viewPagerCard.getChildAt(selectedPosition)
+
+    // Check if the clicked view already has a red border
+    val hasRedBorder = selectedView?.background?.constantState?.equals(
+        ContextCompat.getDrawable(this, R.drawable.selected_payment_border)?.constantState
+    ) == true
+
+    // Clear background for all views
     for (i in 0 until binding.viewPagerCard.childCount) {
         val cardView = binding.viewPagerCard.getChildAt(i)
         cardView.setBackgroundResource(0)
     }
 
-    // Set background for the selected view
-    val selectedPosition = binding.viewPagerCard.currentItem
-    val selectedView = binding.viewPagerCard.getChildAt(selectedPosition)
-    selectedView?.setBackgroundResource(R.drawable.selected_payment_border)
+    // Toggle the red border based on the current state
+    if (!hasRedBorder) {
+        selectedView?.setBackgroundResource(R.drawable.selected_payment_border)
+        selectedPaymentMethod = paymentMethod
+        binding.nextBtn.isEnabled = true
+        //다음 버튼에 파란색 넣고
+        binding.nextBtn.setBackgroundColor(this.getResources().getColor(R.color.blue));
 
-    // 클릭된 결제 수단에 따라 다음 화면으로 이동하는 코드
-    selectedPaymentMethod = paymentMethod
-    binding.nextBtn.isEnabled = true
 
+    } else {
+        selectedPaymentMethod = null
+        binding.nextBtn.isEnabled = false
+    }
+}
 /*    //하나은행 계좌 이미지를 누르면
     when (paymentMethod.bank) {
         "하나은행" -> {
@@ -153,7 +169,7 @@ override fun onPaymentMethodClick(paymentMethod: PaymentMethod) {
 
 
 
-}
+
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }

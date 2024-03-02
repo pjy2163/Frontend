@@ -48,15 +48,18 @@
             android:text="왼쪽 또는 오른쪽으로 넘기면\n등록된 결제 수단을 선택할 수 있습니다." />
 
         <!--결제할 카드가 표시될 뷰페이저-->
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager_card"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@color/background_grey"
-            android:layout_margin="20dp"/>
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager_card"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="20dp"
+        android:background="@color/background_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,8 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@drawable/rectangle_style"
-            android:backgroundTint="@null"
+            android:background="@color/grey"
             android:text="@string/next_text"
             android:textSize="20sp"
             android:padding="15dp"

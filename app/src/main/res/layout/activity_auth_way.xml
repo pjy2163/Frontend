@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:background="@drawable/rectangle_style"
-        android:backgroundTint="@null"
         android:text="@string/previous_text"
         android:textSize="20sp"
         android:padding="15dp"
@@ -23,13 +22,14 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="인증 방법 선택"
         android:textSize="@dimen/title"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_marginBottom="30dp"/>
 
 

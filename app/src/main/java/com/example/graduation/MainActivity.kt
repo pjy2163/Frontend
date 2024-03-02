@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             }
             val intent = Intent(this, RegisterChooseBankActivity::class.java)
             startActivity(intent)
-            //TODO:RegisterChooseBankActivity로 이동
+
         }
 
         //정보수정 버튼
