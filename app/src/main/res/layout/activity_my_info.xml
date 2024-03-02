@@ -33,7 +33,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:textSize="@dimen/title"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/password_notice_text"

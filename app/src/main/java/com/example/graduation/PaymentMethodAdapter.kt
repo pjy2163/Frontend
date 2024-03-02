@@ -1,62 +1,55 @@
-package com.example.graduation
-
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
+import com.example.graduation.PaymentMethod
+import com.example.graduation.PaymentMethodClickListener
+import com.example.graduation.R
 
 class PaymentMethodAdapter(
     private val paymentMethods: List<PaymentMethod>,
     private val clickListener: PaymentMethodClickListener
-) : RecyclerView.Adapter<PaymentMethodAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<PaymentMethodAdapter.PaymentMethodViewHolder>() {
 
-    private var selectedPosition: Int = RecyclerView.NO_POSITION
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.bank_account_iv)
+    inner class PaymentMethodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imageView: ImageView = itemView.findViewById(R.id.bank_logo_iv)
         val textView: TextView = itemView.findViewById(R.id.bank_name_tv)
         val bankbookNumber: TextView = itemView.findViewById(R.id.account_number_tv)
+        val checkImg: ImageView = itemView.findViewById(R.id.selected_check_iv)
 
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-
-                    if (selectedPosition != position) {
-                        //이미 선택되어있던 아이템이 있으면 해제
-                        notifyItemChanged(selectedPosition)
-
-                        // 클릭된 아이템 선택
-                        selectedPosition = position
-                        notifyItemChanged(position)
-
-
-                        val paymentMethod = paymentMethods[position]
-                        clickListener.onPaymentMethodClick(paymentMethod)
-                    }
+                    clickListener.onPaymentMethodClick(paymentMethods[position])
                 }
             }
         }
+
+        fun bind(paymentMethod: PaymentMethod) {
+            imageView.setImageResource(paymentMethod.imageResId)
+            textView.text = paymentMethod.bank
+            bankbookNumber.text = " (${paymentMethod.accountNumber})"
+
+            //카드 선택 유무에 따라 체크 표시 색깔 변경 (회색->노랑->회색)
+            checkImg.setImageResource(
+                if (paymentMethod.isSelected) R.drawable.img_check_yellow
+                else R.drawable.img_check_grey
+            )
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentMethodViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_payment_method, parent, false)
-        return ViewHolder(view)
+        return PaymentMethodViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PaymentMethodViewHolder, position: Int) {
         val paymentMethod = paymentMethods[position]
-        holder.imageView.setImageResource(paymentMethod.imageResId)
-        holder.textView.text = paymentMethod.bank
-        holder.bankbookNumber.text=" ("+paymentMethod.accountNumber+")"
-
-        //선택된 아이템 하이라이트
-        holder.itemView.isSelected = selectedPosition == position
+        holder.bind(paymentMethod)
     }
 
     override fun getItemCount(): Int = paymentMethods.size
