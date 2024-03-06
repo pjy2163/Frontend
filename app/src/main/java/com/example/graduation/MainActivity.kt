@@ -43,10 +43,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //결제수단 등록 버튼
-        binding.registerPayBtn.setOnClickListener{
+        //결제수단 관리 버튼
+        binding.editPayBtn.setOnClickListener{
             if (soundState) {
-                onSpeech(binding.registerPayBtn.text)
+                onSpeech(binding.editPayBtn.text)
             }
             val intent = Intent(this, RegisterChooseBankActivity::class.java)
             startActivity(intent)
@@ -57,20 +57,6 @@ class MainActivity : AppCompatActivity() {
         binding.editInfoBtn.setOnClickListener{
             onSpeech(binding.editInfoBtn.text)
             val intent = Intent(this, MyInfoActivity::class.java)
-            startActivity(intent)
-        }
-
-        //사진으로 송금하기 버튼
-        binding.transferWithPictureBtn.setOnClickListener{
-            onSpeech(binding.transferWithPictureBtn.text)
-            val intent = Intent(this, TransferPicActivity::class.java)
-            startActivity(intent)
-        }
-
-        //음성으로 송금하기 버튼
-        binding.transferWithVoiceBtn.setOnClickListener{
-            onSpeech(binding.transferWithVoiceBtn.text)
-            val intent = Intent(this, TransferVoiceActivity::class.java)
             startActivity(intent)
         }
     }
