@@ -60,11 +60,11 @@ class Signup_Pwd : AppCompatActivity(), SignupDialogInterface {
     private fun isPwdQualified(pwd: String): Boolean {
         var hasLetter = false
         var hasDigit = false
-        val password = binding.signupInputPwd.text.toString()
-        if (password.length < 8 || password.length > 16) //8~16자 조건
+        if (pwd.length < 8 || pwd.length > 16) { //8~16자 조건
             return false
-        else {
-            password.forEach{//숫자, 영문 조합 조건
+        }
+        else{
+            pwd.forEach{//숫자, 영문 조합 조건
                 if (it.isDigit())
                 {
                     hasDigit = true

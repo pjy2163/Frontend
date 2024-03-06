@@ -38,39 +38,33 @@ class MainActivity : AppCompatActivity() {
             if (soundState) {
                 onSpeech(binding.payBtn.text)
             }
-
             val intent = Intent(this, CheckPayInfoActivity::class.java)
             startActivity(intent)
         }
 
-        //결제수단 등록 버튼
-        binding.registerPayBtn.setOnClickListener{
+        //송금 버튼
+        binding.transferBtn.setOnClickListener{
             if (soundState) {
-                onSpeech(binding.registerPayBtn.text)
+                onSpeech(binding.transferBtn.text)
             }
-            val intent = Intent(this, RegisterChooseBankActivity::class.java)
+            val intent = Intent(this, TransferActivity::class.java)
             startActivity(intent)
+        }
 
+
+        //결제수단 관리 버튼
+        binding.editPayBtn.setOnClickListener{
+            if (soundState) {
+                onSpeech(binding.editPayBtn.text)
+            }
+            val intent = Intent(this, EditPayActivity::class.java)
+            startActivity(intent)
         }
 
         //정보수정 버튼
         binding.editInfoBtn.setOnClickListener{
             onSpeech(binding.editInfoBtn.text)
             val intent = Intent(this, MyInfoActivity::class.java)
-            startActivity(intent)
-        }
-
-        //사진으로 송금하기 버튼
-        binding.transferWithPictureBtn.setOnClickListener{
-            onSpeech(binding.transferWithPictureBtn.text)
-            val intent = Intent(this, TransferPicActivity::class.java)
-            startActivity(intent)
-        }
-
-        //음성으로 송금하기 버튼
-        binding.transferWithVoiceBtn.setOnClickListener{
-            onSpeech(binding.transferWithVoiceBtn.text)
-            val intent = Intent(this, TransferVoiceActivity::class.java)
             startActivity(intent)
         }
     }
