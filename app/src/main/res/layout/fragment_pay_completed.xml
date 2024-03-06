@@ -18,19 +18,31 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="130dp"
-        android:layout_height="179dp"
-        android:src="@drawable/ic_check"
-        android:layout_gravity="center"/>
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/img_completed"/>
 
     <TextView
         android:id="@+id/pay_completed_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="결제가 완료되었습니다.\n잠시 후 메인화면으로 이동합니다."
         android:gravity="center"
-        android:textSize="20sp"
-        />
+        android:text="결제가 완료되었습니다.\n\n화면 하단의 버튼을 누르면\n메인화면으로 돌아갑니다."
+        android:textSize="20sp" />
 </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
+    <android.widget.Button
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:padding="15dp"
+        android:text="메인 화면으로 돌아가기"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 </FrameLayout>

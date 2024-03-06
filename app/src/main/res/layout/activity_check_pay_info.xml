@@ -17,7 +17,7 @@
         android:text="@string/previous_text"
         android:textSize="20sp"
         android:padding="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="40dp"
         android:textColor="@color/white" />
 
 
@@ -30,31 +30,49 @@
         android:text="결제 정보 확인"
         android:textSize="@dimen/title"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_marginBottom="30dp"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/place_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="결제업체명: "
+            android:gravity="center"
+            android:textSize="@dimen/sub_title" />
     <TextView
         android:id="@+id/product_place_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="결제업체명: 0000"
+        android:text="0000"
         android:gravity="center"
-        android:textSize="@dimen/sub_title" />
+        android:textSize="@dimen/sub_title"
+        android:textColor="@color/blue"/>
 
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="20dp"
         android:background="@drawable/border_black">
 
 
-        <LinearLayout
+       <!-- <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -64,16 +82,25 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
+                android:layout_marginRight="10dp"
                 app:srcCompat="@drawable/ic_product" />
+
+            <TextView
+                android:id="@+id/product_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="명: "
+                android:textSize="@dimen/sub_title" />
 
             <TextView
                 android:id="@+id/product_name_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:text="결제한 품목 Ex.아메리카노"
+                android:text="아메리카노"
                 android:textSize="@dimen/sub_title" />
-        </LinearLayout>
+        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -84,37 +111,93 @@
                 android:id="@+id/imageView8"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_weight="1"
+                android:layout_marginRight="10dp"
                 app:srcCompat="@drawable/ic_money" />
+
+            <TextView
+                android:id="@+id/price_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="금액: "
+                android:textSize="@dimen/sub_title" />
 
             <TextView
             android:id="@+id/product_price_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="결제 금액 Ex.4500원"
+            android:text="4500원"
+                android:textColor="@color/blue"
             android:textSize="@dimen/sub_title" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/account_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                app:srcCompat="@drawable/ic_bankbook" />
+
+            <TextView
+                android:id="@+id/account_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="입금 계좌: "
+
+                android:textSize="@dimen/sub_title"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+            android:id="@+id/product_account_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="131-131-133331"
+            android:textSize="@dimen/sub_title"
+                android:textColor="@color/blue"
+            android:layout_marginBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
 
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_bankbook" />
+                android:layout_marginRight="10dp"
+                app:srcCompat="@drawable/ic_status" />
 
             <TextView
-            android:id="@+id/product_account_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="입금 계좌: 131-131-133331"
-            android:textSize="@dimen/sub_title"
-            android:layout_marginBottom="10dp" />
+                android:id="@+id/status_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="상태: "
+                android:textSize="@dimen/sub_title"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/status_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="결제 중"
+                android:textColor="@color/red"
+                android:textSize="@dimen/sub_title"
+                android:layout_marginBottom="10dp" />
         </LinearLayout>
     </LinearLayout>
     <TextView

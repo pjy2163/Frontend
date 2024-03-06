@@ -21,21 +21,21 @@ class CheckPayInfoActivity : AppCompatActivity() {
 
         // 결제할 품목 더미데이터
         productDatas.apply {
-            add(Product(1, "스타벅스", "아이스 아메리카노", 4500))
-            add(Product(2, "이디야", "카페라떼", 4000))
-            add(Product(3, "도미노 피자", "페퍼로니 피자", 20000))
-            add(Product(4, "포라임", "양지 쌀국수", 12000))
-            add(Product(5, "두끼 떡볶이", "성인", 12000))
-            add(Product(6, "베스킨라빈스", "뉴욕 치즈 케이크", 4500))
-            add(Product(7, "쉑쉑버거", "머쉬룸 버거", 15000))
+            add(Product(1, "스타벅스", "아이스 아메리카노", 4500, "14:19"))
+            add(Product(2, "이디야", "카페라떼", 4000,"14:19"))
+            add(Product(3, "도미노 피자", "페퍼로니 피자", 20000,"14:19"))
+            add(Product(4, "포라임", "양지 쌀국수", 12000,"14:19"))
+            add(Product(5, "두끼 떡볶이", "성인", 12000,"14:19"))
+            add(Product(6, "베스킨라빈스", "뉴욕 치즈 케이크", 4500,"14:19"))
+            add(Product(7, "쉑쉑버거", "머쉬룸 버거", 15000,"14:19"))
         }
 
 
         //결제정보 나타내기- 11번가 핸드폰거치대
         val product = productDatas[0]
-        binding.productPlaceTv.text = "결제업체명: ${product.storeName}"
-        binding.productNameTv.text = "상품명: ${product.productName}"
-        binding.productPriceTv.text = "가격: ${product.price} 원"
+        binding.productPlaceTv.text = product.storeName
+/*        binding.productNameTv.text = "상품명: ${product.productName}"*/
+        binding.productPriceTv.text = "${product.price.toString()} 원"
 
 
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts

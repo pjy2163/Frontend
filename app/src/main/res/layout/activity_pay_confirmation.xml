@@ -9,7 +9,6 @@
     android:background="@color/background">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:background="@drawable/rectangle_style"
-        android:backgroundTint="@null"
         android:text="@string/previous_text"
         android:textSize="20sp"
         android:padding="15dp"
@@ -36,52 +34,64 @@
         android:text="결제 승인 확인"
         android:textSize="@dimen/title"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_marginBottom="30dp"/>
 
-    <LinearLayout
-        android:layout_width="337dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp">
-
-        <TextView
-            android:id="@+id/store_name_tv"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="결제한 장소 Ex.별다방"
-            android:textSize="@dimen/sub_title" />
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/product_name_tv"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/product_place_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0000"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textColor="@color/blue"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/explain_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="에서"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="결제한 품목 Ex.아메리카노"
-            android:textSize="@dimen/sub_title" />
-
-
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
         <TextView
             android:id="@+id/product_price_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_weight="1"
-            android:text="결제 금액 Ex.4500원"
-            android:textSize="@dimen/sub_title" />
+            android:text="4500"
+            android:textColor="@color/blue"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/explain_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text=" 원을 결제합니다."
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+        </LinearLayout>
 
 
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="vertical"
@@ -112,8 +122,7 @@
         android:layout_height="wrap_content"
         android:text="****"
         android:textSize="@dimen/sub_title"
-        android:layout_marginBottom="20dp"
-        />
+        android:layout_marginBottom="20dp" />
     </LinearLayout>
 
     <Space

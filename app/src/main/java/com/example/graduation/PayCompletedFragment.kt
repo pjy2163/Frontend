@@ -1,6 +1,7 @@
 package com.example.graduation
 
 import android.content.Context
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
@@ -51,13 +52,15 @@ class PayCompletedFragment : Fragment() {
 
         //화면 정보 읽기
         if (soundState) {
-            onSpeech("결제가 완료되었습니다. 잠시 후 메인화면으로 이동합니다.")
+            onSpeech(binding.payCompletedTv.text)
         }
 
-        //TODO:아직 안됨 5초 후 메인화면으로 이동
-        Handler(Looper.getMainLooper()).postDelayed({
-            navigateToMainActivity()
-        }, 5000)
+        binding.nextBtn.setOnClickListener {
+            if (soundState) {
+                onSpeech(binding.nextBtn.text)
+            }
+            startActivity(Intent(requireActivity(), MainActivity::class.java))
+        }
 
 
         return binding.root
@@ -66,11 +69,11 @@ class PayCompletedFragment : Fragment() {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
-    private fun playSuccessSound() {
+    private fun playSuccessSound() { //결제 성공시 사운드
         mediaPlayerSuccess.start()
     }
 
-    private fun playFailureSound() {
+    private fun playFailureSound() { //결제 실패시 사운드
         mediaPlayerFailure.start()
     }
 
@@ -81,8 +84,5 @@ class PayCompletedFragment : Fragment() {
         mediaPlayerFailure.release()
     }
 
-    private fun navigateToMainActivity() {
-        val navController = findNavController()
-        navController.navigate(R.id.action_payCompletedFragment_to_mainActivity)
-    }
+
 }
