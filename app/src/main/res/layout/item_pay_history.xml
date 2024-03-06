@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingHorizontal="30dp"
-    android:paddingVertical="30dp"
+    android:paddingVertical="10dp"
     android:background="@color/white">
-
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -38,16 +38,19 @@
         android:id="@+id/place_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="결제업체명"
+        android:text="업체명"
+        android:textSize="18sp"
+        android:textColor="@color/black"
         android:layout_marginRight="50dp"/>
 
     <TextView
         android:id="@+id/product_place_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:text="0000"
-        android:textColor="@color/blue"/>
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="30dp"/>
     </LinearLayout>
 
 
@@ -61,6 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="금액"
+            android:textSize="18sp"
+            android:textColor="@color/black"
             android:layout_marginRight="50dp"/>
 
         <TextView
@@ -70,7 +75,8 @@
             android:layout_weight="1"
             android:paddingHorizontal="10dp"
             android:text="10000원"
-            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textColor="@color/black"
             android:layout_marginLeft="40dp"/>
     </LinearLayout>
 
@@ -84,6 +90,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="시간"
+            android:textSize="18sp"
+            android:textColor="@color/black"
             android:layout_marginRight="50dp"/>
 
         <TextView
@@ -93,7 +101,8 @@
             android:layout_weight="1"
             android:paddingHorizontal="10dp"
             android:text="13:45"
-            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textColor="@color/black"
             android:layout_marginLeft="40dp"/>
     </LinearLayout>
 
@@ -106,6 +115,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="상태"
+        android:textSize="18sp"
+        android:textColor="@color/black"
         android:layout_marginRight="50dp"/>
 
     <TextView
@@ -115,7 +126,16 @@
         android:layout_weight="1"
         android:paddingHorizontal="10dp"
         android:text="결제 완료"
+        android:textSize="18sp"
         android:textColor="@color/blue"
         android:layout_marginLeft="40dp"/>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:background="@color/black"
+        android:layout_marginTop="20dp"/>
+
 </LinearLayout>

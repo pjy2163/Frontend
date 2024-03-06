@@ -63,14 +63,16 @@ class Signup_Pwd : AppCompatActivity(), SignupDialogInterface {
         val password = binding.signupInputPwd.text.toString()
         if (password.length < 8 || password.length > 16) //8~16자 조건
             return false
-        password.forEach{//숫자, 영문 조합 조건
-            if (it.isDigit())
-            {
-                hasDigit = true
-            }
-            if (it.isLetter())
-            {
-                hasLetter = true
+        else {
+            password.forEach{//숫자, 영문 조합 조건
+                if (it.isDigit())
+                {
+                    hasDigit = true
+                }
+                if (it.isLetter())
+                {
+                    hasLetter = true
+                }
             }
         }
         return hasLetter && hasDigit

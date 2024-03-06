@@ -13,10 +13,8 @@ class PayHistoryActivity : AppCompatActivity() {
         // RecyclerView 초기화
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
 
-
-        // 데이터 샘플 생성
+        //더미데이터 (내정보>결제내역에 뜨는 데이터들)
         val dataList = mutableListOf<PayHistoryAdapter.DataModel>()
-
         dataList.add(PayHistoryAdapter.DataModel(
             day = "2024-03-05",
             productPlace = "스타벅스",
@@ -55,6 +53,38 @@ class PayHistoryActivity : AppCompatActivity() {
             productPlace = "포라임",
             productPrice = "9000원",
             time = "12:10",
+            status = "결제 완료"
+        ))
+
+        dataList.add(PayHistoryAdapter.DataModel(
+            day = "2024-02-17",
+            productPlace = "포돈",
+            productPrice = "14000원",
+            time = "10:48",
+            status = "결제 완료"
+        ))
+
+        dataList.add(PayHistoryAdapter.DataModel(
+            day = "2024-02-15",
+            productPlace = "GS25",
+            productPrice = "1700원",
+            time = "9:01",
+            status = "결제 완료"
+        ))
+
+        dataList.add(PayHistoryAdapter.DataModel(
+            day = "2024-02-10",
+            productPlace = "교촌치킨",
+            productPrice = "15300원",
+            time = "22:04",
+            status = "결제 완료"
+        ))
+
+        dataList.add(PayHistoryAdapter.DataModel(
+            day = "2024-02-10",
+            productPlace = "서브웨이",
+            productPrice = "11200원",
+            time = "12:07",
             status = "결제 완료"
         ))
 
