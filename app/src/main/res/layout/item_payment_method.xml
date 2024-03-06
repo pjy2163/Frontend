@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:background="@drawable/img_bankbook_background"
         android:orientation="vertical">
 
@@ -59,7 +59,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="300dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             app:srcCompat="@drawable/img_check_grey" />
 
     </LinearLayout>
