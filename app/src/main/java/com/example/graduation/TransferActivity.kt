@@ -8,7 +8,7 @@ import android.speech.tts.TextToSpeech
 import com.example.graduation.databinding.ActivityTransferBinding
 import java.util.Locale
 
-class Transfer : AppCompatActivity() {
+class TransferActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTransferBinding
     lateinit var mtts: TextToSpeech
 

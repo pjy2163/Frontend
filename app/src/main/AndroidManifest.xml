@@ -25,7 +25,10 @@
         android:theme="@style/Theme.Graduation"
         tools:targetApi="31">
         <activity
-            android:name=".Transfer"
+            android:name=".EditPayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TransferActivity"
             android:exported="false" />
         <activity
             android:name=".register.RegisterPayVoiceActivity"
@@ -42,11 +45,11 @@
             android:name=".Signup_Email"
             android:exported="true"
             android:parentActivityName=".Login">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Login_Pwd"
@@ -107,7 +110,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -38,19 +38,27 @@ class MainActivity : AppCompatActivity() {
             if (soundState) {
                 onSpeech(binding.payBtn.text)
             }
-
             val intent = Intent(this, CheckPayInfoActivity::class.java)
             startActivity(intent)
         }
+
+        //송금 버튼
+        binding.transferBtn.setOnClickListener{
+            if (soundState) {
+                onSpeech(binding.transferBtn.text)
+            }
+            val intent = Intent(this, TransferActivity::class.java)
+            startActivity(intent)
+        }
+
 
         //결제수단 관리 버튼
         binding.editPayBtn.setOnClickListener{
             if (soundState) {
                 onSpeech(binding.editPayBtn.text)
             }
-            val intent = Intent(this, RegisterChooseBankActivity::class.java)
+            val intent = Intent(this, EditPayActivity::class.java)
             startActivity(intent)
-            //TODO:RegisterChooseBankActivity로 이동
         }
 
         //정보수정 버튼

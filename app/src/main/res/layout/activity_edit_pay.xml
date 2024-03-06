@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".EditPayActivity"
+    android:orientation="vertical">
+
+    <android.widget.Button
+        android:id="@+id/prev_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/previous_text"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <android.widget.Button
+            android:id="@+id/register_pay_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:background="@drawable/stroke_round"
+            android:text="새 결제 수단 등록하기"
+            android:textSize="@dimen/sub_title"
+            android:drawableLeft="@drawable/ic_add_card"
+            android:paddingLeft="40dp"
+            android:paddingTop="70dp"
+            android:paddingBottom="70dp"
+            android:drawablePadding="-30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            />
+
+        <android.widget.Button
+            android:id="@+id/delete_pay_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:background="@drawable/stroke_round"
+            android:text="등록된 결제 수단 수정"
+            android:textSize="@dimen/sub_title"
+            android:drawableLeft="@drawable/ic_delete_card"
+            android:paddingLeft="40dp"
+            android:paddingTop="70dp"
+            android:paddingBottom="70dp"
+            android:drawablePadding="-30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="50dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>
