@@ -25,6 +25,9 @@
         android:theme="@style/Theme.Graduation"
         tools:targetApi="31">
         <activity
+            android:name=".PayHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".register.RegisterPayVoiceActivity"
             android:exported="false" />
         <activity
@@ -49,10 +52,10 @@
             android:parentActivityName=".Login" />
         <activity
             android:name=".Login"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".myInfo.ChangePwdActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_change_pwd"
             android:theme="@style/Theme.Graduation" />
         <activity
@@ -67,7 +70,6 @@
         <activity
             android:name=".AuthWayActivity"
             android:exported="false" />
-
         <activity
             android:name=".ServiceAgreementActivity"
             android:exported="false"
@@ -75,22 +77,16 @@
             android:theme="@style/Theme.Graduation" />
         <activity
             android:name=".PayConfirmationActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".PayPasswordActivity"
-            android:exported="true" >
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".register.RegisterChooseBankActivity"
-            android:exported="true" >
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".register.RegisterAccountInfoEnterActivity"
-            android:exported="true" >
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".TransferPicActivity"
             android:exported="true" />
