@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import com.example.graduation.databinding.ActivityLoginEmailBinding
+import com.example.graduation.model.User
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
@@ -37,6 +38,21 @@ class Login_Email : AppCompatActivity() {
             if (isEmailValid(user)) {
                 if (isEmailRegistered(user)) {
                     val intent = Intent(this, Login_Pwd::class.java)
+
+                    /*User user = new User();
+                    //user.setId(id)
+                    //user.setPassword(password);
+                    //입력한 텍스트롤 서버로 보내야하는데.. 여기가 input인지?
+                    // RetrofitService retrofitService = new RetrofitService
+                    // UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
+                    // -> 클릭 이벤트에서 일어나야함 등록 버튼을 누르면 서버로 값이 가야함
+                    // userApi.save(user)
+                    // . enqueue(new Callback<User>(){
+                    @Override
+                    public void onResponse(Call<User>) call, Response<User> response) {
+                        Toast.makeText(Login_Email.this, "로그인성공..") 밑에는 동일하게 실패로
+                    } 제 코드 생각의 흐름은 이렇습니다. (자바기반으로 씀)*/
+
                     intent.putExtra("email", user) //이메일 값 넘겨주기
                     startActivity(intent) }
                 else {
