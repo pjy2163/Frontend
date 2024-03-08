@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.VIBRATE" /> <!-- 지문 인식 권한 -->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- 오디오 사용 권한 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- <uses-permission android:name="android.permission.CAMERA"/> &lt;!&ndash;카메라 권한 &ndash;&gt; -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="true" />
@@ -29,6 +31,12 @@
         android:theme="@style/Theme.Graduation"
         tools:targetApi="31">
         <activity
+            android:name=".transfer.TransferConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".register.RegisterPayVoiceActivity"
             android:exported="false" />
         <activity
@@ -41,8 +49,8 @@
             android:parentActivityName=".Signup_Email" />
         <activity
             android:name=".Signup_Email"
-            android:exported="false"
-            android:parentActivityName=".Login" />
+            android:exported="true"
+            android:parentActivityName=".Login"></activity>
         <activity
             android:name=".Login_Pwd"
             android:exported="false"
@@ -53,10 +61,10 @@
             android:parentActivityName=".Login" />
         <activity
             android:name=".Login"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".myInfo.ChangePwdActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_change_pwd"
             android:theme="@style/Theme.Graduation" />
         <activity
@@ -71,7 +79,6 @@
         <activity
             android:name=".AuthWayActivity"
             android:exported="false" />
-
         <activity
             android:name=".ServiceAgreementActivity"
             android:exported="false"
@@ -79,27 +86,27 @@
             android:theme="@style/Theme.Graduation" />
         <activity
             android:name=".PayConfirmationActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".PayPasswordActivity"
-            android:exported="true" >
-        </activity>
-
-        <activity
-            android:name=".register.RegisterChooseBankActivity"
-            android:exported="true" >
-        </activity>
-
-        <activity
-            android:name=".register.RegisterAccountInfoEnterActivity"
-            android:exported="true" >
-        </activity>
-
-        <activity
-            android:name=".TransferPicActivity"
             android:exported="true" />
         <activity
-            android:name=".TransferVoiceActivity"
+            android:name=".PayPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".register.RegisterChooseBankActivity"
+            android:exported="true" />
+        <activity
+            android:name=".register.RegisterAccountInfoEnterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditPayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TransferActivity"
+            android:exported="false" />
+        <activity
+            android:name=".transfer.TransferPicActivity"
+            android:exported="true" />
+        <activity
+            android:name=".transfer.TransferVoiceActivity"
             android:exported="true" />
         <activity
             android:name=".PayFingerActivity"
