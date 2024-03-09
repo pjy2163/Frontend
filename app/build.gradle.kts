@@ -54,6 +54,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+
     //프래그먼트
     implementation("androidx.fragment:fragment-ktx:1.3.6")
 
@@ -70,5 +71,9 @@ dependencies {
     implementation ("com.rmtheis:tess-two:5.4.1")
     implementation ("com.google.android.gms:play-services-mlkit-text-recognition:18.0.2")
 
-
+    //서버 통신을 위한 Retrofit 환경 세팅
+    implementation ("com.squareup.retrofit2:retrofit:2.6.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.6.0")
+    implementation ("com.google.code.gson:gson:2.8.6")
+    implementation ("com.squareup.okhttp3:logging-interceptor:3.11.0")
 }
