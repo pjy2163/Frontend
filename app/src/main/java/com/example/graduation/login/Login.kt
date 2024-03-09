@@ -1,4 +1,4 @@
-package com.example.graduation
+package com.example.graduation.login
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import com.example.graduation.signup.Signup_Name
 import com.example.graduation.databinding.ActivityLoginBinding
 import java.util.Locale
 import java.util.concurrent.Executor
@@ -47,9 +48,8 @@ class Login : AppCompatActivity() {
                     super.onAuthenticationError(errorCode, errString)
                     Toast.makeText(applicationContext, "지문 로그인 에러", Toast.LENGTH_SHORT).show()
                     if (soundState) {
-                        onSpeech("로그인 에러")
+                        onSpeech("지문 로그인 에러")
                     }
-                    TODO("비밀번호 로그인 화면으로 이동")
                 }
 
                 override fun onAuthenticationSucceeded(
@@ -97,7 +97,7 @@ class Login : AppCompatActivity() {
 
         //회원가입 화면 연결
         binding.SignUp.setOnClickListener {
-            val intent = Intent(this, Signup_Email::class.java)
+            val intent = Intent(this, Signup_Name::class.java)
             startActivity(intent)
             if (soundState) {
                 onSpeech("회원가입")

@@ -1,13 +1,11 @@
-package com.example.graduation
+package com.example.graduation.login
 
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import com.example.graduation.databinding.ActivityLoginPwdBinding
-import java.security.MessageDigest
 import java.util.*
 
 class Login_Pwd : AppCompatActivity() {

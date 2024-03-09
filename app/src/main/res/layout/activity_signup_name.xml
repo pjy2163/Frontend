@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".signup.Signup_Checkpwd">
+    tools:context=".signup.Signup_Name">
 
     <com.google.android.material.appbar.AppBarLayout
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
@@ -29,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="400dp"
-        android:layout_marginEnd="54dp"
-        android:text="비밀번호를 한번 더 입력하세요."
+        android:layout_marginEnd="157dp"
+        android:text="이름을 입력하세요."
         android:textSize="20sp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,15 +40,15 @@
 
 
     <EditText
-        android:id="@+id/signup_input_checkpwd"
+        android:id="@+id/signup_input_name"
         android:layout_width="320dp"
         android:layout_height="43dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/border_black"
         android:padding="10dp"
-        android:hint="비밀번호 확인"
+        android:hint="예시) 홍길동"
         android:textColorHint="@color/grey"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"

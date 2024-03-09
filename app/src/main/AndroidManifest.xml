@@ -36,27 +36,31 @@
             android:name=".register.RegisterPayVoiceActivity"
             android:exported="false" />
         <activity
-            android:name=".Signup_Checkpwd"
+            android:name=".signup.Signup_Checkpwd"
             android:exported="false"
-            android:parentActivityName=".Signup_Pwd" />
+            android:parentActivityName=".signup.Signup_Pwd" />
         <activity
-            android:name=".Signup_Pwd"
+            android:name=".signup.Signup_Pwd"
             android:exported="false"
-            android:parentActivityName=".Signup_Email" />
+            android:parentActivityName=".signup.Signup_Email" />
         <activity
-            android:name=".Signup_Email"
+            android:name=".signup.Signup_Email"
             android:exported="true"
-            android:parentActivityName=".Login"></activity>
+            android:parentActivityName=".signup.Signup_Name"></activity>
         <activity
-            android:name=".Login_Pwd"
+            android:name=".signup.Signup_Name"
             android:exported="false"
-            android:parentActivityName=".Login_Email" />
+            android:parentActivityName=".login.Login" />
         <activity
-            android:name=".Login_Email"
+            android:name=".login.Login_Pwd"
             android:exported="false"
-            android:parentActivityName=".Login" />
+            android:parentActivityName=".login.Login_Email" />
         <activity
-            android:name=".Login"
+            android:name=".login.Login_Email"
+            android:exported="false"
+            android:parentActivityName=".login.Login" />
+        <activity
+            android:name=".login.Login"
             android:exported="true" />
         <activity
             android:name=".myInfo.ChangePwdActivity"
@@ -119,6 +123,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        </application>
 
 </manifest>
