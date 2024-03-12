@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".myInfo.ChangePwdActivity">
+    tools:context=".myInfo.ChangeCheckPwdActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
@@ -30,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="400dp"
-        android:layout_marginEnd="118dp"
-        android:text="비밀번호를 입력하세요."
+        android:layout_marginEnd="54dp"
+        android:text="비밀번호를 한번 더 입력하세요."
         android:textSize="20sp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,13 +40,13 @@
 
 
     <EditText
-        android:id="@+id/signup_input_pwd"
+        android:id="@+id/signup_input_checkpwd"
         android:layout_width="320dp"
         android:layout_height="43dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/border_black"
         android:padding="10dp"
-        android:hint="숫자, 영문 조합 8~16자"
+        android:hint="비밀번호 확인"
         android:textColorHint="@color/grey"
         android:inputType="text"
         android:textColor="#000000"

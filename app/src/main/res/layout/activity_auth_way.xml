@@ -70,7 +70,10 @@
             android:layout_width="300dp"
             android:layout_height="180dp"
             android:layout_margin="10dp"
-            android:background="@drawable/stroke_round"
+            android:background="@drawable/round_white_bg"
+            android:drawableLeft="@drawable/img_fingerprint_color"
+            android:drawablePadding="-30dp"
+            android:padding="40dp"
             android:text="지문 인증"
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title" />
@@ -81,29 +84,15 @@
             android:layout_height="180dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/stroke_round"
+            android:background="@drawable/round_white_bg"
+            android:drawableLeft="@drawable/img_password"
+            android:drawablePadding="-30dp"
+            android:padding="40dp"
             android:text="비밀번호 입력"
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title" />
 
     </LinearLayout>
 
-    <!-- 여기도 다음이 없어야 한다고 생각해요 -->
-  <!--  <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
 
-    &lt;!&ndash; Next Button &ndash;&gt;
-    <android.widget.Button
-        android:id="@+id/next_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/rectangle_style"
-        android:backgroundTint="@null"
-        android:text="다음"
-        android:textSize="20sp"
-        android:padding="15dp"
-        android:textColor="@color/white"/>-->
 </LinearLayout>

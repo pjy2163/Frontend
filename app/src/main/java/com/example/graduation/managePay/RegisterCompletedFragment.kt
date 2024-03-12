@@ -1,4 +1,4 @@
-package com.example.graduation.register
+package com.example.graduation.managePay
 
 import android.content.Context
 import android.os.Bundle

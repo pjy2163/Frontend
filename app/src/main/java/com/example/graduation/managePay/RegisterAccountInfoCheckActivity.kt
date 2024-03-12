@@ -1,20 +1,20 @@
-package com.example.graduation.register
+package com.example.graduation.managePay
 
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
-import com.example.graduation.databinding.ActivityRegisterAccountInfoEnterBinding
+import com.example.graduation.databinding.ActivityRegisterAccountInfoCheckBinding
 import java.util.Locale
 
-class RegisterAccountInfoEnterActivity : AppCompatActivity(){
-    private lateinit var binding: ActivityRegisterAccountInfoEnterBinding
+class RegisterAccountInfoCheckActivity : AppCompatActivity(){
+    private lateinit var binding: ActivityRegisterAccountInfoCheckBinding
     lateinit var mtts: TextToSpeech
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterAccountInfoEnterBinding.inflate(layoutInflater)
+        binding = ActivityRegisterAccountInfoCheckBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts

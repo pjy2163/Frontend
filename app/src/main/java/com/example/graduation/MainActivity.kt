@@ -7,7 +7,8 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import com.example.graduation.myInfo.MyInfoActivity
 import com.example.graduation.databinding.ActivityMainBinding
-import com.example.graduation.register.RegisterChooseBankActivity
+import com.example.graduation.managePay.EditPayActivity
+import com.example.graduation.transfer.TransferActivity
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -67,6 +68,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MyInfoActivity::class.java)
             startActivity(intent)
         }
+
+
     }
 
     private fun onSpeech(text: CharSequence) {

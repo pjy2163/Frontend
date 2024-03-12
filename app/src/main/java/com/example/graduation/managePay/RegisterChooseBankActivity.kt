@@ -1,16 +1,10 @@
-package com.example.graduation.register
+package com.example.graduation.managePay
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.ContextCompat.startActivity
-import androidx.fragment.app.Fragment
 import com.example.graduation.databinding.ActivityRegisterChooseBankBinding
 import java.util.Locale
 

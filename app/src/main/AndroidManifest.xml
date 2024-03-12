@@ -15,12 +15,9 @@
         android:required="false" /> <!-- 저장소 읽기 권한 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.INTERNET"/> <!--인터넷 사용 권한 -->
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -29,7 +26,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Graduation"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".managePay.CurrentCardListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".managePay.RegisterAccountVoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myInfo.ChangeCheckPwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TermsActivity"
+            android:exported="false" />
         <activity
             android:name=".transfer.TransferConfirmationActivity"
             android:exported="false" />
@@ -37,7 +47,7 @@
             android:name=".PayHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".register.RegisterPayVoiceActivity"
+            android:name=".managePay.RegisterPayVoiceActivity"
             android:exported="false" />
         <activity
             android:name=".Signup_Checkpwd"
@@ -50,7 +60,7 @@
         <activity
             android:name=".Signup_Email"
             android:exported="true"
-            android:parentActivityName=".Login"></activity>
+            android:parentActivityName=".Login" />
         <activity
             android:name=".Login_Pwd"
             android:exported="false"
@@ -91,16 +101,16 @@
             android:name=".PayPasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".register.RegisterChooseBankActivity"
+            android:name=".managePay.RegisterChooseBankActivity"
             android:exported="true" />
         <activity
-            android:name=".register.RegisterAccountInfoEnterActivity"
+            android:name=".managePay.RegisterAccountInfoCheckActivity"
             android:exported="true" />
         <activity
-            android:name=".EditPayActivity"
+            android:name=".managePay.EditPayActivity"
             android:exported="false" />
         <activity
-            android:name=".TransferActivity"
+            android:name=".transfer.TransferActivity"
             android:exported="false" />
         <activity
             android:name=".transfer.TransferPicActivity"

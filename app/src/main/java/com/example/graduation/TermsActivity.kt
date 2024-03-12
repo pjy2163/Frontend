@@ -3,9 +3,9 @@ package com.example.graduation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class EditPayActivity : AppCompatActivity() {
+class TermsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_pay)
+        setContentView(R.layout.activity_terms)
     }
 }
