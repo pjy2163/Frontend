@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import com.example.graduation.myInfo.MyInfoActivity
 import com.example.graduation.databinding.ActivityMainBinding
+import com.example.graduation.register.RegisterChooseBankActivity
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {

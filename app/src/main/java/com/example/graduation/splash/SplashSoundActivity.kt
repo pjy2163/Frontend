@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.graduation.login.Login
+import com.example.graduation.Login
 import com.example.graduation.databinding.ActivitySoundSplashBinding
 import java.util.Locale
 

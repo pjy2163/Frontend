@@ -43,7 +43,7 @@ class TransferPicActivity : AppCompatActivity() {
         if (soundState) {
             onSpeech("사진으로 송금하기 화면입니다.")
         }
-        binding= DataBindingUtil.setContentView(this, R.layout.activity_transfer_pic)
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_transfer_pic)
 
         binding.apply {
             takePicBtn.setOnClickListener {

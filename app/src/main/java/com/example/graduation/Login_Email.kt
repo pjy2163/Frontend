@@ -1,4 +1,4 @@
-package com.example.graduation.login
+package com.example.graduation
 
 import android.content.Context
 import android.content.Intent

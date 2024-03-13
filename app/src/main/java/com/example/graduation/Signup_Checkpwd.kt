@@ -1,4 +1,4 @@
-package com.example.graduation.signup
+package com.example.graduation
 
 import android.content.Context
 import android.content.Intent
@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
-import com.example.graduation.SignupDialog
-import com.example.graduation.SignupDialogInterface
-import com.example.graduation.login.Login
+import android.widget.Toast
 import com.example.graduation.databinding.ActivitySignupCheckpwdBinding
 import java.util.Locale
 
@@ -29,8 +27,7 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
             if (isPwdIdentified(checkpwd, pwd)) {
                 //비밀번호 일치하면 계정 생성 후 로그인 화면으로 이동
                 val email = intent.getStringExtra("email").toString()
-                val name = intent.getStringExtra("name").toString()
-                makeUser(name, email, pwd)
+   /*             makeUser(email, pwd)*/
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
             } else {
@@ -50,10 +47,10 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
         return pwd == checkpwd
     }
 
-   //계정 생성
-    private fun makeUser(name:String, email: String, pwd: String) : Boolean {
-        return TODO("서버에 입력받은 이름, email, pwd로 사용자 계정 생성")
-    }
+/*    //계정 생성
+    private fun makeUser(email: String, pwd: String) : Boolean {
+        return TODO("서버에 입력받은 email, pwd로 사용자 계정 생성")
+    }*/
 
     override fun onDialogButtonClick() {
         finish()

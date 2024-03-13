@@ -1,4 +1,4 @@
-package com.example.graduation.signup
+package com.example.graduation
 
 import android.content.Context
 import android.content.Intent
@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
-import com.example.graduation.SignupDialog
-import com.example.graduation.SignupDialogInterface
 import com.example.graduation.databinding.ActivitySignupEmailBinding
 import java.sql.Connection
 import java.sql.DriverManager
