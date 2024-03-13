@@ -1,13 +1,16 @@
-package com.example.graduation
+package com.example.graduation.transfer
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
+import com.example.graduation.MainActivity
+import com.example.graduation.R
 import com.example.graduation.databinding.ActivityTransferBinding
 import java.util.Locale
-
+//사진으로 송금하기와 음성으로 송금하기 중 선택 화면
 class TransferActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTransferBinding
     lateinit var mtts: TextToSpeech
@@ -15,7 +18,8 @@ class TransferActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTransferBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_transfer)
+        setContentView(binding.root)
+
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
@@ -39,8 +43,10 @@ class TransferActivity : AppCompatActivity() {
         //사진으로 송금하기 버튼
         binding.transferWithPictureBtn.setOnClickListener{
             onSpeech(binding.transferWithPictureBtn.text)
+            Log.d("yk","succeed")
             val intent = Intent(this, TransferPicActivity::class.java)
             startActivity(intent)
+
         }
 
         //음성으로 송금하기 버튼

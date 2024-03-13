@@ -5,32 +5,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PayCompletedFragment"
+    tools:context=".managePay.DeleteCompletedFragment"
     android:background="@color/background">
 
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_gravity="center">
-
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:src="@drawable/img_completed"/>
-
-    <TextView
-        android:id="@+id/pay_completed_tv"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="결제가 완료되었습니다.\n\n화면 하단의 버튼을 누르면\n메인화면으로 돌아갑니다."
-        android:textSize="20sp"
-        android:textColor="@color/black"/>
-</LinearLayout>
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/img_completed"/>
+
+        <TextView
+            android:id="@+id/delete_completed_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="결제수단이 정상적으로\n삭제되었습니다.\n\n화면 하단의 버튼을 누르면\n메인화면으로 돌아갑니다."
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"

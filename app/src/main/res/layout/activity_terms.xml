@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/fl_basic"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="TermsActivity"
+    android:background="@color/background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/background">
+
+        <android.widget.Button
+            android:id="@+id/prev_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/rectangle_style"
+            android:text="@string/previous_text"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="이용 약관"
+            android:textSize="@dimen/title"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:text="제1조 (목적)\n이 약관은 은행 앱 소리페이 서비스(이하 &quot;서비스&quot;)를 이용하는 고객(이하 &quot;고객&quot;)과 은행 사이의 권리와 의무, 책임사항 및 기타 필요한 사항을 규정함을 목적으로 합니다.\n\n제2조 (서비스 이용)
+&quot;소리페이&quot; 서비스는 은행이 제공하는 금융 서비스를 시각장애인을 위해 음성 안내 및 명령을 통해 이용할 수 있는 모바일 앱 서비스를 의미합니다. 고객은 &quot;소리페이&quot; 서비스를 본 약관과 은행의 정책에 따라 이용하여야 하며, 해당 서비스를 효과적으로 이용하기 위해 필요한 설정을 완료하여야 합니다.
+\n\n제3조 (개인정보 보호) 은행은 고객의 개인정보를 서비스 제공 목적으로만 사용하며, 해당 정보를 제3자에게 무단으로 제공하지 않습니다. 고객은 개인정보 관리에 주의하여 자신의 개인정보를 안전하게 관리해야 하며, 비밀번호 등을 타인에게 누설해서는 안 됩니다.\n\n제4조 (음성 명령 및 안내) &quot;소리페이&quot; 서비스는 음성 명령 및 안내를 통해 고객이 서비스를 쉽게 이용할 수 있도록 지원합니다. 고객은 음성 명령을 통해 금융 거래, 잔고 확인, 이체 등을 간편하게 수행할 수 있습니다.\n\n제5조 (서비스 변경 및 중단) 은행은 서비스의 변경이나 중단이 필요한 경우, 고객에게 사전 통지 후 변경이나 중단을 진행합니다. 고객이 약관 또는 서비스 변경에 동의하지 않을 경우, 서비스 이용을 중단할 수 있습니다.\n\n제6조 (책임 및 면책) 은행은 정상적인 서비스 제공을 위해 최선을 다하며, 서비스 이용에 관한 문제가 발생할 경우 신속하게 조치합니다. 은행은 천재지변, 정전, 서비스 고장 등 불가항력적인 상황으로 인한 서비스 중단에 대해 책임을 지지 않습니다.\n\n제7조 (이용자 의무) 고객은 본 서비스를 부정하게 이용하거나 타인의 정보를 도용하여 이용해서는 안 됩니다.
+은행에 제공된 연락처 정보가 변경되었을 경우, 즉시 은행에 변경 사항을 알려야 합니다.\n\n제8조 (약관의 변경) 은행은 필요한 경우 본 약관을 변경할 수 있으며, 변경 사항은 고객에게 통지 후 적용됩니다.
+고객은 약관 변경에 동의하지 않을 경우, 서비스 이용을 중단할 수 있습니다.\n\n제9조 (분쟁 해결) 본 약관에 따른 분쟁에 대해서는 대한민국 법률이 적용되며, 관할 법원은 은행 소재지의 법원으로 합니다. 본 약관은 2024년 1월 1일부터 시행됩니다.\n\n\n\n\n\n"
+    android:textSize="20sp"/>
+</ScrollView>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <android.widget.Button
+            android:id="@+id/approveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/rectangle_style"
+            android:backgroundTint="@null"
+            android:text="확인"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</FrameLayout>

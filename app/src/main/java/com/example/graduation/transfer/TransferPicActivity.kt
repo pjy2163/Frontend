@@ -1,4 +1,4 @@
-package com.example.graduation
+package com.example.graduation.transfer
 
 import android.content.Context
 import android.content.Intent
@@ -7,17 +7,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.speech.tts.TextToSpeech
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.example.graduation.R
 import com.example.graduation.databinding.ActivityTransferPicBinding
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import java.util.Locale
 
-//구글 비전 api사용함
-//TODO:인식률이 보통임 6자리 숫자 정도를 입력하면 잘 되나 계좌번호처럼 길게 입력하면 잘 안됨
-//TODO:자동초점 맞추기 기능이 없어서 그런 것으로 추측
+//Google vision api사용함
+//손글씨는 잘 안되는데 키보드로 텍스트 입력해서 찍어보면 잘됨
 
 class TransferPicActivity : AppCompatActivity() {
 
@@ -27,13 +30,20 @@ class TransferPicActivity : AppCompatActivity() {
     private var imageBitmap: Bitmap? =null
     lateinit var mtts:TextToSpeech
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_transfer_pic)
-
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_transfer_pic)
+        setContentView(binding.root)
         // SharedPreferences에서 소리 on/off 상태 불러오기
-        val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("sp1", MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
+
+        //목소리 입력과 카메라 촬영 중 무엇을 사용하여 계좌번호를 입력하였는지 정보
+        val window="pic"
+        val editor = sharedPreferences.edit()
+        editor.putString("window",window)
+        editor.apply()
 
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
@@ -43,23 +53,41 @@ class TransferPicActivity : AppCompatActivity() {
         if (soundState) {
             onSpeech("사진으로 송금하기 화면입니다.")
         }
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_transfer_pic)
 
         binding.apply {
+            //사진촬영 버튼 이벤트처리
             takePicBtn.setOnClickListener {
                 takeImage()
-                binding.recognizedAccountNumberTv.text = ""
+   /*             binding.resultTv.text = ""*/
                 if (soundState) {
                     onSpeech(binding.takePicBtn.text)
                 }
             }
 
-            detectTextBtn.setOnClickListener {
-                processImage()
+            binding.detectTextBtn.setOnClickListener {
+                processImage() //이미지 처리해서 숫자 추출
                 if (soundState) {
                     onSpeech(binding.detectTextBtn.text)
                 }
+
+                //어느 계좌번호로 보낼건지 사진촬영한 것을 저장, TransferConfirmationActivity로 보내기
+                val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("toAccount", binding.resultTv.text.toString())
+                editor.apply()
+
+                binding.resultTv.visibility = View.VISIBLE
+
+
             }
+        }
+        binding.nextBtn.setOnClickListener {
+            if (soundState) {
+                onSpeech(binding.nextBtn.text)
+            }
+
+            val intent = Intent(this, TransferConfirmationActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -101,7 +129,7 @@ class TransferPicActivity : AppCompatActivity() {
                         //모든 텍스트는 숫자로만 인식(계좌번호)하지만 -는 -로 인식
                         val modifiedText =  maketextNumeric(visionText.text)
                         //인식된 계좌번호를 텍스트뷰에 띄우기
-                        binding.recognizedAccountNumberTv.text = modifiedText
+                        binding.resultTv.text = modifiedText
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(this, "이미지 인식 실패", Toast.LENGTH_SHORT).show()
@@ -113,8 +141,8 @@ class TransferPicActivity : AppCompatActivity() {
     }
 
     private fun maketextNumeric(originalText: String): String {
-        //숫자 아닌 문자 제거 (-는 제외)
-        val numericText = originalText.replace("[^0-9]".toRegex(), "")
+        // 숫자와 -를 제외한 문자 제거
+        val numericText = originalText.replace("[^0-9-]".toRegex(), "")
         return numericText
     }
 

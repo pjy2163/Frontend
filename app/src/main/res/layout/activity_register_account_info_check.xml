@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".managePay.RegisterAccountInfoCheckActivity"
     android:background="@color/background">
 
     <android.widget.Button
@@ -36,7 +36,8 @@
             android:gravity="center"
             android:text="등록할 계좌 정보 확인"
             android:textSize="@dimen/title"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
 
         <TextView
@@ -46,14 +47,15 @@
             android:layout_marginBottom="20dp"
             android:gravity="left"
             android:paddingLeft="20dp"
-            android:text="계좌 정보 입력(최초 1회만)\n가상 계좌 및 적금 펀드 계좌는 등록 불가" />
+            android:text="계좌 정보 입력(최초 1회만)\n가상 계좌 및 적금 펀드 계좌는 등록 불가"
+            android:textColor="@color/black"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/light_grey"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="30dp">
 
         <TextView
             android:id="@+id/bank_title_tv"
@@ -107,6 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="30dp"
             android:background="@color/light_grey">
 
             <TextView

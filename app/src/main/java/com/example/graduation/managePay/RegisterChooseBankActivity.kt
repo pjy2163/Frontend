@@ -1,16 +1,10 @@
-package com.example.graduation.register
+package com.example.graduation.managePay
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.ContextCompat.startActivity
-import androidx.fragment.app.Fragment
 import com.example.graduation.databinding.ActivityRegisterChooseBankBinding
 import java.util.Locale
 
@@ -44,9 +38,7 @@ class RegisterChooseBankActivity : AppCompatActivity() {
                 onSpeech(binding.hanaBtn.text)
             }
 
-            //어느 은행인지 데이터를 가지고 RegisterePayVoiceActivity로 이동함
-            val intent = Intent(this, RegisterPayVoiceActivity::class.java)
-            startActivity(intent)
+
 
         }
 
