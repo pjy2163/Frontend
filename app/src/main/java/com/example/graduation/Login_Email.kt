@@ -7,12 +7,6 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import com.example.graduation.databinding.ActivityLoginEmailBinding
-import com.example.graduation.model.User
-import com.example.graduation.retrofit.RetrofitService
-import com.example.graduation.retrofit.UserApi
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
@@ -38,8 +32,8 @@ class Login_Email : AppCompatActivity() {
             onSpeech("로그인 이메일 입력 화면입니다.")
         }
 
-        val retrofitService = RetrofitService()
-        val userApi = retrofitService.retrofit.create(UserApi::class.java)
+      //  val retrofitService = RetrofitService()
+       // val userApi = retrofitService.retrofit.create(UserApi::class.java)
 
         binding.enter.setOnClickListener {
             val email = binding.loginInputEmail.text.toString()
@@ -55,19 +49,19 @@ class Login_Email : AppCompatActivity() {
                         onSpeech("가입되지 않은 이메일입니다.")
                     }
                 }
-                val user = User()
-                user.setId(email)
-                userApi.save(user).enqueue(object : Callback<User> {
-                    override fun onResponse(call: Call<User>, response: Response<User>) {
-                        if (response.isSuccessful) {
-                            Toast.makeText(this@Login_Email, "로그인 성공", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+               // val user = User()
+               // user.setId(email)
+                //userApi.save(user).enqueue(object : Callback<User> {
+                  //  override fun onResponse(call: Call<User>, response: Response<User>) {
+                     //   if (response.isSuccessful) {
+                         //   Toast.makeText(this@Login_Email, "로그인 성공", Toast.LENGTH_SHORT).show()
+                     //   }
+                   // }
 
-                    override fun onFailure(call: Call<User>, t: Throwable) {
-                        Toast.makeText(this@Login_Email, "로그인 실패", Toast.LENGTH_SHORT).show()
-                    }
-                })
+                    //override fun onFailure(call: Call<User>, t: Throwable) {
+                      //  Toast.makeText(this@Login_Email, "로그인 실패", Toast.LENGTH_SHORT).show()
+                   // }
+              //  })
             } else {
                 //이메일 형식 오류일 경우
                 Toast.makeText(this, "이메일을 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
@@ -87,7 +81,7 @@ class Login_Email : AppCompatActivity() {
     //이메일 등록 여부 검사
     private fun isEmailRegistered(email: String): Boolean {
         // JDBC 연결
-        val url = "http://192.168.219.102:8080"
+        val url = "http://localhost:8080"
         val username = "username"
         val password = "password"
         // DB 연결

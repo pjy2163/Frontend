@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import com.example.graduation.databinding.ActivitySignupPwdBinding
+import com.example.graduation.model.User
 import java.util.Locale
 
 class Signup_Pwd : AppCompatActivity(), SignupDialogInterface {
@@ -31,11 +32,14 @@ class Signup_Pwd : AppCompatActivity(), SignupDialogInterface {
         }
 
         binding.enterButton.setOnClickListener {
-            val pwd = binding.signupInputPwd.text.toString().trim()
-            if (isPwdQualified(pwd)){
+            val password = binding.signupInputPwd.text.toString().trim()
+            val user = User()
+            user.setPassword(password)
+
+            if (isPwdQualified(password)){
                 //비밀번호 조건 충족 시 저장 후 다음 화면으로 이동
                 val intent = Intent(this, Signup_Checkpwd::class.java)
-                intent.putExtra("pwd", pwd) //비밀번호 값 전달
+                intent.putExtra("password", password) //비밀번호 값 전달
                 startActivity(intent)
             }
             else {

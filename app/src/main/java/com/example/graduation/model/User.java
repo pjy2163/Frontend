@@ -1,16 +1,23 @@
 package com.example.graduation.model;
 
-public class User {
-    private String name;
+import com.google.gson.annotations.SerializedName;
+
+
+public class User { // 회원가입 요청시 보낼 데이터
     private String id; // 이게 id
     private String password;
+    //private String passwordCheck;
 
-    public void setName(String name) {
-        this.name = name;
+    public String getId() {
+        return id;
     }
 
     public void setId(String id) {
-        this.id = id; //이메일 형식의 아이디이므로 id라 지칭함.
+        this.id = id;
+    }
+
+    public String getPassword() {
+        return id;
     }
 
     public void setPassword(String password) {
@@ -20,10 +27,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "name='" + name + '\'' +
-                "id='" + id + '\'' +
-                ", password='" + password +
+        return "User{" + "id='" + id + '\'' + "password='" + password +
                 '}';
     }
 }
-
