@@ -38,9 +38,7 @@ class RegisterChooseBankActivity : AppCompatActivity() {
                 onSpeech(binding.hanaBtn.text)
             }
 
-            //어느 은행인지 데이터를 가지고 RegisterePayVoiceActivity로 이동함
-            val intent = Intent(this, RegisterPayVoiceActivity::class.java)
-            startActivity(intent)
+
 
         }
 
