@@ -49,8 +49,9 @@ class Login : AppCompatActivity() {
                     if (soundState) {
                         onSpeech("로그인 에러")
                     }
-                    TODO("비밀번호 로그인 화면으로 이동")
+                    TODO("비밀번호 로그인으로 이동")
                 }
+
 
                 override fun onAuthenticationSucceeded(
                     result: BiometricPrompt.AuthenticationResult
@@ -97,7 +98,7 @@ class Login : AppCompatActivity() {
 
         //회원가입 화면 연결
         binding.SignUp.setOnClickListener {
-            val intent = Intent(this, Signup_Email::class.java)
+            val intent = Intent(this, Signup_Name::class.java)
             startActivity(intent)
             if (soundState) {
                 onSpeech("회원가입")

@@ -51,6 +51,7 @@ class TransferActivity : AppCompatActivity() {
         }
     }
 
+    //음성 안내
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
