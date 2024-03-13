@@ -27,6 +27,9 @@
         android:theme="@style/Theme.Graduation"
         tools:targetApi="31">
         <activity
+            android:name=".transfer.TransferConfirmationActivity"
+            android:exported="false" />
+        <activity
             android:name=".PayHistoryActivity"
             android:exported="false" />
         <activity
@@ -42,10 +45,6 @@
             android:parentActivityName=".Signup_Email" />
         <activity
             android:name=".Signup_Email"
-            android:exported="true"
-            android:parentActivityName=".Signup_Name"></activity>
-        <activity
-            android:name=".Signup_Name"
             android:exported="true"
             android:parentActivityName=".Login"></activity>
         <activity
@@ -100,10 +99,10 @@
             android:name=".TransferActivity"
             android:exported="false" />
         <activity
-            android:name=".TransferPicActivity"
+            android:name=".transfer.TransferPicActivity"
             android:exported="true" />
         <activity
-            android:name=".TransferVoiceActivity"
+            android:name=".transfer.TransferVoiceActivity"
             android:exported="true" />
         <activity
             android:name=".PayFingerActivity"
