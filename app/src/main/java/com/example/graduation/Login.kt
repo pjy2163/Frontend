@@ -97,7 +97,7 @@ class Login : AppCompatActivity() {
 
         //회원가입 화면 연결
         binding.SignUp.setOnClickListener {
-            val intent = Intent(this, Signup_Email::class.java)
+            val intent = Intent(this, Signup_Name::class.java)
             startActivity(intent)
             if (soundState) {
                 onSpeech("회원가입")

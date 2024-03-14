@@ -47,9 +47,6 @@
             android:name=".PayHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".managePay.RegisterPayVoiceActivity"
-            android:exported="false" />
-        <activity
             android:name=".Signup_Checkpwd"
             android:exported="false"
             android:parentActivityName=".Signup_Pwd" />
@@ -60,7 +57,11 @@
         <activity
             android:name=".Signup_Email"
             android:exported="true"
-            android:parentActivityName=".Login" />
+            android:parentActivityName=".Signup_Name"></activity>
+        <activity
+            android:name=".Signup_Name"
+            android:exported="true"
+            android:parentActivityName=".Login"></activity>
         <activity
             android:name=".Login_Pwd"
             android:exported="false"

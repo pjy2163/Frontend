@@ -140,5 +140,3 @@
             android:textSize="@dimen/sub_title" />
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
