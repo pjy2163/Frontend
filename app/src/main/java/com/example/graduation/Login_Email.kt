@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Toast
+import com.example.graduation.LoginUser.Companion.email
 import com.example.graduation.databinding.ActivityLoginEmailBinding
 import java.sql.Connection
 import java.sql.DriverManager
@@ -36,11 +37,11 @@ class Login_Email : AppCompatActivity() {
        // val userApi = retrofitService.retrofit.create(UserApi::class.java)
 
         binding.enter.setOnClickListener {
-            val email = binding.loginInputEmail.text.toString()
-            if (isEmailValid(email)) {
-                if (isEmailRegistered(email)) {
+            val id = binding.loginInputEmail.text.toString()
+            if (isEmailValid(id)) {
+                if (isEmailRegistered(id)) {
                     val intent = Intent(this, Login_Pwd::class.java)
-                    intent.putExtra("email", email) //이메일 값 넘겨주기
+                    intent.putExtra("id", id) //이메일 값 넘겨주기
                     startActivity(intent)
                 } else {
                     //등록되지 않은 이메일인 경우
@@ -79,20 +80,23 @@ class Login_Email : AppCompatActivity() {
     }
 
     //이메일 등록 여부 검사
-    private fun isEmailRegistered(email: String): Boolean {
+    private fun isEmailRegistered(id: String): Boolean {
         // JDBC 연결
-        val url = "http://localhost:8080"
-        val username = "username"
-        val password = "password"
+        val url = "jdbc:mysql://192.168.16.70:3306/userlog"
+        val id = "parang"
+        val password = "backend"
         // DB 연결
+        //Class.forName("com.mysql.jdbc.Driver")
         var connection: Connection? = null
         var isRegistered = false
         try {
-            connection = DriverManager.getConnection(url, username, password)
+           // connection = DriverManager.getConnection("jdbc:mysql://192.168.219.102:3306/userlog","parang","backend")
+
+             connection = DriverManager.getConnection(url, id, password)
             // SQL 쿼리를 이용해서 이메일이 DB에 존재하는지 확인
-            val sql = "SELECT COUNT(*) FROM users WHERE email = ?"
+            val sql = "SELECT * FROM User WHERE id=?"
             val preparedStatement = connection.prepareStatement(sql)
-            preparedStatement.setString(1, email)
+            preparedStatement.setString(1, id)
             val resultSet = preparedStatement.executeQuery()
             //존재하지 않으면 isNotRegistered 값을 true로 설정
             if (resultSet.next()) {

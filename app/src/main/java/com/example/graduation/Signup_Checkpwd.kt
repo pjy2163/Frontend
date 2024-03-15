@@ -33,33 +33,32 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
         val userApi: UserApi = retrofitService.retrofit.create(UserApi::class.java)
         binding.enterButton.setOnClickListener {
 
+            //val id = intent.getStringExtra("id").toString()
+            val password = intent.getStringExtra("password").toString()
             val checkpwd = binding.signupInputCheckpwd.text.toString().trim()
 
-            val password = intent.getStringExtra("password").toString()
             val user = User()
-
-            user.password = password
-
+           // user.id = id
+           // user.password = password
 
 
             if (isPwdIdentified(checkpwd, password)) {
                 //비밀번호 일치하면 계정 생성 후 로그인 화면으로 이동
-                val id = intent.getStringExtra("id").toString()
-                user.id = id
-                user.password = password
+                //val id = intent.getStringExtra("id").toString()
                 userApi.save(user)
                     .enqueue(object : Callback<User> {
-                    override fun onResponse(call: Call<User>, response: Response<User>) {
-                        Toast.makeText(this@Signup_Checkpwd, "ok!!!", Toast.LENGTH_SHORT).show()
-                    }
+                        override fun onResponse(call: Call<User>, response: Response<User>) {
+                            Toast.makeText(this@Signup_Checkpwd, "ok!!!", Toast.LENGTH_SHORT).show()
+                        }
 
-                    override fun onFailure(call: Call<User>, t: Throwable) {
-                        Toast.makeText(this@Signup_Checkpwd, "fail!!!", Toast.LENGTH_SHORT).show()
-                        Logger.getLogger(Signup_Checkpwd::class.java.name).log(Level.SEVERE, "")
-                    }
-                })
+                        override fun onFailure(call: Call<User>, t: Throwable) {
+                            Toast.makeText(this@Signup_Checkpwd, "fail!!!", Toast.LENGTH_SHORT).show()
+                            Logger.getLogger(Signup_Checkpwd::class.java.name).log(Level.SEVERE, "에러")
+                        }
+                    })
 
                 /*             makeUser(email, pwd)*/
+
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
 

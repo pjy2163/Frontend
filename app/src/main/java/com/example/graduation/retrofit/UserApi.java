@@ -12,7 +12,7 @@ import retrofit2.Call;
 public interface UserApi {
 
     @GET("/user/get-all")
-    Call<List<User>> getAllUers();
+    Call<List<User>> getAllUser();
 
     @POST("/user/save")
     Call<User> save(@Body User user);

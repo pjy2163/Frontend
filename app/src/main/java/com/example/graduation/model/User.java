@@ -17,7 +17,7 @@ public class User { // 회원가입 요청시 보낼 데이터
     }
 
     public String getPassword() {
-        return id;
+        return password;
     }
 
     public void setPassword(String password) {

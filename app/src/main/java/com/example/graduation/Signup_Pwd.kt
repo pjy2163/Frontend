@@ -34,8 +34,7 @@ class Signup_Pwd : AppCompatActivity(), SignupDialogInterface {
         binding.enterButton.setOnClickListener {
             val password = binding.signupInputPwd.text.toString().trim()
             val user = User()
-            user.setPassword(password)
-
+            user.password = password
             if (isPwdQualified(password)){
                 //비밀번호 조건 충족 시 저장 후 다음 화면으로 이동
                 val intent = Intent(this, Signup_Checkpwd::class.java)

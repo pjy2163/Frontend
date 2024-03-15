@@ -60,7 +60,7 @@ class Login : AppCompatActivity() {
                     if (soundState) {
                         onSpeech("로그인 성공")
                     }
-                    TODO("로그인 로직 직접 구현해야할지? ")//지문인식 자동로그인형식으로..
+                   //TODO("로그인 로직 직접 구현해야할지? ")//지문인식 자동로그인형식으로..
                 }
 
                 override fun onAuthenticationFailed() {

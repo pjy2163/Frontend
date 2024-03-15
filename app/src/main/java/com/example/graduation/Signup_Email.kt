@@ -40,8 +40,7 @@ class Signup_Email : AppCompatActivity(), SignupDialogInterface {
         binding.enterButton.setOnClickListener {
             val id = binding.signupInputEmail.text.toString().trim() //id 이메일 형식
             val user = User()
-            user.setId(id)
-
+            user.id = id
             if (isEmailValid(id)) {
                 if (isEmailAvailable(id)) {
                     //등록 가능한 이메일인 경우
@@ -81,17 +80,20 @@ class Signup_Email : AppCompatActivity(), SignupDialogInterface {
     //이메일 등록 여부 검사
     private fun isEmailAvailable(id: String): Boolean {
         //JDBC 연결
-        val url = "DB url 넣기"
-        val username = "username"
-        val password = "password"
+       // Class.forName("com.mysql.jdbc.Driver")
+        //val url = DriverManager.getConnection("jdbc:mysql://192.168.219.102:8080/userlog","parang","backend")
+        val url = "jdbc:mysql://192.168.16.70:3306/userlog"
+        val id = "parang"
+        val password = "backend"
         // DB 연결
         var connection: Connection? = null
         var isAvailable = true
 
         try {
-            connection = DriverManager.getConnection(url, username, password)
+            //connection = DriverManager.getConnection("jdbc:mysql://192.168.219.102:3306/userlog","parang","backend")
+            connection = DriverManager.getConnection(url, id, password)
             //SQL 쿼리를 이용해서 이메일이 DB에 존재하는지 확인
-            val sql = "SELECT COUNT(*) FROM users WHERE email = ?"
+            val sql = "SELECT * FROM User WHERE id=?"
             val preparedStatement = connection.prepareStatement(sql)
             preparedStatement.setString(1, id)
             val resultSet = preparedStatement.executeQuery()

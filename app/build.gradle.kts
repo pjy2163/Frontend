@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.bsh.commands.dir
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -40,6 +42,7 @@ android {
         viewBinding = true
         dataBinding=true
     }
+
 }
 
 dependencies {
@@ -75,7 +78,14 @@ dependencies {
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
    // implementation ("com.google.code.gson:gson:2.8.6")
    // implementation ("com.squareup.okhttp3:logging-interceptor:3.11.0")
+
+    implementation ("mysql:mysql-connector-java:5.1.46")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+
 
 }
