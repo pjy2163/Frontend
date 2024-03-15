@@ -8,8 +8,8 @@
     android:background="#FAFAFD">
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
             android:background="@drawable/rectangle_style"
-            android:backgroundTint="@null"
             android:text="@string/previous_text"
             android:textSize="20sp"
             android:padding="15dp"
@@ -35,27 +34,12 @@
             android:text="내 정보"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="80dp"
             android:textSize="@dimen/title"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
-        <Button
-            android:id="@+id/payment_history_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingLeft="60dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:paddingRight="60dp"
-            android:layout_marginBottom="40dp"
-            android:drawableLeft="@drawable/img_receipt"
-            android:drawablePadding="20dp"
-            android:text="결제 내역 확인"
-            android:background="@drawable/round_white_bg"
-            android:textSize="20sp" />
+
 
         <Button
             android:id="@+id/change_pwd_btn"

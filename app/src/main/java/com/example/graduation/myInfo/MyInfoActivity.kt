@@ -42,14 +42,7 @@ class MyInfoActivity : AppCompatActivity(){
         }
         //TODO: 등록된 결제수단 확인하기 위해 가로로 넘기면서 보는 뷰 (은행계좌 또는 카드명 부분 가로로 넘어가도록 처리)
 
-        //결제 내역 확인 버튼 이벤트 처리
-        binding.paymentHistoryBtn.setOnClickListener{
-            if (soundState) {
-                onSpeech(binding.paymentHistoryBtn.text)
-            }
-            val intent = Intent(this, PayHistoryActivity::class.java)
-            startActivity(intent)
-        }
+
 
         //비밀번호 변경 버튼 이벤트 처리
         binding.changePwdBtn.setOnClickListener{

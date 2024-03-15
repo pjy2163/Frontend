@@ -33,7 +33,7 @@ class PaymentMethodAdapter(
             bankLogoIv.setImageResource(paymentMethod.imageResId)
             engBankNameTv.text = paymentMethod.engBank
             korBankNameTv.text = paymentMethod.korBank
-            bankbookNumberTv.text = " (${paymentMethod.accountNumber})"
+            bankbookNumberTv.text = paymentMethod.accountNumber
 
             //카드 선택 유무에 따라 체크 표시 색깔 변경 (회색->노랑->회색)
             checkImg.setImageResource(
