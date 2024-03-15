@@ -69,6 +69,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //결제 내역 확인 버튼 이벤트 처리
+        binding.paymentHistoryBtn.setOnClickListener{
+            if (soundState) {
+                onSpeech(binding.paymentHistoryBtn.text)
+            }
+            val intent = Intent(this, PayHistoryActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 

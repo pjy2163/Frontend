@@ -30,7 +30,7 @@
         android:backgroundTint="#DD1717"
         android:text="결제 수단 선택"
         android:layout_margin="20dp"
-        android:textSize="@dimen/title"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/black"/>
 
