@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.widget.Toast
 import com.example.graduation.SignupDialog
 import com.example.graduation.SignupDialogInterface
 import com.example.graduation.databinding.ActivityChangePwdBinding
@@ -16,7 +17,7 @@ class ChangePwdActivity : AppCompatActivity(), SignupDialogInterface {
     lateinit var mtts:TextToSpeech
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityChangePwdBinding.inflate(layoutInflater)
+        binding =ActivityChangePwdBinding.inflate(layoutInflater)
         setContentView(binding.root)
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
@@ -51,8 +52,6 @@ class ChangePwdActivity : AppCompatActivity(), SignupDialogInterface {
                 }
             }
         }
-
-
     }
 
     override fun onDialogButtonClick() {

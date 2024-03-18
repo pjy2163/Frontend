@@ -29,6 +29,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".signUp.SignUpAccountCheckPwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".signUp.SignUpAccountPwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".transfer.TransferChooseBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".transfer.TransferMemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myInfo.EnterFingerprintActivity"
+            android:exported="false" />
+        <activity
             android:name=".managePay.CurrentCardListActivity"
             android:exported="false" />
         <activity
@@ -57,11 +72,11 @@
         <activity
             android:name=".Signup_Email"
             android:exported="true"
-            android:parentActivityName=".Signup_Name"></activity>
+            android:parentActivityName=".Signup_Name" />
         <activity
             android:name=".Signup_Name"
             android:exported="true"
-            android:parentActivityName=".Login"></activity>
+            android:parentActivityName=".Login" />
         <activity
             android:name=".Login_Pwd"
             android:exported="false"

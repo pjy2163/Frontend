@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.graduation.R
 import com.example.graduation.databinding.ActivityTransferVoiceBinding
 import java.util.Locale
 
@@ -150,6 +151,9 @@ class TransferVoiceActivity : AppCompatActivity() {
             val editor = sharedPreferences.edit()
             editor.putString("toAccount", binding.resultTv.text.toString())
             editor.apply()
+
+            // 음성 인식 성공 시 다음 버튼의 색상을 파랑으로 변경
+            binding.nextBtn.setBackgroundColor(resources.getColor(R.color.blue)) // 파랑색
         }
         // 부분 인식 결과를 사용할 수 있을 때 호출
         override fun onPartialResults(partialResults: Bundle) {}

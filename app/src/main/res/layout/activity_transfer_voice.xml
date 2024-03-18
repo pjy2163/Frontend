@@ -25,16 +25,26 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="24sp"
-        android:text="음성으로 송금하기"
+        android:text="받는분 정보 입력"
         android:textColor="@color/black"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/explain_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="송금 받는 분의 이름과\n계좌번호를 입력하세요."
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="30dp">
 
 
     <ImageButton
@@ -45,30 +55,32 @@
         android:scaleType="centerInside"
         app:srcCompat="@drawable/img_record_button" />
     <TextView
-        android:id="@+id/explain_tv"
+        android:id="@+id/button_explain_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="버튼을 누르면\n음성 인식이 시작됩니다."
+        android:text="화면 중앙의 버튼을 누르면\n음성 인식이 시작됩니다."
         android:textSize="24sp"
         android:textStyle="bold"
-   />
+        android:textColor="@color/black"   />
 
     <TextView
         android:id="@+id/result_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="음성인식 결과"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp" />
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
 
         <TextView
             android:id="@+id/state_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="음성 인식 상태"/>
+            android:text="음성 인식 상태..."
+            android:textColor="@color/black"/>
 
 
     </LinearLayout>
@@ -82,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/rectangle_style"
+        android:background="@drawable/rectangle_style_light_grey"
         android:padding="15dp"
         android:text="다음"
         android:textColor="@color/white"

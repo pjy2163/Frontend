@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:id="@+id/fl_basic"
+<FrameLayout android:id="@+id/fl_basic"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".transfer.TransferConfirmationActivity"
-    android:background="@color/background">
-
+    android:background="@color/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         android:orientation="vertical"
         android:background="@color/background">
 
-        <android.widget.Button
+        <Button
             android:id="@+id/prev_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +26,7 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -35,7 +34,9 @@
             android:textSize="@dimen/title"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginBottom="30dp"/>
+            android:layout_marginBottom="20dp"/>
+
+        <!-- 송금할 계좌 정보 -->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -44,25 +45,24 @@
             android:layout_gravity="center">
 
             <TextView
-                android:id="@+id/to_account_number_tv"
+                android:id="@+id/receiver_name_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="123-456-78910"
+                android:text="000"
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textColor="@color/blue"
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/explain_tv"
+                android:id="@+id/receiver_sentence_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:text=" 님에게"
                 android:gravity="center"
-                android:text="으로"
-                android:textColor="@color/black"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textColor="@color/blue"
+                android:textStyle="bold"/>
 
         </LinearLayout>
         <LinearLayout
@@ -75,7 +75,6 @@
                 android:id="@+id/product_price_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:text="4500"
                 android:textColor="@color/blue"
                 android:textSize="24sp"
@@ -84,54 +83,123 @@
                 android:id="@+id/explain_price_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text=" 원을 송금합니다."
+                android:text=" 원을 이체하시겠습니까?"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/receiver_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="받는 계좌: "
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/receiver_bank_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="국민"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/receiver_account_number_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="123-456-78910"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="vertical"
-            android:background="@drawable/stroke_round_yellow"
-            android:padding="10dp"
-            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/receiver_memo_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="받는 분에게 표시: "
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/account_info_title_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="[출금 계좌]"
-                android:textSize="@dimen/sub_title"
-                android:textStyle="bold"
-                android:layout_marginBottom="20dp"/>
-            <TextView
-                android:id="@+id/chosen_payment_name_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00은행"
-                android:textSize="@dimen/sub_title"/>
-
-            <TextView
-                android:id="@+id/chosen_payment_number_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="123-456-78910"
-                android:textSize="@dimen/sub_title"
-                android:layout_marginBottom="20dp" />
+        <TextView
+            android:id="@+id/sender_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="이유경"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/speech_btn"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/img_record_button" />
+
+        <TextView
+            android:id="@+id/check_pay_info_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/grey_notice"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="50dp"
+            android:text="받는 분에게 표시되는 이름을 변경하시려면\n화면 중앙의 마이크 버튼을 눌러주세요.\n버튼을 누르면 녹음을 시작합니다."/>
+
+        <TextView
+            android:id="@+id/state_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="음성 인식 상태..."
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"/>
+
+
+        <TextView
+            android:id="@+id/result_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="음성 인식 결과..."
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
-        <android.widget.Button
+        <Button
             android:id="@+id/approveBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -142,5 +210,6 @@
             android:textSize="20sp"
             android:padding="15dp"
             android:textColor="@color/white"/>
-    </LinearLayout>
+
+
 </FrameLayout>

@@ -47,10 +47,10 @@ class TransferCompletedFragment : Fragment() {
 
         playSuccessSound() //완료되었다는 띠링 소리
 
-        //화면 정보 읽기
+        /*//화면 정보 읽기
         if (soundState) {
             onSpeech(binding.payCompletedTv.text)
-        }
+        }*/
 
         binding.nextBtn.setOnClickListener {
             if (soundState) {
