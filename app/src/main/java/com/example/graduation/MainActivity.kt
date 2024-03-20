@@ -9,6 +9,9 @@ import com.example.graduation.myInfo.MyInfoActivity
 import com.example.graduation.databinding.ActivityMainBinding
 import com.example.graduation.managePay.EditPayActivity
 import com.example.graduation.transfer.TransferActivity
+import com.example.graduation.transfer.TransferChooseBankActivity
+import com.example.graduation.transfer.TransferInfoActivity
+import com.example.graduation.transfer.TransferVoiceActivity
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -48,8 +51,9 @@ class MainActivity : AppCompatActivity() {
             if (soundState) {
                 onSpeech(binding.transferBtn.text)
             }
-            val intent = Intent(this, TransferActivity::class.java)
+            val intent = Intent(this, TransferChooseBankActivity::class.java)
             startActivity(intent)
+
         }
 
 

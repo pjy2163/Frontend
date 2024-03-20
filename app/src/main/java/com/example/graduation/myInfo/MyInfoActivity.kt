@@ -49,8 +49,9 @@ class MyInfoActivity : AppCompatActivity(){
             if (soundState) {
                 onSpeech(binding.changePwdBtn.text)
             }
-            val changePwdIntent = Intent(this, ChangePwdActivity::class.java)
-            startActivity(changePwdIntent)
+            //본인확인 위해 지문인증으로 이동
+            val intent = Intent(this,EnterFingerprintActivity::class.java)
+            startActivity(intent)
         }
 
         //이용약관 버튼 이벤트 처리

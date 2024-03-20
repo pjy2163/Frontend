@@ -1,93 +1,88 @@
 package com.example.graduation.myInfo
 
+import com.example.graduation.ChoosePayMethodActivity
+import com.example.graduation.PayConfirmationActivity
+
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.biometric.BiometricManager
+import android.os.Build
 import android.provider.Settings
 import android.speech.tts.TextToSpeech
-import android.util.Log
-import android.widget.Toast
-import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
+import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
+import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.core.content.ContextCompat
-import com.example.graduation.SignupDialog
-import com.example.graduation.SignupDialogInterface
-import com.example.graduation.databinding.ActivityChangeCheckPwdBinding
+import com.example.graduation.R
+import com.example.graduation.databinding.ActivityPayFingerBinding
 import java.util.Locale
 import java.util.concurrent.Executor
 
-//지난번 피드백 이후 비밀번호 변경시 지문인증 추가함
-class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
-
-    private lateinit var binding: ActivityChangeCheckPwdBinding
-    lateinit var mtts: TextToSpeech
+class EnterFingerprintActivity : AppCompatActivity() {
     private var executor: Executor? = null
     private var biometricPrompt: BiometricPrompt? = null
     private var promptInfo: BiometricPrompt.PromptInfo? = null
+    lateinit var binding: ActivityPayFingerBinding
+    lateinit var mtts:TextToSpeech
     lateinit var mediaPlayerSuccess: MediaPlayer
     lateinit var mediaPlayerFailure: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =  ActivityChangeCheckPwdBinding.inflate(layoutInflater)
+
+        binding = ActivityPayFingerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
+
+        mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
+            mtts.language = Locale.KOREAN //언어:한국어
+        }
+
+        // 효과음 초기화
+        mediaPlayerSuccess = MediaPlayer.create(this, R.raw.success_sound)
+        mediaPlayerFailure = MediaPlayer.create(this, R.raw.failure_sound)
+
+        if (soundState) {
+            onSpeech("회원 비밀번호 변경을 위해 본인 확인을 진행합니다. 화면 하단의 지문 인증하기 버튼을 누르고 전원부에 기기에 등록된 지문이 위치한 손가락을 올려주세요.")
+        }
+
+        //이전 화면 버튼 클릭시
+        binding.prevBtn.setOnClickListener {
+            if (soundState) {
+                onSpeech(binding.prevBtn.text)
+            }
+
+            val intent = Intent(this, MyInfoActivity::class.java)
+            startActivity(intent)
+        }
+
 
         //지문 관련 변수
         biometricPrompt = setBiometricPrompt()
         promptInfo = setPromptInfo()
 
-        
-        mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
-            mtts.language = Locale.KOREAN //언어:한국어
-        }
-
-        //화면 정보 읽기
-        if (soundState) {
-            onSpeech("회원가입 이메일 입력 화면입니다.")
-        }
-
-        binding.enterButton.setOnClickListener {
-            val checkpwd = binding.signupInputCheckpwd.text.toString().trim()
-            val pwd = intent.getStringExtra("pwd").toString()
-            if (isPwdIdentified(checkpwd, pwd)) {
-                //비밀번호 일치하면 계정 생성 후 로그인 화면으로 이동
-                val email = intent.getStringExtra("email").toString()
-                val name = intent.getStringExtra("name").toString()
-                makeUser(name, email, pwd)
-                val intent = Intent(this, ChangePwdCompletedFragment::class.java)
-                startActivity(intent)
-            } else {
-                //비밀번호 불일치 시
-                run {
-                    val dialog = SignupDialog(this, "비밀번호가 일치하지않습니다.")
-                    dialog.isCancelable = false
-                    dialog.show(this.supportFragmentManager, "SignupDialog")
-                    if (soundState) {
-                        onSpeech("비밀번호가 일치하지않습니다.")
-                    }
-                }
+        //지문 인증하기 호출 버튼 클릭 시
+        binding.fingerAuthBtn.setOnClickListener {
+            if (soundState) {
+                onSpeech(binding.fingerAuthBtn.text)
             }
+
+            authenticateToEncrypt()  //생체 인증 가능 여부확인
         }
-    }
 
-    //비밀번호 일치 검사
-    private fun isPwdIdentified(checkpwd: String, pwd: String) : Boolean {
-        return pwd == checkpwd
-    }
 
-    //계정 생성
-    private fun makeUser(name: String, email: String, pwd: String): Boolean {
-        return TODO("서버에 입력받은 email, pwd로 사용자 계정 생성")
-    }
-
-    override fun onDialogButtonClick() {
-        finish()
     }
 
     private fun setPromptInfo(): BiometricPrompt.PromptInfo {
@@ -102,26 +97,28 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
         }
 
         promptInfo = promptBuilder.build()
-        return promptInfo as BiometricPrompt.PromptInfo
+        return promptInfo as PromptInfo
     }
+
+
     private fun setBiometricPrompt(): BiometricPrompt {
         executor = ContextCompat.getMainExecutor(this)
 
-        biometricPrompt = BiometricPrompt(this@ChangeCheckPwdActivity, executor!!, object : BiometricPrompt.AuthenticationCallback() {
+        biometricPrompt = BiometricPrompt(this@EnterFingerprintActivity, executor!!, object : BiometricPrompt.AuthenticationCallback() {
 
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                 super.onAuthenticationError(errorCode, errString)
-                Toast.makeText(this@ChangeCheckPwdActivity, """"지문 인식 ERROR [ errorCode: $errorCode, errString: $errString ]""".trimIndent(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@EnterFingerprintActivity, """"지문 인식 ERROR [ errorCode: $errorCode, errString: $errString ]""".trimIndent(), Toast.LENGTH_SHORT).show()
             }
 
             //지문 인식 성공시
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                 super.onAuthenticationSucceeded(result)
                 playSuccessSound()
-                Toast.makeText(this@ChangeCheckPwdActivity, "지문 인증에 성공하였습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@EnterFingerprintActivity, "지문 인증에 성공하였습니다.", Toast.LENGTH_SHORT).show()
 
-                //송금완료 화면으로 이동
-                val intent = Intent(this@ChangeCheckPwdActivity, ChangeCheckPwdActivity::class.java)
+                //새 비밀번호 입력 확인 화면으로 이동
+                val intent = Intent(this@EnterFingerprintActivity, ChangePwdActivity::class.java)
                 startActivity(intent)
             }
 
@@ -129,7 +126,7 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()
                 playFailureSound()
-                Toast.makeText(this@ChangeCheckPwdActivity, "지문 인증에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@EnterFingerprintActivity, "지문 인증에 실패하였습니다.", Toast.LENGTH_SHORT).show()
             }
 
         } )
@@ -145,7 +142,7 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
         Log.d("0222", "authenticateToEncrypt() ")
 
         var textStatus = ""
-        val biometricManager = BiometricManager.from(this@ChangeCheckPwdActivity)
+        val biometricManager = BiometricManager.from(this@EnterFingerprintActivity)
 //        when (biometricManager.canAuthenticate(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)) {
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK)) {
 
@@ -162,7 +159,7 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
                 textStatus = "생체 인식 정보가 디바이스에 등록되어 있지 않습니다."
 
-                val dialogBuilder = AlertDialog.Builder(this@ChangeCheckPwdActivity)
+                val dialogBuilder = AlertDialog.Builder(this@EnterFingerprintActivity)
                 dialogBuilder //지문등록 필요함 안내 다이얼로그
                     .setTitle("SoriPay")
                     .setMessage("지문 등록이 필요합니다. 지문등록 설정화면으로 이동하시겠습니까?")
@@ -175,7 +172,7 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
             else ->  textStatus = "생체 정보 인식 실패"
 
         }
-        /* binding.statusTv.text = textStatus*/
+        binding.statusTv.text = textStatus
 
         //인증 실행하기
         goAuthenticate()
@@ -200,13 +197,11 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
         val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
             putExtra(
                 Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL
-            )
+                BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
         }
 
     }
-    
-    //음성 안내
+
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
@@ -217,6 +212,13 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
 
     private fun playFailureSound() {
         mediaPlayerFailure.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mtts.shutdown()
+        mediaPlayerSuccess.release()
+        mediaPlayerFailure.release()
     }
 
 }
