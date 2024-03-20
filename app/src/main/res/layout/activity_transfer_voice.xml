@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="24sp"
-        android:text="받는분 정보 입력"
+        android:text="받는분 이름 입력"
         android:textColor="@color/black"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
@@ -35,7 +35,7 @@
         android:id="@+id/explain_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="송금 받는 분의 이름과\n계좌번호를 입력하세요."
+        android:text="송금 받는 분의 이름을 입력하세요."
         android:textColor="@color/black"
         android:textSize="18dp"
         android:gravity="center"/>

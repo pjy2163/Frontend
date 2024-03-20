@@ -46,12 +46,21 @@ class TransferChooseBankActivity : AppCompatActivity() {
             if (soundState) {
                 onSpeech(binding.hanaBtn.text)
             }
-
             // 하나 버튼의 체크 상태 토글
             hanaChecked = !hanaChecked
+
+            // SharedPreferences에 선택된 은행 정보 저장
+            saveSelectedBank()
+
             // 체크 이미지 설정
             if (hanaChecked) {
                 binding.checkHanaIv.setImageResource(R.drawable.img_check_yellow)
+                // 하나 버튼이 선택되었으므로, 나머지 버튼들의 체크를 해제
+                shinhanChecked = false
+                kookminChecked = false
+                binding.checkShinhanIv.setImageResource(R.drawable.img_check_grey)
+                binding.checkKookminIv.setImageResource(R.drawable.img_check_grey)
+
             } else {
                 binding.checkHanaIv.setImageResource(R.drawable.img_check_grey)
             }
@@ -69,9 +78,18 @@ class TransferChooseBankActivity : AppCompatActivity() {
             // 국민 버튼의 체크 상태 토글
             kookminChecked = !kookminChecked
 
+            // SharedPreferences에 선택된 은행 정보 저장
+            saveSelectedBank()
+
             // 체크 이미지 설정
             if (kookminChecked) {
                 binding.checkKookminIv.setImageResource(R.drawable.img_check_yellow)
+                // 국민 버튼이 선택되었으므로, 나머지 버튼들의 체크를 해제
+                hanaChecked = false
+                shinhanChecked = false
+                binding.checkHanaIv.setImageResource(R.drawable.img_check_grey)
+                binding.checkShinhanIv.setImageResource(R.drawable.img_check_grey)
+
             } else {
                 binding.checkKookminIv.setImageResource(R.drawable.img_check_grey)
             }
@@ -90,9 +108,18 @@ class TransferChooseBankActivity : AppCompatActivity() {
             // 신한 버튼의 체크 상태 토글
             shinhanChecked = !shinhanChecked
 
+            // SharedPreferences에 선택된 은행 정보 저장
+            saveSelectedBank()
+
             // 체크 이미지 설정
             if (shinhanChecked) {
                 binding.checkShinhanIv.setImageResource(R.drawable.img_check_yellow)
+                // 신한 버튼이 선택되었으므로, 나머지 버튼들의 체크를 해제
+                hanaChecked = false
+                kookminChecked = false
+                binding.checkHanaIv.setImageResource(R.drawable.img_check_grey)
+                binding.checkKookminIv.setImageResource(R.drawable.img_check_grey)
+
             } else {
                 binding.checkShinhanIv.setImageResource(R.drawable.img_check_grey)
             }
@@ -131,6 +158,24 @@ class TransferChooseBankActivity : AppCompatActivity() {
         } else { //선택하지 않음
             binding.nextBtn.setBackgroundColor(resources.getColor(android.R.color.darker_gray)) // 회색
         }
+    }
+
+    private fun saveSelectedBank() {
+        val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        if (hanaChecked) {
+            editor.putString("selectedBank", "하나")
+        } else if (shinhanChecked) {
+            editor.putString("selectedBank", "신한")
+        } else if (kookminChecked) {
+            editor.putString("selectedBank", "국민")
+        } else {
+            // 선택된 버튼이 없는 경우를 처리할 수 있습니다.
+            editor.putString("selectedBank", "")
+        }
+
+        editor.apply()
     }
 
 }

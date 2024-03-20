@@ -63,7 +63,7 @@ class TransferVoiceActivity : AppCompatActivity() {
                 onSpeech(binding.prevBtn.text)
             }
 
-            val intent = Intent(this, TransferActivity::class.java)
+            val intent = Intent(this, TransferChooseBankActivity::class.java)
             startActivity(intent)
         }
 
@@ -81,7 +81,7 @@ class TransferVoiceActivity : AppCompatActivity() {
                 onSpeech(binding.nextBtn.text)
             }
 
-            val intent = Intent(this, TransferConfirmationActivity::class.java)
+            val intent = Intent(this, TransferEnterAccountNumberActivity::class.java)
             startActivity(intent)
         }
 
@@ -145,15 +145,30 @@ class TransferVoiceActivity : AppCompatActivity() {
         override fun onResults(results: Bundle) {
             // 말을 하면 ArrayList에 단어를 넣고 textView에 단어를 이어줌
             val matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-            for (i in matches!!.indices) binding.resultTv.text = matches[i]
+            for (i in matches!!.indices) {
+                binding.resultTv.text=matches[i]
+                val spokenText = matches[i]
 
-            val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-            editor.putString("toAccount", binding.resultTv.text.toString())
-            editor.apply()
+                // 말을 하면 ArrayList에 단어를 넣고 textView에 단어를 이어줌
+                val matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                for (i in matches!!.indices) {
+                    binding.resultTv.text = matches[i]
+                    val spokenText = matches[i]
 
-            // 음성 인식 성공 시 다음 버튼의 색상을 파랑으로 변경
-            binding.nextBtn.setBackgroundColor(resources.getColor(R.color.blue)) // 파랑색
+                    // 숫자를 제외한 나머지 문자만 추출하여 이름으로 사용
+                    val name = spokenText.replace(Regex("[0-9]"), "").trim()
+
+                    // 추출한 이름을 저장
+                    val sharedPreferences = getSharedPreferences("receiverInfo", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("recipientName", name)
+                    editor.apply()
+
+                    // 음성 인식 성공 시 다음 버튼의 색상을 파랑으로 변경
+                    binding.nextBtn.setBackgroundColor(resources.getColor(R.color.blue)) // 파랑색
+
+                }
+            }
         }
         // 부분 인식 결과를 사용할 수 있을 때 호출
         override fun onPartialResults(partialResults: Bundle) {}

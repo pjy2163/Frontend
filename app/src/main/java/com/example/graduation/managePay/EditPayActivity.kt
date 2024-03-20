@@ -44,8 +44,7 @@ class EditPayActivity : AppCompatActivity() {
                 onSpeech(binding.addPayBtn.text)
             }
 
-            val intent = Intent(this, RegisterAccountVoiceActivity::class.java)
-            startActivity(intent)
+
         }
 
         binding.deletePayBtn.setOnClickListener {
@@ -53,8 +52,7 @@ class EditPayActivity : AppCompatActivity() {
                 onSpeech(binding.addPayBtn.text)
             }
 
-            val intent = Intent(this, RegisterAccountVoiceActivity::class.java)
-            startActivity(intent)
+
         }
     }
     private fun onSpeech(text: CharSequence) {

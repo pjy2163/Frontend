@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import com.example.graduation.MainActivity
 import com.example.graduation.R
 import com.example.graduation.databinding.FragmentChangePwdCompletedBinding
-import com.example.graduation.databinding.FragmentTransferCompletedBinding
 import java.util.*
 
 
