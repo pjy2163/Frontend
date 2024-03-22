@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    <android.widget.Button
+        android:id="@+id/prev_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/previous_text"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="송금할 금액 입력"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+
+    <TextView
+        android:id="@+id/explain_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="얼마를 송금하시겠습니까?"
+        android:textColor="@color/black"
+        android:layout_marginBottom="50dp"
+        android:textSize="18sp"
+        android:gravity="center"/>
+
+
+    <TextView
+        android:id="@+id/money_amount_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="금액 입력"
+        android:textColor="@color/grey"
+        android:textSize="24sp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="3"
+        android:layout_marginTop="10dp"
+        android:background="@color/grey">
+
+        <TextView
+            android:id="@+id/one_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/two_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/three_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/four_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/five_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/six_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/seven_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/eight_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/nine_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/hyphen_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/zero_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/delete_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지우기"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingLeft="20dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+    </GridLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <android.widget.Button
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:padding="15dp"
+        android:text="다음"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

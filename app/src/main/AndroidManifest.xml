@@ -32,12 +32,44 @@
         android:theme="@style/Theme.Graduation"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
         <activity
-            android:name=".PayHistoryActivity"
+            android:name=".transfer.TransferEnterAccountNumberActivity"
             android:exported="false" />
         <activity
-            android:name=".register.RegisterPayVoiceActivity"
+            android:name=".transfer.TransferMoneyAmountActivity"
+            android:exported="true" >
+
+
+        </activity>
+        <activity
+            android:name=".signUp.SignUpAccountCheckPwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".signUp.SignUpAccountPwdActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".transfer.TransferChooseBankActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".myInfo.EnterFingerprintActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".managePay.RegisterAccountVoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myInfo.ChangeCheckPwdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TermsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".transfer.TransferConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayHistoryActivity"
             android:exported="false" />
         <activity
             android:name=".Signup_Checkpwd"
@@ -50,24 +82,22 @@
         <activity
             android:name=".Signup_Email"
             android:exported="true"
-            android:parentActivityName=".Login"/>
+            android:parentActivityName=".Signup_Name" />
         <activity
-            android:name=".Login_Pwd"
-            android:exported="true"
-            android:parentActivityName=".Login_Email" />
-        <activity
-            android:name=".Login_Email"
+            android:name=".Signup_Name"
             android:exported="true"
             android:parentActivityName=".Login" />
         <activity
+            android:name=".Login_Pwd"
+            android:exported="false"
+            android:parentActivityName=".Login_Email" />
+        <activity
+            android:name=".Login_Email"
+            android:exported="false"
+            android:parentActivityName=".Login" />
+        <activity
             android:name=".Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".myInfo.ChangePwdActivity"
             android:exported="true"
@@ -97,22 +127,25 @@
             android:name=".PayPasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".register.RegisterChooseBankActivity"
+            android:name=".managePay.RegisterChooseBankActivity"
             android:exported="true" />
         <activity
-            android:name=".register.RegisterAccountInfoEnterActivity"
+            android:name=".managePay.RegisterAccountInfoCheckActivity"
             android:exported="true" />
         <activity
-            android:name=".EditPayActivity"
+            android:name=".managePay.EditPayActivity"
             android:exported="false" />
         <activity
-            android:name=".TransferActivity"
+            android:name=".transfer.TransferActivity"
             android:exported="false" />
         <activity
-            android:name=".TransferPicActivity"
+            android:name=".transfer.TransferPicActivity"
             android:exported="true" />
         <activity
-            android:name=".TransferVoiceActivity"
+            android:name=".transfer.TransferVoiceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".transfer.TransferCompletedActivity"
             android:exported="true" />
         <activity
             android:name=".PayFingerActivity"

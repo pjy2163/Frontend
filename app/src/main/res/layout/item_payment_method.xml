@@ -7,34 +7,44 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="270dp"
         android:background="@drawable/img_bankbook_background"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/bank_eng_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000 Bank"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/white"
+           />
 
-<LinearLayout
+        <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    >
+            android:layout_marginTop="30dp">
 
 
         <ImageView
             android:id="@+id/bank_logo_iv"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="60dp"
             android:layout_marginLeft="60dp"
             android:layout_marginRight="10dp"
+            android:layout_gravity="center"
             app:srcCompat="@drawable/img_bank_kookmin" />
 
         <TextView
             android:id="@+id/bank_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00은행 계좌"
-            android:layout_marginTop="60dp"
+            android:text="00은행"
             android:textColor="@color/white"
-            android:textSize="20sp"/>
+            android:textSize="24sp"
+            android:textStyle="bold"
+            />
 </LinearLayout>
 
     <LinearLayout
@@ -42,25 +52,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
-    <TextView
-        android:id="@+id/account_number_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:text="012-345-678-910"
-        android:textColor="@color/white"
-        android:layout_gravity="center"
-        android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/account_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"
 
-</LinearLayout>
+            android:text="012-345-678-910"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
         <ImageView
             android:id="@+id/selected_check_iv"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
             app:srcCompat="@drawable/img_check_grey" />
 
+</LinearLayout>
     </LinearLayout>
+
+
 </LinearLayout>

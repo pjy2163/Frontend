@@ -28,7 +28,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="결제가 완료되었습니다.\n\n화면 하단의 버튼을 누르면\n메인화면으로 돌아갑니다."
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
 </LinearLayout>
     <Space
         android:layout_width="match_parent"

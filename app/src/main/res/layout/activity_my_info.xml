@@ -5,156 +5,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background">
+    android:background="#FAFAFD">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-    <android.widget.Button
-        android:id="@+id/prev_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/rectangle_style"
-        android:backgroundTint="@null"
-        android:text="@string/previous_text"
-        android:textSize="20sp"
-        android:padding="15dp"
-        android:textColor="@color/white"/>
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="내 정보"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:textSize="@dimen/title"
-        android:textStyle="bold"
-        android:textColor="@color/black"/>
-
-    <TextView
-        android:id="@+id/password_notice_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:background="@drawable/grey_notice"
-        android:gravity="center"
-        android:paddingLeft="50dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingRight="50dp"
-        android:text="왼쪽 또는 오른쪽으로 넘기면\n등록된 결제 수단을 확인할 수 있습니다." />
-
-
-<!--
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:layout_marginBottom="70dp">
-
-        <ImageButton
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/prev_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:backgroundTint="#00FFFFFF"
-            app:srcCompat="@drawable/ic_double_arrow_prev"></ImageButton>
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/rectangle_style"
+            android:text="@string/previous_text"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:textColor="@color/white"/>
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="280dp"
-            android:layout_height="150dp"
-            android:background="@drawable/stroke_round_yellow"
-            android:gravity="center"
-            android:text="은행계좌 또는 카드명\n\n계좌번호 앞자리\n또는\n카드번호 앞 4자리" />
-    <ImageButton
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="#00FFFFFF"
-            app:srcCompat="@drawable/ic_double_arrow_next">
+            android:layout_gravity="center_horizontal"
+            android:text="내 정보"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="80dp"
+            android:textSize="@dimen/title"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
 
-        </ImageButton>
 
-
-    </LinearLayout>
--->
-        <android.widget.Button
-            android:id="@+id/payment_history_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/transparent_with_navy_stroke"
-            android:gravity="center"
-            android:paddingLeft="80dp"
-            android:paddingTop="10dp"
-            android:paddingRight="80dp"
-            android:paddingBottom="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="결제 내역 확인"
-            android:textSize="20sp" />
-
-        <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"/>
-
-        <android.widget.Button
+        <Button
             android:id="@+id/change_pwd_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/transparent_with_navy_stroke"
             android:gravity="center"
-            android:paddingLeft="60dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingRight="60dp"
+            android:paddingLeft="40dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="40dp"
             android:text="회원 비밀번호 변경"
+            android:drawableLeft="@drawable/img_password"
+            android:drawablePadding="20dp"
+            android:background="@drawable/round_white_bg"
             android:textSize="20sp"/>
 
-        <android.widget.Button
-        android:id="@+id/delete_account_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="@drawable/transparent_with_navy_stroke"
-        android:gravity="center"
-        android:paddingLeft="100dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingRight="100dp"
-        android:text="회원 탈퇴"
-        android:textSize="20sp"/>
+        <Button
+            android:id="@+id/terms_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:paddingLeft="80dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="80dp"
+            android:text="이용 약관"
+            android:drawableLeft="@drawable/ic_terms"
+            android:drawablePadding="20dp"
+            android:background="@drawable/round_white_bg"
+            android:textSize="20sp"/>
 
 
-<!--여기도 다음이 있으면 안되겠네요-->
-   <!-- <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <android.widget.Button
-        android:id="@+id/next_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/rectangle_style"
-        android:backgroundTint="@null"
-        android:text="@string/next_text"
-        android:textSize="20sp"
-        android:padding="15dp"
-        android:textColor="@color/white"/>-->
-</LinearLayout>
+
+        <Button
+            android:id="@+id/delete_account_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="80dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="80dp"
+            android:layout_margin="40dp"
+            android:text="회원 탈퇴"
+            android:drawableLeft="@drawable/ic_delete_account"
+            android:drawablePadding="20dp"
+            android:background="@drawable/round_white_bg"
+            android:textSize="20sp"/>
+
+
+    </LinearLayout>
+    </ScrollView>
 </FrameLayout>

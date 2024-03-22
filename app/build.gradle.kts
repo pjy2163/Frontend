@@ -1,5 +1,3 @@
-import org.gradle.internal.impldep.bsh.commands.dir
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -72,7 +70,7 @@ dependencies {
 
     //계좌번호 카메라로 인식
     implementation ("com.rmtheis:tess-two:5.4.1")
-    implementation ("com.google.android.gms:play-services-mlkit-text-recognition:18.0.2")
+    implementation ("com.google.android.gms:play-services-mlkit-text-recognition:19.0.0")
 
     //서버 통신을 위한 Retrofit 환경 세팅
 

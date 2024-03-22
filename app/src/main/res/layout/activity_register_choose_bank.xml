@@ -33,6 +33,7 @@
         android:text="은행선택"
         android:textSize="@dimen/title"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:gravity="center"
         android:layout_marginBottom="20dp"/>
 
@@ -42,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="본인 명의의 계좌만 등록 가능합니다."
+        android:textColor="@color/black"
         android:gravity="center"
         android:layout_marginBottom="20dp"/>
 
@@ -50,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/stroke_round"
+        android:background="@drawable/round_white_bg"
         android:text="하나"
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
@@ -67,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/stroke_round"
+        android:background="@drawable/round_white_bg"
         android:text="국민"
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"
@@ -86,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/stroke_round"
+        android:background="@drawable/round_white_bg"
         android:text="신한"
         android:textColor="@color/black"
         android:textSize="@dimen/sub_title"

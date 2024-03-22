@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".TransferPicActivity"
+        tools:context=".transfer.TransferPicActivity"
         android:orientation="vertical"
         android:background="@color/background">
 
@@ -33,6 +33,7 @@
             android:text="사진으로 송금하기"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_gravity="center"/>
 
         <ImageView
@@ -82,18 +83,33 @@
 
 
             <TextView
-                android:id="@+id/recognized_account_number_tv"
+                android:id="@+id/result_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="123-456-88910"
-                android:gravity="center">
+                android:text="123-456-78910"
+                android:gravity="center"
+                android:visibility="gone">
 
             </TextView>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
+        <android.widget.Button
+            android:id="@+id/next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/rectangle_style"
+            android:padding="15dp"
+            android:text="다음"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
 
     </LinearLayout>

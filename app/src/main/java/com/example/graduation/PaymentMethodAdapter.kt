@@ -14,9 +14,10 @@ class PaymentMethodAdapter(
 ) : RecyclerView.Adapter<PaymentMethodAdapter.PaymentMethodViewHolder>() {
 
     inner class PaymentMethodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.bank_logo_iv)
-        val textView: TextView = itemView.findViewById(R.id.bank_name_tv)
-        val bankbookNumber: TextView = itemView.findViewById(R.id.account_number_tv)
+        val bankLogoIv: ImageView = itemView.findViewById(R.id.bank_logo_iv)
+        val korBankNameTv: TextView = itemView.findViewById(R.id.bank_name_tv)
+        val engBankNameTv: TextView = itemView.findViewById(R.id.bank_eng_name_tv)
+        val bankbookNumberTv: TextView = itemView.findViewById(R.id.account_number_tv)
         val checkImg: ImageView = itemView.findViewById(R.id.selected_check_iv)
 
         init {
@@ -29,9 +30,10 @@ class PaymentMethodAdapter(
         }
 
         fun bind(paymentMethod: PaymentMethod) {
-            imageView.setImageResource(paymentMethod.imageResId)
-            textView.text = paymentMethod.bank
-            bankbookNumber.text = " (${paymentMethod.accountNumber})"
+            bankLogoIv.setImageResource(paymentMethod.imageResId)
+            engBankNameTv.text = paymentMethod.engBank
+            korBankNameTv.text = paymentMethod.korBank
+            bankbookNumberTv.text = paymentMethod.accountNumber
 
             //카드 선택 유무에 따라 체크 표시 색깔 변경 (회색->노랑->회색)
             checkImg.setImageResource(

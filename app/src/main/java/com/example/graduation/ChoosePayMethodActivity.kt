@@ -22,9 +22,9 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
     private lateinit var binding: ActivityChoosePayMethodBinding
     private var selectedPaymentMethod: PaymentMethod? = null
     private var paymentMethods: List<PaymentMethod> = listOf(
-        PaymentMethod(R.drawable.img_bank_hana,"하나은행", "0123456-0123456",false),
-        PaymentMethod(R.drawable.img_bank_shinhan,"신한은행", "0123456-0123456",false),
-        PaymentMethod(R.drawable.img_bank_kookmin,"국민은행", "0123456-0123456",false)
+        PaymentMethod(R.drawable.img_bank_hana, "Hana Bank","하나은행", "0123456-0123456",false),
+        PaymentMethod(R.drawable.img_bank_shinhan,"Shinhan Bank","신한은행", "0123456-0123456",false),
+        PaymentMethod(R.drawable.img_bank_kookmin,"Kookmin Bank","국민은행", "0123456-0123456",false)
             //필요한 리스트가 있으면 여기
     )
 
@@ -103,12 +103,12 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
                 val editor = sharedPreferences.edit()
 
                 //은행이름과 계좌번호 저장 : paymentMethod 데이터 클래스 참고
-                editor.putString("selectedAccountName", selectedPaymentMethod!!.bank)
+                editor.putString("selectedAccountName", selectedPaymentMethod!!.korBank)
                 editor.putString("selectedAccountNumber", selectedPaymentMethod!!.accountNumber)
                 editor.apply()
 
                 //은행별로 다른 소리 출력
-                onSpeech(selectedPaymentMethod!!.bank + "이 선택되었습니다.")
+                onSpeech(selectedPaymentMethod!!.korBank + "이 선택되었습니다.")
                 startActivity(intent)
 
 
@@ -145,8 +145,8 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
         )
 
         //통장 이미지 누를 때마다 뭐가 눌렸는지 음성 안내
-        if (selectedPaymentMethod?.bank != null) {
-            onSpeech(selectedPaymentMethod!!.bank)
+        if (selectedPaymentMethod?.korBank != null) {
+            onSpeech(selectedPaymentMethod!!.korBank)
             selectedPaymentMethod!!.isSelected=true
         }
 

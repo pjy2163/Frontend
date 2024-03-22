@@ -7,7 +7,11 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import com.example.graduation.myInfo.MyInfoActivity
 import com.example.graduation.databinding.ActivityMainBinding
-import com.example.graduation.register.RegisterChooseBankActivity
+import com.example.graduation.managePay.EditPayActivity
+import com.example.graduation.transfer.TransferActivity
+import com.example.graduation.transfer.TransferChooseBankActivity
+import com.example.graduation.transfer.TransferInfoActivity
+import com.example.graduation.transfer.TransferVoiceActivity
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -47,8 +51,9 @@ class MainActivity : AppCompatActivity() {
             if (soundState) {
                 onSpeech(binding.transferBtn.text)
             }
-            val intent = Intent(this, TransferActivity::class.java)
+            val intent = Intent(this, TransferChooseBankActivity::class.java)
             startActivity(intent)
+
         }
 
 
@@ -67,6 +72,17 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MyInfoActivity::class.java)
             startActivity(intent)
         }
+
+        //결제 내역 확인 버튼 이벤트 처리
+        binding.paymentHistoryBtn.setOnClickListener{
+            if (soundState) {
+                onSpeech(binding.paymentHistoryBtn.text)
+            }
+            val intent = Intent(this, PayHistoryActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     private fun onSpeech(text: CharSequence) {
