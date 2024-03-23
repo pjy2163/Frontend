@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.VIBRATE" /> <!-- 지문 인식 권한 -->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- 오디오 사용 권한 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- <uses-permission android:name="android.permission.CAMERA"/> &lt;!&ndash;카메라 권한 &ndash;&gt; -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:name="android.hardware.camera.any"
@@ -14,14 +15,10 @@
         android:required="false" /> <!-- 저장소 읽기 권한 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--인터넷 사용 권한 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
-
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -47,7 +44,6 @@
         <activity
             android:name=".signUp.SignUpAccountPwdActivity"
             android:exported="false" />
-
         <activity
             android:name=".transfer.TransferChooseBankActivity"
             android:exported="false" />
@@ -56,7 +52,7 @@
             android:name=".myInfo.EnterFingerprintActivity"
             android:exported="false" />
 
-       <-- <activity
+        <activity
             android:name=".managePay.RegisterAccountVoiceActivity"
             android:exported="false" />
         <activity
@@ -155,7 +151,13 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
