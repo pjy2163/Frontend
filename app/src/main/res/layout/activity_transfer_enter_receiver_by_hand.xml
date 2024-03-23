@@ -39,6 +39,8 @@
         android:textColor="@color/black"
         android:textSize="18dp"
         android:gravity="center"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,50 +49,21 @@
         android:layout_marginTop="30dp">
 
 
-    <ImageButton
-        android:id="@+id/speech_btn"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:gravity="center"
-        android:scaleType="centerInside"
-        app:srcCompat="@drawable/img_record_button" />
-    <TextView
-        android:id="@+id/button_explain_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:text="화면 중앙의 버튼을 누르면\n음성 인식이 시작됩니다."
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"   />
-
-    <TextView
-        android:id="@+id/result_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="음성인식 결과"
-        android:textColor="@color/black"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp" />
-
-        <TextView
-            android:id="@+id/state_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="음성 인식 상태..."
-            android:textColor="@color/black"/>
-
-        <Button
-            android:id="@+id/write_by_hand_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:text="직접 입력하기"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"/>
-
+        <EditText
+            android:id="@+id/receiver_name_et"
+            android:layout_width="320dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_black"
+            android:hint="예시) 홍길동"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
 
     </LinearLayout>
     <Space

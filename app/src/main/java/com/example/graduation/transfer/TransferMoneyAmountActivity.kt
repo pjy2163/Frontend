@@ -189,7 +189,9 @@ class TransferMoneyAmountActivity : AppCompatActivity() {
                 onSpeech(binding.nextBtn.text)
             }
             // 입력된 액수를 SharedPreferences에 저장하기
+            val sharedPreferences = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
+            editor.remove("moneyAmount") // moneyAmount 키에 해당하는 이전 데이터 삭제
             editor.putString("moneyAmount", moneyNum.text.toString())
             editor.apply()
 

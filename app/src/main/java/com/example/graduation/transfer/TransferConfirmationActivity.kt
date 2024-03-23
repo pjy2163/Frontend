@@ -65,10 +65,10 @@ class TransferConfirmationActivity : AppCompatActivity() {
 
 
         //받을 사람 이름, 계좌번호, 금액 데이터 가져오기
-        val sharedPreferences2 = getSharedPreferences("receiverInfo", Context.MODE_PRIVATE)
+        val sharedPreferences2 = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
         val recipientName = sharedPreferences2.getString("recipientName", "")
-        val accountNumber = sharedPreferences.getString("ReceiverAccountNumber", "")
-        val sendMoneyAmount = sharedPreferences.getString("moneyAmount", "")
+        val accountNumber = sharedPreferences2.getString("ReceiverAccountNumber", "")
+        val sendMoneyAmount = sharedPreferences2.getString("moneyAmount", "")
         //어느 은행으로 보낼지
         val receiverBank = sharedPreferences.getString("selectedBank", "")
 
@@ -160,6 +160,13 @@ class TransferConfirmationActivity : AppCompatActivity() {
                 playSuccessSound()
                 Toast.makeText(this@TransferConfirmationActivity, "지문 인증에 성공하였습니다.", Toast.LENGTH_SHORT).show()
 
+                // 받는 사람의 이름과 금액을 SharedPreferences에 저장
+                val sharedPreferences = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("recipientName", binding.receiverNameTv.text.toString())
+                editor.putString("moneyAmount", binding.receiverMoneyAmountTv.text.toString())
+                editor.apply()
+
                //송금완료 화면으로 이동
                 val intent = Intent(this@TransferConfirmationActivity,TransferCompletedActivity::class.java)
                 startActivity(intent)
@@ -182,7 +189,6 @@ class TransferConfirmationActivity : AppCompatActivity() {
     * */
     fun authenticateToEncrypt() = with(binding) {
 
-        Log.d("0222", "authenticateToEncrypt() ")
 
         var textStatus = ""
         val biometricManager = BiometricManager.from(this@TransferConfirmationActivity)

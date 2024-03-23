@@ -10,7 +10,7 @@ import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.speech.tts.TextToSpeech
-import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -28,6 +28,12 @@ class TransferVoiceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTransferVoiceBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val writeByHandButton = findViewById<Button>(R.id.write_by_hand_btn)
+        writeByHandButton.apply {
+            paint.isUnderlineText = true // 밑줄 추가
+            setTextColor(ContextCompat.getColor(context, R.color.black)) // 텍스트 색상 설정
+        }
 
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = getSharedPreferences("sp1", MODE_PRIVATE)
@@ -73,6 +79,16 @@ class TransferVoiceActivity : AppCompatActivity() {
             speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this@TransferVoiceActivity)
             speechRecognizer.setRecognitionListener(recognitionListener)    // 리스너 설정
             speechRecognizer.startListening(intent)                         // 듣기 시작
+        }
+
+        //손으로 입력하기 버튼 클릭하면 받는 사람 이름 그냥 타자로도 입력 가능
+        binding.writeByHandBtn.setOnClickListener {
+            if (soundState) {
+                onSpeech(binding.writeByHandBtn.text)
+            }
+
+            val intent = Intent(this, TransferEnterReceiverByHandActivity::class.java)
+            startActivity(intent)
         }
 
         //다음 버튼 눌러서 송금 확인 화면으로 넘어가기
@@ -159,8 +175,9 @@ class TransferVoiceActivity : AppCompatActivity() {
                     val name = spokenText.replace(Regex("[0-9]"), "").trim()
 
                     // 추출한 이름을 저장
-                    val sharedPreferences = getSharedPreferences("receiverInfo", Context.MODE_PRIVATE)
+                    val sharedPreferences = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
                     val editor = sharedPreferences.edit()
+                    editor.remove("recipientName") // 키에 해당하는 이전 데이터 삭제
                     editor.putString("recipientName", name)
                     editor.apply()
 

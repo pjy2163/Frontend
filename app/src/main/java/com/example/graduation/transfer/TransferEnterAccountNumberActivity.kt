@@ -130,7 +130,6 @@ class TransferEnterAccountNumberActivity : AppCompatActivity() {
                 onSpeech(binding.sevenTv.text)
             }
 
-            binding.accountNumberTv.text = ""
             if (AccountNum.text=="계좌번호 입력"){
                 binding.accountNumberTv.text = ""
                 AccountNum.text = "${binding.sevenTv.text}"
@@ -204,7 +203,9 @@ class TransferEnterAccountNumberActivity : AppCompatActivity() {
                 onSpeech(binding.nextBtn.text)
             }
             // 입력된 계좌번호를 SharedPreferences에 저장하기
+            val sharedPreferences = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
+            editor.remove("ReceiverAccountNumber") // ReceiverAccountNumber 키에 해당하는 이전 데이터 삭제
             editor.putString("ReceiverAccountNumber", AccountNum.text.toString())
             editor.apply()
             

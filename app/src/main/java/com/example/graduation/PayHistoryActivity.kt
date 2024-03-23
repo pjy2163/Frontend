@@ -1,14 +1,20 @@
 package com.example.graduation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.graduation.databinding.ActivityPayHistoryBinding
+import com.example.graduation.databinding.ActivityTransferHistoryBinding
 
 class PayHistoryActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityPayHistoryBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pay_history)
+        binding = ActivityPayHistoryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // RecyclerView 초기화
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
@@ -95,5 +101,12 @@ class PayHistoryActivity : AppCompatActivity() {
         // 어댑터 설정
         val adapter = PayHistoryAdapter(dataList)
         recyclerView.adapter = adapter
+
+        binding.prevBtn.setOnClickListener {
+          /*  if (soundState) {
+                onSpeech(binding.prevBtn.text)
+            }*/
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 }
