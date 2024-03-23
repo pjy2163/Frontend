@@ -41,17 +41,22 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
             onSpeech("회원가입 이메일 입력 화면입니다.")
         }
 
+        val id = intent.getStringExtra("id").toString()
+        val name = intent.getStringExtra("name").toString()
+        val password = intent.getStringExtra("password").toString()
+
         binding.enterButton.setOnClickListener {
             val checkpwd = binding.signupInputCheckpwd.text.toString().trim()
 
             val user = User()
-           // user.id = id
-           // user.password = password
+            user.id = id
+            user.password = password
+            user.name = name
 
 
             if (isPwdIdentified(checkpwd, password)) {
                 //비밀번호 일치하면 계정 생성 후 로그인 화면으로 이동
-                //val id = intent.getStringExtra("id").toString()
+                //
                 userApi.save(user)
                     .enqueue(object : Callback<User> {
                         override fun onResponse(call: Call<User>, response: Response<User>) {
@@ -64,11 +69,6 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
                         }
                     })
 
-                /*             makeUser(email, pwd)*/
-
-                val email = intent.getStringExtra("email").toString()
-                val name = intent.getStringExtra("name").toString()
-                makeUser(name, email, pwd)
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
             } else {

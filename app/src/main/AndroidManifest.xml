@@ -56,7 +56,7 @@
             android:name=".myInfo.EnterFingerprintActivity"
             android:exported="false" />
 
-        <activity
+       <-- <activity
             android:name=".managePay.RegisterAccountVoiceActivity"
             android:exported="false" />
         <activity
