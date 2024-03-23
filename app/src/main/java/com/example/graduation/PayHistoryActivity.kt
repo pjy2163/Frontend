@@ -19,7 +19,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-03-05",
             productPlace = "스타벅스",
             productPrice = "4500원",
-            time = "13:45",
+           /* time = "13:45",*/
             status = "결제 완료"
         ))
 
@@ -28,7 +28,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-03-03",
             productPlace = "쿠팡",
             productPrice = "32000원",
-            time = "9:40",
+           /* time = "9:40",*/
             status = "결제 완료"
         ))
 
@@ -36,7 +36,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-03-01",
             productPlace = "11번가",
             productPrice = "5000원",
-            time = "10:42",
+         /*   time = "10:42",*/
             status = "결제 완료"
         ))
 
@@ -44,7 +44,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-02-27",
             productPlace = "신세계",
             productPrice = "42000원",
-            time = "17:31",
+    /*        time = "17:31",*/
             status = "결제 완료"
         ))
 
@@ -52,7 +52,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-02-20",
             productPlace = "포라임",
             productPrice = "9000원",
-            time = "12:10",
+      /*      time = "12:10",*/
             status = "결제 완료"
         ))
 
@@ -60,7 +60,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-02-17",
             productPlace = "포돈",
             productPrice = "14000원",
-            time = "10:48",
+        /*    time = "10:48",*/
             status = "결제 완료"
         ))
 
@@ -68,7 +68,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-02-15",
             productPlace = "GS25",
             productPrice = "1700원",
-            time = "9:01",
+          /*  time = "9:01",*/
             status = "결제 완료"
         ))
 
@@ -76,7 +76,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-02-10",
             productPlace = "교촌치킨",
             productPrice = "15300원",
-            time = "22:04",
+         /*   time = "22:04",*/
             status = "결제 완료"
         ))
 
@@ -84,7 +84,7 @@ class PayHistoryActivity : AppCompatActivity() {
             day = "2024-02-10",
             productPlace = "서브웨이",
             productPrice = "11200원",
-            time = "12:07",
+         /*   time = "12:07",*/
             status = "결제 완료"
         ))
 

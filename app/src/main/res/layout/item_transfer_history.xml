@@ -14,43 +14,18 @@
         android:orientation="horizontal"
         android:layout_marginBottom="10dp">
 
-    <TextView
-        android:id="@+id/day_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3/5/2024"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="20dp"/>
+        <TextView
+            android:id="@+id/day_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3/5/2024"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"/>
 
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
-    <TextView
-        android:id="@+id/place_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="업체명"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_marginRight="50dp"/>
-
-    <TextView
-        android:id="@+id/product_place_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="0000"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_marginLeft="30dp"/>
     </LinearLayout>
 
 
@@ -60,7 +35,31 @@
         android:orientation="horizontal"
         android:layout_marginBottom="10dp">
         <TextView
-            android:id="@+id/price_title_tv"
+            android:id="@+id/receiver_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="받은 사람"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginRight="50dp"/>
+
+        <TextView
+            android:id="@+id/receiver_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="000"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/money_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="금액"
@@ -69,19 +68,17 @@
             android:layout_marginRight="50dp"/>
 
         <TextView
-            android:id="@+id/product_price_tv"
+            android:id="@+id/money_amount_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingHorizontal="10dp"
             android:text="10000원"
             android:textSize="18sp"
             android:textColor="@color/black"
             android:layout_marginLeft="40dp"/>
     </LinearLayout>
-<!--
 
-    <LinearLayout
+ <!--   <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -105,32 +102,30 @@
             android:textSize="18sp"
             android:textColor="@color/black"
             android:layout_marginLeft="40dp"/>
-    </LinearLayout>
--->
+    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <TextView
-        android:id="@+id/status_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="상태"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_marginRight="50dp"/>
+        <TextView
+            android:id="@+id/status_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상태"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginRight="50dp"/>
 
-    <TextView
-        android:id="@+id/status_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingHorizontal="10dp"
-        android:text="결제 완료"
-        android:textSize="18sp"
-        android:textColor="@color/blue"
-        android:layout_marginLeft="40dp"/>
+        <TextView
+            android:id="@+id/status_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="송금 완료"
+            android:textSize="18sp"
+            android:textColor="@color/blue"
+            android:layout_marginLeft="40dp"/>
     </LinearLayout>
 
     <View

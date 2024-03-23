@@ -53,32 +53,15 @@ class TransferConfirmationActivity : AppCompatActivity() {
         biometricPrompt = setBiometricPrompt()
         promptInfo = setPromptInfo()
 
+        //화면 정보 읽기
+        onSpeech("송금하기 전 마지막 확인 화면입니다")
         val message = "${binding.receiverNameTv.text}님에게 ${binding.receiverMoneyAmountTv.text}원을 이체하시겠습니까?"
-
-        // onSpeech() 함수에는 완성된 문자열을 전달
-        onSpeech(binding.titleTv.text.toString())
         onSpeech(message)
         onSpeech("받는 계좌: ${binding.receiverBankTv.text}")
         onSpeech(binding.receiverAccountNumberTv.text)
         onSpeech("받는 분에게 표시: ${binding.senderNameTv.text}")
         onSpeech(binding.explainSenderNameTv.text)
 
-        /*//목소리 입력과 카메라 촬영 중 무엇을 사용하여 계좌번호(to)를 입력하였는지 정보
-        val window=sharedPreferences.getString("window", "a")
-        if (window != null) {
-            Log.d("TransferConfirmationActivity", window)
-
-            if (window=="pic"){ //카메라 촬영으로 계좌번호(to)를 입력받은 경우
-                //어느 계좌로 보낼 것인지(to) transferPicActivity에서 가져오기
-                val toAccount=sharedPreferences.getString("toAccount", "123")
-                binding.receiverAccountNumberTv.text=toAccount
-            }
-            else{ //목소리 입력으로 계좌번호(to)를 입력받은 경우
-                //어느 계좌로 보낼 것인지(to) transferVoiceActivity에서 가져오기
-                val toAccount=sharedPreferences.getString("toAccount", "123")
-                binding.receiverAccountNumberTv.text=toAccount
-            }
-        }*/
 
 
         //받을 사람 이름, 계좌번호, 금액 데이터 가져오기
@@ -99,10 +82,6 @@ class TransferConfirmationActivity : AppCompatActivity() {
         } else {
             Log.d("yk","받을 사람의 이름 또는 계좌번호가 존재하지 않음")
         }
-
-
-
-
 
 
         //소리 설정

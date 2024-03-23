@@ -49,7 +49,7 @@ class Login : AppCompatActivity() {
                     if (soundState) {
                         onSpeech("로그인 에러")
                     }
-                    TODO("비밀번호 로그인 화면으로 이동")
+
                 }
 
                 override fun onAuthenticationSucceeded(
@@ -60,7 +60,7 @@ class Login : AppCompatActivity() {
                     if (soundState) {
                         onSpeech("로그인 성공")
                     }
-                    TODO("로그인 로직 직접 구현해야할지? ")//지문인식 자동로그인형식으로..
+
                 }
 
                 override fun onAuthenticationFailed() {
@@ -69,6 +69,8 @@ class Login : AppCompatActivity() {
                     if (soundState) {
                         onSpeech("지문 로그인 실패")
                     }
+                    val intent=Intent(this@Login,MainActivity::class.java)
+                    startActivity(intent)
                 }
             })
 

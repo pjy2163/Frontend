@@ -11,25 +11,26 @@
     android:background="@color/background">
 
     <TextView
-        android:id="@+id/slogan_text"
+        android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="하나하나 소리로 들어요"
         android:textSize="@dimen/title"
         android:textStyle="bold"
-        android:layout_marginTop="130dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="30dp"
         >
     </TextView>
 
 
     <TextView
-        android:id="@+id/sound_notice_tv"
+        android:id="@+id/explain_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:text="편안한 서비스 이용을 위해\n화면 안내 소리를 제공해드리고 있습니다.\n소리를 키려면 화면 중앙의 켜기 버튼을 \n눌러주세요."
-        android:textColor="@color/text_grey"
+        android:text="화면 음성 안내 소리를 키려면\n화면 중앙의 소리 켜기 버튼을 \n눌러주세요."
+        android:textColor="@color/black"
         android:gravity="center"
         android:textSize="@dimen/sub_title"
         android:padding="20dp">
@@ -66,6 +67,7 @@
         android:layout_gravity="bottom"
         android:background="@drawable/rectangle_style"
         android:backgroundTint="@null"
+
         android:text="@string/next_text"
         android:textSize="20sp"
         android:padding="15dp"

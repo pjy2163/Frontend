@@ -162,7 +162,7 @@ class TransferMoneyAmountActivity : AppCompatActivity() {
         }
         binding.hyphenTv.setOnClickListener {
             if (soundState) {
-                onSpeech(binding.hyphenTv.text)
+                onSpeech("하이픈")
             }
 
             if (moneyNum.text=="금액 입력"){
@@ -195,11 +195,7 @@ class TransferMoneyAmountActivity : AppCompatActivity() {
 
             startActivity(Intent(this, TransferConfirmationActivity::class.java))
         }
-
-
-
     }
-
 
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)

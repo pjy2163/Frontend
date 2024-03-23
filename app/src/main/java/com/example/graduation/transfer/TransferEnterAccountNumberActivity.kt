@@ -176,7 +176,7 @@ class TransferEnterAccountNumberActivity : AppCompatActivity() {
         }
         binding.hyphenTv.setOnClickListener {
             if (soundState) {
-                onSpeech(binding.hyphenTv.text)
+                onSpeech("하이픈")
             }
 
             if (AccountNum.text=="계좌번호 입력"){

@@ -29,14 +29,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".transfer.TransferHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.Splash1Activity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".splash.Splash2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.SplashSoundActivity"
+            android:exported="false" />
+        <activity
             android:name=".transfer.TransferEnterAccountNumberActivity"
             android:exported="false" />
         <activity
             android:name=".transfer.TransferMoneyAmountActivity"
-            android:exported="true" >
-
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".signUp.SignUpAccountCheckPwdActivity"
             android:exported="false" />
@@ -46,13 +55,8 @@
         <activity
             android:name=".transfer.TransferChooseBankActivity"
             android:exported="false" />
-
         <activity
             android:name=".myInfo.EnterFingerprintActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".managePay.RegisterAccountVoiceActivity"
             android:exported="false" />
         <activity
             android:name=".myInfo.ChangeCheckPwdActivity"

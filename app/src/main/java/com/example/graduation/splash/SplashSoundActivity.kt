@@ -20,12 +20,15 @@ class SplashSoundActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivitySoundSplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
         }
+
+        onSpeech(binding.titleTv.text)
+        onSpeech(binding.explainTv.text)
 
         //화면 안내 소리 켜기 버튼 이벤트 처리
         binding.soundOnBtn.setOnClickListener{

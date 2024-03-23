@@ -62,7 +62,7 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="화면 중앙의 버튼을 누르면\n음성 인식이 시작됩니다."
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black"   />
 

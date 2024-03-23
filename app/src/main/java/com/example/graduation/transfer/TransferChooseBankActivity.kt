@@ -2,13 +2,10 @@ package com.example.graduation.transfer
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import androidx.databinding.adapters.ImageViewBindingAdapter.setImageDrawable
 import com.example.graduation.R
-import com.example.graduation.databinding.ActivityRegisterChooseBankBinding
 import com.example.graduation.databinding.ActivityTransferChooseBankBinding
 import java.util.Locale
 

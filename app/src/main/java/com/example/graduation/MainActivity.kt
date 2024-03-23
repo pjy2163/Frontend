@@ -8,10 +8,8 @@ import android.speech.tts.TextToSpeech
 import com.example.graduation.myInfo.MyInfoActivity
 import com.example.graduation.databinding.ActivityMainBinding
 import com.example.graduation.managePay.EditPayActivity
-import com.example.graduation.transfer.TransferActivity
 import com.example.graduation.transfer.TransferChooseBankActivity
-import com.example.graduation.transfer.TransferInfoActivity
-import com.example.graduation.transfer.TransferVoiceActivity
+import com.example.graduation.transfer.TransferHistoryActivity
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
@@ -82,6 +81,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //송금 내역 확인 버튼 이벤트 처리
+        binding.transferHistoryBtn.setOnClickListener{
+            if (soundState) {
+                onSpeech(binding.transferHistoryBtn.text)
+            }
+            val intent = Intent(this, TransferHistoryActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
