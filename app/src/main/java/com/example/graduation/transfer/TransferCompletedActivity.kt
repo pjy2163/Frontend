@@ -5,6 +5,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.graduation.MainActivity
 import com.example.graduation.R
@@ -38,10 +39,20 @@ class TransferCompletedActivity : AppCompatActivity() {
 
         playSuccessSound() //완료되었다는 띠링 소리
 
-        /*//화면 정보 읽기
-        if (soundState) {
-            onSpeech(binding.payCompletedTv.text)
-        }*/
+        //화면 정보 읽기
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val titleText =binding.titleTv.text.toString()
+                val explainText = binding.explainTv.text.toString()
+                val textToSpeak = "$titleText $explainText"
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
+        }
+
+
 
         binding.nextBtn.setOnClickListener {
             if (soundState) {

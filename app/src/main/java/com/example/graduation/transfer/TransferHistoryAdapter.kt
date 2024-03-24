@@ -5,10 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.graduation.PayHistoryAdapter
 import com.example.graduation.R
 
-class TransferHistoryAdapter (private val dataList: List<DataModel>) : RecyclerView.Adapter<TransferHistoryAdapter.ViewHolder>() {
+class TransferHistoryAdapter(private val dataList: MutableList<DataModel>) : RecyclerView.Adapter<TransferHistoryAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // 아이템 뷰의 각 요소에 대한 참조를 제공합니다.

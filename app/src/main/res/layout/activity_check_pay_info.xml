@@ -206,7 +206,7 @@
         </LinearLayout>
     </LinearLayout>
     <TextView
-        android:id="@+id/check_pay_info_tv"
+        android:id="@+id/explain_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -217,7 +217,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingRight="80dp"
-        android:text="해당 결제 정보를 확인하셨다면\n다음 버튼을 클릭해주세요." />
+        android:text="해당 결제 정보를 확인하셨다면\n화면 하단의 다음 버튼을\n클릭해주세요." />
 
 
 

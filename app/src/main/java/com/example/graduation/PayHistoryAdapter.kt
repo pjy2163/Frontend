@@ -31,7 +31,7 @@ class PayHistoryAdapter (private val dataList: List<DataModel>) : RecyclerView.A
 
             holder.dayTextView.text = data.day
             holder.productPlaceTextView.text = data.productPlace
-            holder.productPriceTextView.text = data.productPrice
+            holder.productPriceTextView.text = data.productPrice.toString()
            /* holder.timeTextView.text = data.time*/
             holder.statusTextView.text = data.status
         }
@@ -45,7 +45,7 @@ class PayHistoryAdapter (private val dataList: List<DataModel>) : RecyclerView.A
         data class DataModel(
             val day: String,
             val productPlace: String,
-            val productPrice: String,
+            val productPrice:Int,
             /*val time: String,*/
             val status: String
         )

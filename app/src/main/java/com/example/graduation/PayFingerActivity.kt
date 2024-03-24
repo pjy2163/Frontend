@@ -46,6 +46,16 @@ class PayFingerActivity : AppCompatActivity() {
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
         }
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                // 화면 정보 읽어주기
+                val textToSpeak ="지문 인증으로 결제하기 화면입니다. 화면 하단의 버튼을 누르고 등록된 지문을 인식시켜주세요."
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
+        }
 
         // 효과음 초기화
         mediaPlayerSuccess = MediaPlayer.create(this, R.raw.success_sound)

@@ -10,6 +10,7 @@ import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -50,8 +51,17 @@ class TransferVoiceActivity : AppCompatActivity() {
         editor.apply()
 
         //화면 정보 읽기
-        if (soundState) {
-            onSpeech("음성으로 송금하기 화면입니다.")
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val titleText = binding.titleTv.text.toString()
+                val explainText = binding.explainTv.text.toString()
+                val buttonExplainText=binding.buttonExplainTv.text.toString()
+                val textToSpeak = "$titleText $explainText $buttonExplainText"+"화면 하단의 직접 입력하기 버튼을 눌러 키보드로 입력할 수도 있습니다."
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
         }
 
 

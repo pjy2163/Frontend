@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -41,9 +42,15 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
 
-        //화면 정보 읽기
-        if (soundState) {
-            onSpeech("결제 수단 선택 화면입니다")
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                // 화면 정보 읽어주기
+                val textToSpeak ="결제 수단 선택 화면입니다"+binding.explainTv.text
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
         }
 
 /*        var paymentMethods = listOf(

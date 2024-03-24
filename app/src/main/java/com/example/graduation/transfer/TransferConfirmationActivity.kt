@@ -54,14 +54,19 @@ class TransferConfirmationActivity : AppCompatActivity() {
         promptInfo = setPromptInfo()
 
         //화면 정보 읽기
-        onSpeech("송금하기 전 마지막 확인 화면입니다")
-        val message = "${binding.receiverNameTv.text}님에게 ${binding.receiverMoneyAmountTv.text}원을 이체하시겠습니까?"
-        onSpeech(message)
-        onSpeech("받는 계좌: ${binding.receiverBankTv.text}")
-        onSpeech(binding.receiverAccountNumberTv.text)
-        onSpeech("받는 분에게 표시: ${binding.senderNameTv.text}")
-        onSpeech(binding.explainSenderNameTv.text)
-
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val titleText ="송금하기 전 마지막 확인 화면입니다"
+                val explainText = "${binding.receiverNameTv.text}님에게 ${binding.receiverMoneyAmountTv.text}원을 이체하시겠습니까?"
+                val senderNameText="받는 분에게 표시: ${binding.senderNameTv.text}"
+                val buttonExplainText=binding.explainSenderNameTv
+                val textToSpeak = "$titleText $explainText $senderNameText $buttonExplainText"
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
+        }
 
 
         //받을 사람 이름, 계좌번호, 금액 데이터 가져오기

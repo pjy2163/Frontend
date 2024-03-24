@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import com.example.graduation.databinding.ActivityCheckPayInfoBinding
 import java.util.Locale
 
@@ -30,11 +31,9 @@ class CheckPayInfoActivity : AppCompatActivity() {
             add(Product(7, "쉑쉑버거", "머쉬룸 버거", 15000,"14:19"))
         }
 
-
-        //결제정보 나타내기- 11번가 핸드폰거치대
+        //결제정보 나타내기
         val product = productDatas[0]
         binding.productPlaceTv.text = product.storeName
-/*        binding.productNameTv.text = "상품명: ${product.productName}"*/
         binding.productPriceTv.text = "${product.price.toString()} 원"
 
 
@@ -42,9 +41,26 @@ class CheckPayInfoActivity : AppCompatActivity() {
             mtts.language = Locale.KOREAN //언어:한국어
         }
 
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                // 초기화가 성공한 경우
+                val storeName = productDatas[0].storeName
+                val productName = productDatas[0].productName
+                val productPrice = productDatas[0].price
+
+                // 화면 정보 읽어주기
+                val textToSpeak = "$storeName 에서 $productName 을(를) $productPrice 원에 결제하려고 합니다."+ binding.explainTv.text
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
+        }
+
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
+
 
         if (soundState) {
             onSpeech("결제 정보 확인 화면입니다")
@@ -84,5 +100,16 @@ class CheckPayInfoActivity : AppCompatActivity() {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
+    override fun onResume() {
+        super.onResume()
 
+        // 화면 정보 읽어주기
+        val storeName = productDatas[0].storeName
+        val productName = productDatas[0].productName
+        val productPrice = productDatas[0].price
+
+        // 화면 정보 읽어주기
+        val textToSpeak = "$storeName 에서 $productName 을(를) $productPrice 원에 구매하였습니다."
+        onSpeech(textToSpeak)
+    }
 }
