@@ -11,9 +11,7 @@ import com.example.graduation.MainActivity
 import com.example.graduation.R
 import com.example.graduation.databinding.ActivityTransferCompletedBinding
 import java.util.*
-
-
-//결제승인 확인 하면 뜨는 결제 완료 프래그먼트
+g
 
 class TransferCompletedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTransferCompletedBinding
