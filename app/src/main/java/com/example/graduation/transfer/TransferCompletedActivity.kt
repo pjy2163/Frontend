@@ -11,7 +11,6 @@ import com.example.graduation.MainActivity
 import com.example.graduation.R
 import com.example.graduation.databinding.ActivityTransferCompletedBinding
 import java.util.*
-g
 
 class TransferCompletedActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTransferCompletedBinding
