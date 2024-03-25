@@ -14,8 +14,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.graduation.databinding.ActivityChoosePayMethodBinding
 import java.util.Locale
 
-//TODO:뷰페이저에서 통장 이미지 선택 후 인증화면으로 넘어가는 처리중
-//결제수단 등록에서 계좌를 입력하면-> 여기로 넘어와야 하는데 인디케이터는 어떻게하냐..
 
 class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
 
@@ -23,9 +21,9 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
     private lateinit var binding: ActivityChoosePayMethodBinding
     private var selectedPaymentMethod: PaymentMethod? = null
     private var paymentMethods: List<PaymentMethod> = listOf(
-        PaymentMethod(R.drawable.img_bank_hana, "Hana Bank","하나은행", "0123456-0123456",false),
-        PaymentMethod(R.drawable.img_bank_shinhan,"Shinhan Bank","신한은행", "0123456-0123456",false),
-        PaymentMethod(R.drawable.img_bank_kookmin,"Kookmin Bank","국민은행", "0123456-0123456",false)
+        PaymentMethod(R.drawable.img_bank_hana, "Hana Bank","하나은행", "799-325-231583",false),
+        PaymentMethod(R.drawable.img_bank_shinhan,"Shinhan Bank","신한은행", "110-345-126543",false),
+        PaymentMethod(R.drawable.img_bank_kookmin,"Kookmin Bank","국민은행", "209124-01-399201",false)
             //필요한 리스트가 있으면 여기
     )
 
@@ -53,13 +51,6 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
             }
         }
 
-/*        var paymentMethods = listOf(
-            PaymentMethod(R.drawable.img_hana_bankbook, "하나은행", "0123456-0123456"),
-            PaymentMethod(R.drawable.img_hana_bankbook2, "하나은행", "0123456-0123456"),
-            PaymentMethod(R.drawable.img_kookmin_bankbook, "국민은행", "0123456-0123456"),
-            //여기서 입력한 정보가 PayConfirmationActivity로 넘어가게 됨
-
-        )*/
 
         val adapter = PaymentMethodAdapter(paymentMethods, this)
         binding.viewPagerCard.adapter = adapter

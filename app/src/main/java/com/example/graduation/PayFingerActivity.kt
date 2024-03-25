@@ -49,7 +49,7 @@ class PayFingerActivity : AppCompatActivity() {
         mtts = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
                 // 화면 정보 읽어주기
-                val textToSpeak ="지문 인증으로 결제하기 화면입니다. 화면 하단의 버튼을 누르고 등록된 지문을 인식시켜주세요."
+                val textToSpeak ="화면 하단의 버튼을 누르고 등록된 지문을 인식시켜주세요."
                 onSpeech(textToSpeak)
             } else {
                 // 초기화가 실패한 경우

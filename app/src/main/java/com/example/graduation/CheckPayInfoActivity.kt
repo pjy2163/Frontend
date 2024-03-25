@@ -22,13 +22,13 @@ class CheckPayInfoActivity : AppCompatActivity() {
 
         // 결제할 품목 더미데이터
         productDatas.apply {
-            add(Product(1, "스타벅스", "아이스 아메리카노", 4500, "14:19"))
-            add(Product(2, "이디야", "카페라떼", 4000,"14:19"))
-            add(Product(3, "도미노 피자", "페퍼로니 피자", 20000,"14:19"))
-            add(Product(4, "포라임", "양지 쌀국수", 12000,"14:19"))
-            add(Product(5, "두끼 떡볶이", "성인", 12000,"14:19"))
-            add(Product(6, "베스킨라빈스", "뉴욕 치즈 케이크", 4500,"14:19"))
-            add(Product(7, "쉑쉑버거", "머쉬룸 버거", 15000,"14:19"))
+            add(Product(1, "스타벅스",  4500))
+            add(Product(2, "이디야",4000))
+            add(Product(3, "도미노 피자", 20000))
+            add(Product(4, "포라임",12000))
+            add(Product(5, "두끼 떡볶이", 12000))
+            add(Product(6, "베스킨라빈스", 4500))
+            add(Product(7, "쉑쉑버거", 15000))
         }
 
         //결제정보 나타내기
@@ -45,11 +45,10 @@ class CheckPayInfoActivity : AppCompatActivity() {
             if (status == TextToSpeech.SUCCESS) {
                 // 초기화가 성공한 경우
                 val storeName = productDatas[0].storeName
-                val productName = productDatas[0].productName
                 val productPrice = productDatas[0].price
 
                 // 화면 정보 읽어주기
-                val textToSpeak = "$storeName 에서 $productName 을(를) $productPrice 원에 결제하려고 합니다."+ binding.explainTv.text
+                val textToSpeak = "$storeName 에서 $productPrice 원을 결제하려고 합니다."+ binding.explainTv.text
                 onSpeech(textToSpeak)
             } else {
                 // 초기화가 실패한 경우
@@ -61,10 +60,6 @@ class CheckPayInfoActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
-
-        if (soundState) {
-            onSpeech("결제 정보 확인 화면입니다")
-        }
 
         binding.prevBtn.setOnClickListener{
             if (soundState) {
@@ -89,7 +84,6 @@ class CheckPayInfoActivity : AppCompatActivity() {
             val sharedPreferences = getSharedPreferences("sp2", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putString("storeName", product.storeName)
-            editor.putString("productName", product.productName)
             editor.putInt("price", product.price)
             editor.apply()
 
@@ -100,16 +94,5 @@ class CheckPayInfoActivity : AppCompatActivity() {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
-    override fun onResume() {
-        super.onResume()
 
-        // 화면 정보 읽어주기
-        val storeName = productDatas[0].storeName
-        val productName = productDatas[0].productName
-        val productPrice = productDatas[0].price
-
-        // 화면 정보 읽어주기
-        val textToSpeak = "$storeName 에서 $productName 을(를) $productPrice 원에 구매하였습니다."
-        onSpeech(textToSpeak)
-    }
 }

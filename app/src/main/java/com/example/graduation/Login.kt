@@ -60,6 +60,8 @@ class Login : AppCompatActivity() {
                     if (soundState) {
                         onSpeech("로그인 성공")
                     }
+                    val intent=Intent(this@Login,MainActivity::class.java)
+                    startActivity(intent)
 
                 }
 

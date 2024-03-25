@@ -23,9 +23,7 @@ class PayHistoryActivity : AppCompatActivity() {
         //업체명과 금액 가져와서 텍스트뷰에 반영
         var spPay = getSharedPreferences("PayInfo", Context.MODE_PRIVATE)
         var storeName = spPay.getString("storeName", "") ?: ""
-        /*var price = spPay.getInt("price", 0)*/
-        var price = spPay.getString("price", "0")?.toIntOrNull() ?: 0
-
+        var price = spPay.getInt("price", 0)
         // RecyclerView 초기화
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
 

@@ -10,6 +10,7 @@ import com.example.graduation.databinding.ActivityMainBinding
 import com.example.graduation.managePay.EditPayActivity
 import com.example.graduation.transfer.TransferChooseBankActivity
 import com.example.graduation.transfer.TransferHistoryActivity
+
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity() {
             onSpeech("소리페이 메인 화면입니다.")
         }
 
+        //TODO:0325 해당 회원의 이메일과 이름 가져오기
+        val sharedPreferences2 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        val name = sharedPreferences2.getString("name", "")
+        binding.nameTv.text=name //해당 회원의 이름을 가져와서 이메일 텍스트뷰에 반영
 
         //결제하기 버튼
         binding.payBtn.setOnClickListener{

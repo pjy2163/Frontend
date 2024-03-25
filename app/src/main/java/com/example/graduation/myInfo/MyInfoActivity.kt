@@ -7,7 +7,7 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.graduation.MainActivity
-import com.example.graduation.PayHistoryActivity
+import com.example.graduation.R
 import com.example.graduation.TermsActivity
 import com.example.graduation.databinding.ActivityMyInfoBinding
 import java.util.Locale
@@ -40,17 +40,13 @@ class MyInfoActivity : AppCompatActivity(){
             startActivity(intent)
 
         }
-        //TODO: 등록된 결제수단 확인하기 위해 가로로 넘기면서 보는 뷰 (은행계좌 또는 카드명 부분 가로로 넘어가도록 처리)
-
-
 
         //비밀번호 변경 버튼 이벤트 처리
         binding.changePwdBtn.setOnClickListener{
             if (soundState) {
                 onSpeech(binding.changePwdBtn.text)
             }
-            //본인확인 위해 지문인증으로 이동
-            val intent = Intent(this,EnterFingerprintActivity::class.java)
+            val intent = Intent(this, ChangePwdActivity::class.java)
             startActivity(intent)
         }
 
@@ -69,6 +65,11 @@ class MyInfoActivity : AppCompatActivity(){
                 onSpeech(binding.deleteAccountBtn.text)
             }
             //TODO:정말로 탈퇴하시겠습니까 및 계정 탈퇴 처리
+            val fragment = DeleteAccountConfirmationFragment()
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fl_basic, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
 
         setContentView(binding.root)

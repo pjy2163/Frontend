@@ -49,7 +49,7 @@ class PayConfirmationActivity : AppCompatActivity() {
         mtts = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
                 // 화면 정보 읽어주기
-                val textToSpeak ="결제 승인하시겠습니까?"+binding.productPlaceTv.text+"에서"+binding.productPriceTv+"원을 결제합니다. 출금계좌는"+binding.chosenPaymentNameText.text+"의"+binding.chosenPaymentNumberText.text+"입니다."
+                val textToSpeak ="결제 승인하시겠습니까?"+binding.productPlaceTv.text+"에서"+price+"원을 결제합니다. 출금계좌는"+binding.chosenPaymentNameText.text+"의"+binding.chosenPaymentNumberText.text+"입니다."
                 onSpeech(textToSpeak)
             } else {
                 // 초기화가 실패한 경우

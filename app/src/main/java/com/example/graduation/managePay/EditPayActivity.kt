@@ -43,8 +43,8 @@ class EditPayActivity : AppCompatActivity() {
             if (soundState) {
                 onSpeech(binding.addPayBtn.text)
             }
-
-
+            val intent = Intent(this, RegisterChooseBankActivity::class.java)
+            startActivity(intent)
         }
 
         binding.deletePayBtn.setOnClickListener {

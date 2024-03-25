@@ -29,6 +29,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".managePay.RegisterAccountNumberActivity"
+            android:exported="false" />
+        <activity
             android:name=".transfer.TransferEnterReceiverByHandActivity"
             android:exported="false" />
         <activity
@@ -36,7 +39,7 @@
             android:exported="false" />
         <activity
             android:name=".splash.Splash1Activity"
-            android:exported="true" />
+            android:exported="true"></activity>
         <activity
             android:name=".splash.Splash2Activity"
             android:exported="false" />
@@ -50,16 +53,13 @@
             android:name=".transfer.TransferMoneyAmountActivity"
             android:exported="true" />
         <activity
-            android:name=".signUp.SignUpAccountCheckPwdActivity"
+            android:name=".managePay.RegisterAccountCheckPwdActivity"
             android:exported="false" />
         <activity
-            android:name=".signUp.SignUpAccountPwdActivity"
-            android:exported="false" />
+            android:name=".managePay.RegisterAccountPwdActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".transfer.TransferChooseBankActivity"
-            android:exported="false" />
-        <activity
-            android:name=".myInfo.EnterFingerprintActivity"
             android:exported="false" />
         <activity
             android:name=".myInfo.ChangeCheckPwdActivity"
@@ -84,11 +84,11 @@
         <activity
             android:name=".Signup_Email"
             android:exported="true"
-            android:parentActivityName=".Signup_Name" />
+            android:parentActivityName=".Signup_Name"></activity>
         <activity
             android:name=".Signup_Name"
             android:exported="true"
-            android:parentActivityName=".Login" />
+            android:parentActivityName=".Login"></activity>
         <activity
             android:name=".Login_Pwd"
             android:exported="false"
@@ -132,7 +132,7 @@
             android:name=".managePay.RegisterChooseBankActivity"
             android:exported="true" />
         <activity
-            android:name=".managePay.RegisterAccountInfoCheckActivity"
+            android:name=".managePay.RegisterAccountConfirmationActivity"
             android:exported="true" />
         <activity
             android:name=".managePay.EditPayActivity"

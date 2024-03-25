@@ -143,18 +143,18 @@
             android:layout_marginBottom="10dp">
 
             <ImageView
-                android:id="@+id/account_iv"
+                android:id="@+id/time_iv"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"
-                app:srcCompat="@drawable/ic_withdraw_color" />
+                app:srcCompat="@drawable/ic_financial_plan" />
 
             <TextView
-                android:id="@+id/account_title_tv"
+                android:id="@+id/time_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="출금 계좌: "
+                android:text="결제 기한: "
                 android:textSize="@dimen/sub_title"
                 android:textColor="@color/black"
                 android:layout_marginBottom="10dp" />
@@ -163,8 +163,7 @@
             android:id="@+id/product_account_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="133133-31-333"
+            android:text="일시불"
             android:textSize="@dimen/sub_title"
                 android:textStyle="bold"
                 android:textColor="@color/blue"
