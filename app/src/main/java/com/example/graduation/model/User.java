@@ -4,8 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class User { // 회원가입 요청시 보낼 데이터
+
+    @SerializedName("id")
     private String id; // 이게 id
+    @SerializedName("password")
     private String password;
+
+    @SerializedName("name")
     private String name;
 
 
@@ -41,4 +46,6 @@ public class User { // 회원가입 요청시 보낼 데이터
                 ", name='" + name + '\'' +
                 '}';
     }
+
+
 }

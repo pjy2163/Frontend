@@ -52,9 +52,10 @@
             android:name=".myInfo.EnterFingerprintActivity"
             android:exported="false" />
 
+        <!-- 저장소 읽기 권한
         <activity
             android:name=".managePay.RegisterAccountVoiceActivity"
-            android:exported="false" />
+            android:exported="false" />-->
         <activity
             android:name=".myInfo.ChangeCheckPwdActivity"
             android:exported="false" />
@@ -69,11 +70,11 @@
             android:exported="false" />
         <activity
             android:name=".Signup_Checkpwd"
-            android:exported="false"
+            android:exported="true"
             android:parentActivityName=".Signup_Pwd" />
         <activity
             android:name=".Signup_Pwd"
-            android:exported="false"
+            android:exported="true"
             android:parentActivityName=".Signup_Email" />
         <activity
             android:name=".Signup_Email"
@@ -85,15 +86,23 @@
             android:parentActivityName=".Login" />
         <activity
             android:name=".Login_Pwd"
-            android:exported="false"
+            android:exported="true"
             android:parentActivityName=".Login_Email" />
         <activity
             android:name=".Login_Email"
-            android:exported="false"
+            android:exported="true"
             android:parentActivityName=".Login" />
         <activity
             android:name=".Login"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
         <activity
             android:name=".myInfo.ChangePwdActivity"
             android:exported="true"
@@ -151,13 +160,8 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

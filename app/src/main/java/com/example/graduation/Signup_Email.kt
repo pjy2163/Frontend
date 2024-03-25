@@ -9,10 +9,17 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.graduation.LoginUser.Companion.email
 import com.example.graduation.databinding.ActivitySignupEmailBinding
 import com.example.graduation.model.User
+import com.example.graduation.retrofit.RetrofitService
+import com.example.graduation.retrofit.UserApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 import java.util.Locale
+import java.util.logging.Level
+import java.util.logging.Logger
 
 
 class Signup_Email : AppCompatActivity(), SignupDialogInterface {
@@ -37,15 +44,21 @@ class Signup_Email : AppCompatActivity(), SignupDialogInterface {
             onSpeech("회원가입 이메일 입력 화면입니다.")
         }
 
+        val retrofitService = RetrofitService()
+        val userApi: UserApi = retrofitService.retrofit.create(UserApi::class.java)
+
         binding.enterButton.setOnClickListener {
             val id = binding.signupInputEmail.text.toString().trim() //id 이메일 형식
             val user = User()
             user.id = id
+
             if (isEmailValid(id)) {
                 if (isEmailAvailable(id)) {
+
                     //등록 가능한 이메일인 경우
                     val intent1 = Intent(this, Signup_Pwd::class.java)
                     val intent2 = Intent(this, Signup_Checkpwd::class.java)
+
                     intent2.putExtra("id", id) //이메일 값 전달
                     startActivity(intent1)
                 } else {
@@ -80,18 +93,18 @@ class Signup_Email : AppCompatActivity(), SignupDialogInterface {
     //이메일 등록 여부 검사
     private fun isEmailAvailable(id: String): Boolean {
         //JDBC 연결
-       // Class.forName("com.mysql.jdbc.Driver")
+        Class.forName("com.mysql.jdbc.Driver")
         //val url = DriverManager.getConnection("jdbc:mysql://192.168.219.102:8080/userlog","parang","backend")
-        val url = "jdbc:mysql://192.168.16.70:3306/userlog"
-        val id = "parang"
-        val password = "backend"
+        //val url = "jdbc:mysql://192.168.228.8:3306/userlog"
+       // val id = "parang"
+        //val password = "backend"
         // DB 연결
         var connection: Connection? = null
         var isAvailable = true
 
         try {
-            //connection = DriverManager.getConnection("jdbc:mysql://192.168.219.102:3306/userlog","parang","backend")
-            connection = DriverManager.getConnection(url, id, password)
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.228.8:3306/userlog","parang","backend")
+            //connection = DriverManager.getConnection(url, username, password)
             //SQL 쿼리를 이용해서 이메일이 DB에 존재하는지 확인
             val sql = "SELECT * FROM User WHERE id=?"
             val preparedStatement = connection.prepareStatement(sql)

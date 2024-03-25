@@ -34,7 +34,7 @@ class Login_Pwd : AppCompatActivity() {
 
         binding.enter.setOnClickListener {
             val pwd = binding.loginInputPwd.text.toString()
-            val id = intent.getStringExtra("id")
+            val email = intent.getStringExtra("email")
             if (pwd == "") {
                 //비밀번호 공백 입력 시
                 Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()

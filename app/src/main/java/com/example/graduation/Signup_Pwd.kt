@@ -5,10 +5,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.widget.Toast
 import com.example.graduation.databinding.ActivitySignupPwdBinding
 import com.example.graduation.model.User
+import com.example.graduation.retrofit.RetrofitService
+import com.example.graduation.retrofit.UserApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.Locale
+import java.util.logging.Level
+import java.util.logging.Logger
 
 class Signup_Pwd : AppCompatActivity(), SignupDialogInterface {
 
@@ -33,8 +41,7 @@ class Signup_Pwd : AppCompatActivity(), SignupDialogInterface {
 
         binding.enterButton.setOnClickListener {
             val password = binding.signupInputPwd.text.toString().trim()
-            val user = User()
-            user.password = password
+
             if (isPwdQualified(password)){
                 //비밀번호 조건 충족 시 저장 후 다음 화면으로 이동
                 val intent = Intent(this, Signup_Checkpwd::class.java)

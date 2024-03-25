@@ -1,6 +1,10 @@
 package com.example.graduation.retrofit;
 
+import com.example.graduation.model.LoginRequest;
+import com.example.graduation.model.LoginResponse;
 import com.example.graduation.model.User;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -16,4 +20,8 @@ public interface UserApi {
 
     @POST("/user/save")
     Call<User> save(@Body User user);
+
+    @POST("/user/login")
+    Call<LoginResponse> login(@Body LoginRequest request);
 }
+
