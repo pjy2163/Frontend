@@ -27,6 +27,9 @@ public interface UserApi {
     Call<User> getUser(@Query("id") String id, @Query("password") String password);
 
 
+    @POST("user/checkEmailRegistration")
+    Call<User> checkEmailRegistration(@Body User user);
+    }
 
-}
+
 
