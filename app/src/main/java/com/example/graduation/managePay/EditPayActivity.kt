@@ -43,16 +43,17 @@ class EditPayActivity : AppCompatActivity() {
             if (soundState) {
                 onSpeech(binding.addPayBtn.text)
             }
-
-
+            val intent = Intent(this, RegisterChooseBankActivity::class.java)
+            startActivity(intent)
         }
 
         binding.deletePayBtn.setOnClickListener {
             if (soundState) {
-                onSpeech(binding.addPayBtn.text)
+                onSpeech(binding.deletePayBtn.text)
             }
 
-
+            val intent = Intent(this, DeletePayMethodActivity::class.java)
+            startActivity(intent)
         }
     }
     private fun onSpeech(text: CharSequence) {

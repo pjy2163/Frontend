@@ -2,13 +2,11 @@ package com.example.graduation.transfer
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import androidx.databinding.adapters.ImageViewBindingAdapter.setImageDrawable
+import android.util.Log
 import com.example.graduation.R
-import com.example.graduation.databinding.ActivityRegisterChooseBankBinding
 import com.example.graduation.databinding.ActivityTransferChooseBankBinding
 import java.util.Locale
 
@@ -38,8 +36,16 @@ class TransferChooseBankActivity : AppCompatActivity() {
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
         //화면 정보 읽기
-        if (soundState) {
-            onSpeech("계좌 선택 화면입니다")
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val titleText = binding.titleTv.text.toString()
+                val explainText = binding.explainTv.text.toString()
+                val textToSpeak = "$titleText $explainText"
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
         }
 
         binding.hanaBtn.setOnClickListener{

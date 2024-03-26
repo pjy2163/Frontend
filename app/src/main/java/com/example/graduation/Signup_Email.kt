@@ -41,6 +41,13 @@ class Signup_Email : AppCompatActivity(), SignupDialogInterface {
                     val intent1 = Intent(this, Signup_Pwd::class.java)
                     val intent2 = Intent(this, Signup_Checkpwd::class.java)
                     intent2.putExtra("email", email) //이메일 값 전달
+
+                    //TODO:0325 이메일 값을 checkpwd로 보내버리기
+                    val sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("email", email)
+                    editor.apply()
+
                     startActivity(intent1)
                 } else {
                     //등록된 이메일인 경우

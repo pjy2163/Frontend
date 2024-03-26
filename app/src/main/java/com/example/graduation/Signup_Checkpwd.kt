@@ -31,6 +31,14 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
             onSpeech("회원가입 이메일 입력 화면입니다.")
         }
 
+        //TODO:0325 해당 회원의 이메일과 이름 가져오기
+        val sharedPreferences2 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        val email = sharedPreferences2.getString("email", "")
+        val name = sharedPreferences2.getString("name", "")
+        binding.emailTv.text=email //해당 회원의 이메일을 가져와서 이메일 텍스트뷰에 반영
+        binding.nameTv.text=name //해당 회원의 이름을 가져와서 이메일 텍스트뷰에 반영
+
+
         binding.enterButton.setOnClickListener {
             val checkpwd = binding.signupInputCheckpwd.text.toString().trim()
             val pwd = intent.getStringExtra("pwd").toString()
@@ -38,7 +46,7 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
                 //비밀번호 일치하면 계정 생성 후 로그인 화면으로 이동
                 val email = intent.getStringExtra("email").toString()
                 val name = intent.getStringExtra("name").toString()
-                makeUser(name, email, pwd)
+              /*  makeUser(name, email, pwd)*/
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
             } else {
@@ -61,10 +69,10 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
     }
 
     //계정 생성
-    private fun makeUser(name: String, email: String, pwd: String): Boolean {
+ /*   private fun makeUser(name: String, email: String, pwd: String): Boolean {
         return TODO("서버에 입력받은 email, pwd로 사용자 계정 생성")
     }
-
+*/
     override fun onDialogButtonClick() {
         finish()
     }

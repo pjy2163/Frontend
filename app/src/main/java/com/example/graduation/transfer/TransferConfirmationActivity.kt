@@ -53,39 +53,27 @@ class TransferConfirmationActivity : AppCompatActivity() {
         biometricPrompt = setBiometricPrompt()
         promptInfo = setPromptInfo()
 
-        val message = "${binding.receiverNameTv.text}님에게 ${binding.receiverMoneyAmountTv.text}원을 이체하시겠습니까?"
-
-        // onSpeech() 함수에는 완성된 문자열을 전달
-        onSpeech(binding.titleTv.text.toString())
-        onSpeech(message)
-        onSpeech("받는 계좌: ${binding.receiverBankTv.text}")
-        onSpeech(binding.receiverAccountNumberTv.text)
-        onSpeech("받는 분에게 표시: ${binding.senderNameTv.text}")
-        onSpeech(binding.explainSenderNameTv.text)
-
-        /*//목소리 입력과 카메라 촬영 중 무엇을 사용하여 계좌번호(to)를 입력하였는지 정보
-        val window=sharedPreferences.getString("window", "a")
-        if (window != null) {
-            Log.d("TransferConfirmationActivity", window)
-
-            if (window=="pic"){ //카메라 촬영으로 계좌번호(to)를 입력받은 경우
-                //어느 계좌로 보낼 것인지(to) transferPicActivity에서 가져오기
-                val toAccount=sharedPreferences.getString("toAccount", "123")
-                binding.receiverAccountNumberTv.text=toAccount
+        //화면 정보 읽기
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val titleText ="송금하기 전 마지막 확인 화면입니다"
+                val explainText = "${binding.receiverNameTv.text}님에게 ${binding.receiverMoneyAmountTv.text}원을 이체하시겠습니까?"
+                val senderNameText="받는 분에게 표시: ${binding.senderNameTv.text}"
+                val buttonExplainText=binding.explainSenderNameTv
+                val textToSpeak = "$titleText $explainText $senderNameText $buttonExplainText"
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
             }
-            else{ //목소리 입력으로 계좌번호(to)를 입력받은 경우
-                //어느 계좌로 보낼 것인지(to) transferVoiceActivity에서 가져오기
-                val toAccount=sharedPreferences.getString("toAccount", "123")
-                binding.receiverAccountNumberTv.text=toAccount
-            }
-        }*/
+        }
 
 
         //받을 사람 이름, 계좌번호, 금액 데이터 가져오기
-        val sharedPreferences2 = getSharedPreferences("receiverInfo", Context.MODE_PRIVATE)
+        val sharedPreferences2 = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
         val recipientName = sharedPreferences2.getString("recipientName", "")
-        val accountNumber = sharedPreferences.getString("ReceiverAccountNumber", "")
-        val sendMoneyAmount = sharedPreferences.getString("moneyAmount", "")
+        val accountNumber = sharedPreferences2.getString("ReceiverAccountNumber", "")
+        val sendMoneyAmount = sharedPreferences2.getString("moneyAmount", "")
         //어느 은행으로 보낼지
         val receiverBank = sharedPreferences.getString("selectedBank", "")
 
@@ -99,10 +87,6 @@ class TransferConfirmationActivity : AppCompatActivity() {
         } else {
             Log.d("yk","받을 사람의 이름 또는 계좌번호가 존재하지 않음")
         }
-
-
-
-
 
 
         //소리 설정
@@ -181,6 +165,13 @@ class TransferConfirmationActivity : AppCompatActivity() {
                 playSuccessSound()
                 Toast.makeText(this@TransferConfirmationActivity, "지문 인증에 성공하였습니다.", Toast.LENGTH_SHORT).show()
 
+                // 받는 사람의 이름과 금액을 SharedPreferences에 저장
+                val sharedPreferences = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("recipientName", binding.receiverNameTv.text.toString())
+                editor.putString("moneyAmount", binding.receiverMoneyAmountTv.text.toString())
+                editor.apply()
+
                //송금완료 화면으로 이동
                 val intent = Intent(this@TransferConfirmationActivity,TransferCompletedActivity::class.java)
                 startActivity(intent)
@@ -203,7 +194,6 @@ class TransferConfirmationActivity : AppCompatActivity() {
     * */
     fun authenticateToEncrypt() = with(binding) {
 
-        Log.d("0222", "authenticateToEncrypt() ")
 
         var textStatus = ""
         val biometricManager = BiometricManager.from(this@TransferConfirmationActivity)

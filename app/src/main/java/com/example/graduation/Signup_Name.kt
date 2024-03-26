@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.text.TextUtils.isEmpty
+import com.example.graduation.LoginUser.Companion.email
 import com.example.graduation.databinding.ActivitySignupNameBinding
 import java.util.Locale
 
@@ -40,6 +41,13 @@ class Signup_Name : AppCompatActivity(), SignupDialogInterface {
                     onSpeech("이름을 입력해주세요.")
                 }
             } else {
+
+                //TODO:0325 이름을 checkpwd로 보내버리기
+                val sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("name", name)
+                editor.apply()
+
                 val intent1 = Intent(this, Signup_Email::class.java)
                 val intent2 = Intent(this, Signup_Checkpwd::class.java)
                 intent2.putExtra("name", name) //이름 값 전달

@@ -23,7 +23,7 @@
             android:layout_gravity="center"/>
 
         <TextView
-            android:id="@+id/pay_completed_tv"
+            android:id="@+id/title_tv"
             android:layout_width="322dp"
             android:layout_height="182dp"
             android:gravity="center"

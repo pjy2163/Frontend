@@ -1,8 +1,10 @@
+
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-// Add the Google services Gradle plugin
     id("com.google.gms.google-services")
+
 }
 
 android {
@@ -76,7 +78,6 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.6.0")
     implementation ("com.google.code.gson:gson:2.8.6")
     implementation ("com.squareup.okhttp3:logging-interceptor:3.11.0")
-
 
 
 }

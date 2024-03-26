@@ -5,6 +5,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,6 @@ import com.example.graduation.databinding.FragmentChangePwdCompletedBinding
 import java.util.*
 
 
-//결제승인 확인 하면 뜨는 결제 완료 프래그먼트
 
 class ChangePwdCompletedFragment : Fragment() {
     private lateinit var binding:FragmentChangePwdCompletedBinding
@@ -37,6 +37,17 @@ class ChangePwdCompletedFragment : Fragment() {
         mtts = TextToSpeech(requireActivity()) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
         }
+        //화면 정보 읽기
+        mtts = TextToSpeech(requireActivity()) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val textToSpeak = binding.titleTv.text
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
+        }
+
         // SharedPreferences에서 소리 on/off 상태 불러오기
         val sharedPreferences = requireActivity().getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
@@ -47,10 +58,6 @@ class ChangePwdCompletedFragment : Fragment() {
 
         playSuccessSound() //완료되었다는 띠링 소리
 
-        //화면 정보 읽기
-        if (soundState) {
-            onSpeech(binding.payCompletedTv.text)
-        }
 
         binding.nextBtn.setOnClickListener {
             if (soundState) {

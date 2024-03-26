@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".transfer.com.example.graduation.transfer.TransferHistoryActivity"
+    android:orientation="vertical">
+
+    <android.widget.Button
+        android:id="@+id/prev_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/previous_text"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white"/>
+
+    <!-- RecyclerView 정의 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"/>
+
+</LinearLayout>

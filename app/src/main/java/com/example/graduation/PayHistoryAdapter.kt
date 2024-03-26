@@ -13,8 +13,8 @@ class PayHistoryAdapter (private val dataList: List<DataModel>) : RecyclerView.A
             val dayTextView: TextView = itemView.findViewById(R.id.day_tv)
             val productPlaceTextView: TextView = itemView.findViewById(R.id.product_place_tv)
             val productPriceTextView: TextView = itemView.findViewById(R.id.product_price_tv)
-            val timeTextView: TextView = itemView.findViewById(R.id.time_tv)
-            val statusTextView: TextView = itemView.findViewById(R.id.tv_title)
+      /*      val timeTextView: TextView = itemView.findViewById(R.id.time_tv)*/
+            val statusTextView: TextView = itemView.findViewById(R.id.status_tv)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,8 +31,8 @@ class PayHistoryAdapter (private val dataList: List<DataModel>) : RecyclerView.A
 
             holder.dayTextView.text = data.day
             holder.productPlaceTextView.text = data.productPlace
-            holder.productPriceTextView.text = data.productPrice
-            holder.timeTextView.text = data.time
+            holder.productPriceTextView.text = data.productPrice.toString()
+           /* holder.timeTextView.text = data.time*/
             holder.statusTextView.text = data.status
         }
 
@@ -45,8 +45,8 @@ class PayHistoryAdapter (private val dataList: List<DataModel>) : RecyclerView.A
         data class DataModel(
             val day: String,
             val productPlace: String,
-            val productPrice: String,
-            val time: String,
+            val productPrice:Int,
+            /*val time: String,*/
             val status: String
         )
     }

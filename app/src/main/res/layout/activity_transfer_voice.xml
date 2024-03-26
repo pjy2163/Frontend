@@ -62,7 +62,7 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="화면 중앙의 버튼을 누르면\n음성 인식이 시작됩니다."
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black"   />
 
@@ -80,6 +80,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="음성 인식 상태..."
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/write_by_hand_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:text="직접 입력하기"
+            android:layout_marginTop="20dp"
             android:textColor="@color/black"/>
 
 

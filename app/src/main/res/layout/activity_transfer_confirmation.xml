@@ -25,18 +25,7 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/title_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
-            android:text="송금 확인"
-            android:textColor="@color/black"
-            android:textSize="@dimen/title"
-            android:textStyle="bold" />
 
-        <!-- 송금할 계좌 정보 -->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -61,8 +50,7 @@
                 android:gravity="center"
                 android:text=" 님에게"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="24sp"/>
 
         </LinearLayout>
 
@@ -87,15 +75,14 @@
                 android:layout_height="wrap_content"
                 android:text=" 원을 보내시겠습니까?"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="24sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -105,7 +92,7 @@
                 android:text="받는 계좌: "
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+               />
 
             <TextView
                 android:id="@+id/receiver_bank_tv"
@@ -131,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -147,7 +134,7 @@
                 android:id="@+id/sender_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="30dp"
                 android:text="이유경"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -167,7 +154,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/grey_notice"
             android:gravity="center"
             android:paddingLeft="50dp"
