@@ -8,6 +8,11 @@ import android.speech.tts.TextToSpeech
 import android.widget.Toast
 import com.example.graduation.LoginUser.Companion.email
 import com.example.graduation.databinding.ActivityLoginEmailBinding
+import com.example.graduation.retrofit.RetrofitService
+import com.example.graduation.retrofit.UserApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
@@ -33,12 +38,52 @@ class Login_Email : AppCompatActivity() {
             onSpeech("로그인 이메일 입력 화면입니다.")
         }
 
-      //  val retrofitService = RetrofitService()
-       // val userApi = retrofitService.retrofit.create(UserApi::class.java)
+        //  val retrofitService = RetrofitService()
+        // val userApi = retrofitService.retrofit.create(UserApi::class.java)
 
         binding.enter.setOnClickListener {
             val id = binding.loginInputEmail.text.toString()
+
             if (isEmailValid(id)) {
+                val retrofitService = RetrofitService()
+                val userApi = retrofitService.retrofit.create(UserApi::class.java)
+                userApi.checkEmailRegistration(id).enqueue(object : Callback<Boolean> {
+                    override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+                        if (response.isSuccessful) {
+                            val isRegistered = response.body() ?: false
+                            if (isRegistered) {
+                                val intent = Intent(this@Login_Email, Login_Pwd::class.java)
+                                intent.putExtra("id", id) // 이메일 값 넘겨주기
+                                startActivity(intent)
+                            } else {
+                                Toast.makeText(
+                                    this@Login_Email,
+                                    "가입되지 않은 이메일입니다.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                if (soundState) {
+                                    onSpeech("가입되지 않은 이메일입니다.")
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                        // 요청 실패 시 처리
+                        Toast.makeText(this@Login_Email, "서버와의 통신에 실패하였습니다.", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                })
+            } else {
+                // 이메일 형식 오류일 경우
+                Toast.makeText(this, "이메일을 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
+                if (soundState) {
+                    onSpeech("이메일을 다시 확인해주세요.")
+                }
+            }
+        }
+    }
+            /*if (isEmailValid(id)) {
                 if (isEmailRegistered(id)) {
                     val intent = Intent(this, Login_Pwd::class.java)
                     intent.putExtra("id", id) //이메일 값 넘겨주기
@@ -74,6 +119,8 @@ class Login_Email : AppCompatActivity() {
         }
     }
 
+
+             */
     //이메일 형식 검사
     private fun isEmailValid(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
@@ -82,7 +129,7 @@ class Login_Email : AppCompatActivity() {
     //이메일 등록 여부 검사
     private fun isEmailRegistered(id: String): Boolean {
         // JDBC 연결
-        val url = "jdbc:mysql://192.168.16.70:3306/userlog"
+        val url = "jdbc:mysql://192.168.228.8:3306/userlog"
         val id = "parang"
         val password = "backend"
         // DB 연결
@@ -115,6 +162,8 @@ class Login_Email : AppCompatActivity() {
         }
         return isRegistered
     }
+
+
 
     //음성 안내
     private fun onSpeech(text: CharSequence) {

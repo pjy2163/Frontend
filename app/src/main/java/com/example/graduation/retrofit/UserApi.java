@@ -12,6 +12,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.Call;
+import retrofit2.http.Query;
 
 public interface UserApi {
 
@@ -21,7 +22,11 @@ public interface UserApi {
     @POST("/user/save")
     Call<User> save(@Body User user);
 
-    @POST("/user/login")
-    Call<LoginResponse> login(@Body LoginRequest request);
+
+    @GET("/user/getUser")
+    Call<User> getUser(@Query("id") String id, @Query("password") String password);
+
+
+
 }
 
