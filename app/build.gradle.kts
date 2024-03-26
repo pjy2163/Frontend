@@ -82,6 +82,7 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
    // implementation ("com.google.code.gson:gson:2.8.6")
    // implementation ("com.squareup.okhttp3:logging-interceptor:3.11.0")
+    implementation ("com.squareup.okhttp3:okhttp-urlconnection:4.9.1") //로그인 세션 유지 위한
 
     implementation ("mysql:mysql-connector-java:5.1.46")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")

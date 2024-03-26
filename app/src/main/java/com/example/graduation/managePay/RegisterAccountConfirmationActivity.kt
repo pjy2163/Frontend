@@ -5,10 +5,20 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.graduation.R
 import com.example.graduation.databinding.ActivityRegisterAccountConfirmationBinding
+import com.example.graduation.model.Account
+import com.example.graduation.retrofit.AccountApi
+import com.example.graduation.retrofit.RetrofitService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.Locale
+import java.util.logging.Level
+import java.util.logging.Logger
 
 class RegisterAccountConfirmationActivity : AppCompatActivity(){
     private lateinit var binding: ActivityRegisterAccountConfirmationBinding
@@ -42,11 +52,32 @@ class RegisterAccountConfirmationActivity : AppCompatActivity(){
         binding.bankNameTv.text=bankName
         binding.accountNumberTv.text=accountNumber.toString()
 
+        val retrofitService = RetrofitService()
+        val accountApi: AccountApi = retrofitService.retrofit.create(AccountApi::class.java)
+
+        val account = Account()
+        account.setBank_name(bankName)
+        account.setAccount_number(accountNumber)
+
+
         //다음버튼 누르면 계좌등록 화면으로 넘어가기
         binding.nextBtn.setOnClickListener {
             if (soundState) {
                 onSpeech(binding.nextBtn.text)
             }
+            accountApi.save1(account)
+                .enqueue(object : Callback<Account> {
+                    override fun onResponse(call: Call<Account>, response: Response<Account>) {
+                        Log.d("RegisterChooseBankActivity", "bank name saved successfully: ${response.body()}")
+                        Toast.makeText(this@RegisterAccountConfirmationActivity, "저장완료", Toast.LENGTH_SHORT).show()
+
+                    }
+
+                    override fun onFailure(call: Call<Account>, t: Throwable) {
+                        Toast.makeText(this@RegisterAccountConfirmationActivity, "fail!!!", Toast.LENGTH_SHORT).show()
+                        Logger.getLogger(RegisterChooseBankActivity::class.java.name).log(Level.SEVERE, "에러")
+                    }
+                })
             val fragment = RegisterCompletedFragment()
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_basic, fragment)

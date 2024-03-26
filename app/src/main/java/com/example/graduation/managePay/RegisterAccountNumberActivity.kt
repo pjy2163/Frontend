@@ -7,13 +7,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
+import android.widget.Toast
 import com.example.graduation.MainActivity
 import com.example.graduation.R
 import com.example.graduation.databinding.ActivityRegisterAccountNumberBinding
 import com.example.graduation.databinding.ActivityTransferEnterAccountNumberBinding
+import com.example.graduation.model.Account
+import com.example.graduation.retrofit.AccountApi
+import com.example.graduation.retrofit.RetrofitService
 import com.example.graduation.transfer.TransferMoneyAmountActivity
 import com.example.graduation.transfer.TransferVoiceActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.Locale
+import java.util.logging.Level
+import java.util.logging.Logger
 
 
 class RegisterAccountNumberActivity : AppCompatActivity() {
@@ -197,6 +206,7 @@ class RegisterAccountNumberActivity : AppCompatActivity() {
                     .substring(0, AccountNum.text.length - 1)
             }
         }
+
 
         binding.nextBtn.setOnClickListener {
             if (soundState) {

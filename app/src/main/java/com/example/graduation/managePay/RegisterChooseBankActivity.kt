@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
-import com.example.graduation.MainActivity
 import com.example.graduation.databinding.ActivityRegisterChooseBankBinding
 import java.util.Locale
 
@@ -33,6 +32,7 @@ class RegisterChooseBankActivity : AppCompatActivity() {
         }
 */
 
+
         binding.hanaBtn.setOnClickListener{
             if (soundState) {
                 onSpeech(binding.hanaBtn.text)
@@ -42,6 +42,7 @@ class RegisterChooseBankActivity : AppCompatActivity() {
             val editor = sharedPreferences.edit()
             editor.putString("bankName", "하나은행")
             editor.apply()
+
 
             val intent = Intent(this, RegisterAccountNumberActivity::class.java)
             startActivity(intent)
@@ -54,8 +55,9 @@ class RegisterChooseBankActivity : AppCompatActivity() {
             // 입력된 은행을 SharedPreferences에 저장하기
             val sharedPreferences = getSharedPreferences("registerInfo", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
-            editor.putString("bankName", "신한은행")
+            editor.putString("bank_Name", "신한은행")
             editor.apply()
+
 
             val intent = Intent(this, RegisterAccountNumberActivity::class.java)
             startActivity(intent)

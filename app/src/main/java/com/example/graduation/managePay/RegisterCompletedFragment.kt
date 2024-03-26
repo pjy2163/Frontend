@@ -34,6 +34,7 @@ class RegisterCompletedFragment : Fragment() {
         // 데이터 받아오기
         val recognizedAccountNumberText = arguments?.getString("recognizedText")
 
+
         mtts = TextToSpeech(requireActivity()) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
         }
@@ -64,6 +65,7 @@ class RegisterCompletedFragment : Fragment() {
             if (soundState) {
                 onSpeech(binding.nextBtn.text)
             }
+
             startActivity(Intent(requireActivity(), MainActivity::class.java))
         }
 

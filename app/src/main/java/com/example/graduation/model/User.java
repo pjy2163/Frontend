@@ -6,8 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 
-public class User {
-        //implements Parcelable { // 회원가입 요청시 보낼 데이터
+public class User implements Parcelable { // 회원가입 요청시 보낼 데이터
 
     @SerializedName("id")
     private String id; // 이게 id
@@ -17,14 +16,14 @@ public class User {
     @SerializedName("name")
     private String name;
 
-    public User(String id, String password) {
+     public User() {
         this.id = id;
         this.password = password;
+        this.name = name;
     }
 
-    public User() {
 
-    }
+
 
 
     public void setId(String id) {
@@ -58,7 +57,7 @@ public class User {
         name = in.readString();
     }
 
-   /* public static final Creator<User> CREATOR = new Creator<User>() {
+    public static final Creator<User> CREATOR = new Creator<User>() {
         @Override
         public User createFromParcel(Parcel in) {
             return new User(in);
@@ -85,7 +84,7 @@ public class User {
 
 
 
-    */
+
     @Override
     public String toString() {
         return "User{" +
