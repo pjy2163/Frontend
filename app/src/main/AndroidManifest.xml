@@ -29,6 +29,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".managePay.DeletePayConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".managePay.DeletePayMethodActivity"
+            android:exported="false" />
+        <activity
             android:name=".managePay.RegisterAccountNumberActivity"
             android:exported="false" />
         <activity
@@ -39,7 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".splash.Splash1Activity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".splash.Splash2Activity"
             android:exported="false" />
@@ -57,7 +63,7 @@
             android:exported="false" />
         <activity
             android:name=".managePay.RegisterAccountPwdActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".transfer.TransferChooseBankActivity"
             android:exported="false" />
@@ -84,11 +90,11 @@
         <activity
             android:name=".Signup_Email"
             android:exported="true"
-            android:parentActivityName=".Signup_Name"></activity>
+            android:parentActivityName=".Signup_Name" />
         <activity
             android:name=".Signup_Name"
             android:exported="true"
-            android:parentActivityName=".Login"></activity>
+            android:parentActivityName=".Login" />
         <activity
             android:name=".Login_Pwd"
             android:exported="false"

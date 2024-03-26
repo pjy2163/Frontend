@@ -1,4 +1,4 @@
-package com.example.graduation
+package com.example.graduation.managePay
 
 import PaymentMethodAdapter
 import android.content.Context
@@ -7,18 +7,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.graduation.databinding.ActivityChoosePayMethodBinding
+import com.example.graduation.PaymentMethod
+import com.example.graduation.PaymentMethodClickListener
+import com.example.graduation.R
+import com.example.graduation.databinding.ActivityDeletePayMethodBinding
 import java.util.Locale
 
-
-class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
+//삭제할 결제수단 선택 화면
+class DeletePayMethodActivity : AppCompatActivity(), PaymentMethodClickListener {
 
     lateinit var mtts: TextToSpeech
-    private lateinit var binding: ActivityChoosePayMethodBinding
+    private lateinit var binding: ActivityDeletePayMethodBinding
     private var selectedPaymentMethod: PaymentMethod? = null
 
 
@@ -31,7 +32,7 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityChoosePayMethodBinding.inflate(layoutInflater)
+        binding = ActivityDeletePayMethodBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
@@ -44,7 +45,7 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
         mtts = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
                 // 화면 정보 읽어주기
-                val textToSpeak ="결제 수단 선택 화면입니다"+binding.explainTv.text
+                val textToSpeak ="결제 수단 삭제 화면입니다"
                 onSpeech(textToSpeak)
             } else {
                 // 초기화가 실패한 경우
@@ -72,34 +73,9 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
             }
         }
 
-        //TODO:0326 삭제
-        //계좌삭제에서 삭제한게있으면
-        var spDelete = getSharedPreferences("deleteInfo", Context.MODE_PRIVATE)
-        var deleteBankName =  spDelete.getString("bankName", "")
-        var deleteAccountNumber =  spDelete.getString("accountNum", "")
-        // PaymentMethod 리스트에서 해당 은행과 계좌를 찾아 삭제
-        if (! deleteBankName.isNullOrEmpty() && !deleteAccountNumber.isNullOrEmpty()) {
-            if (bankName=="하나은행"){
-                var objPaymentMethod = PaymentMethod(R.drawable.img_bank_hana, "Hana Bank", deleteBankName,deleteAccountNumber, false)
-                paymentMethods -= objPaymentMethod // 기존 리스트에서 삭제
-            }
-            else if (bankName=="신한은행"){
-                var objPaymentMethod=PaymentMethod(R.drawable.img_bank_shinhan, "Shinhan Bank",deleteBankName, deleteAccountNumber, false)
-                paymentMethods -= objPaymentMethod // 기존 리스트에서 삭제
-            }
-            else if (bankName=="국민은행"){
-                var objPaymentMethod= PaymentMethod(R.drawable.img_bank_kookmin, "Kookmin Bank",deleteBankName,deleteAccountNumber, false)
-                paymentMethods-= objPaymentMethod // 기존 리스트에서 삭제
-            }
-        }
-
-
-
-
         val adapter = PaymentMethodAdapter(paymentMethods, this)
         binding.viewPagerCard.adapter = adapter
         binding.viewPagerCard.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
 
 
         binding.viewPagerCard.registerOnPageChangeCallback(object :
@@ -125,7 +101,7 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
                 onSpeech(binding.prevBtn.text)
             }
 
-            val intent = Intent(this, CheckPayInfoActivity::class.java)
+            val intent = Intent(this, EditPayActivity::class.java)
             startActivity(intent)
         }
 
@@ -134,19 +110,17 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
                 onSpeech(binding.nextBtn.text)
             }
 
-            //선택된 통장이 있어야
+            //선택된 통장이 있어야 진짜 삭제할건지 묻는 화면으로 넘어감
             if (selectedPaymentMethod != null) {
+                val intent = Intent(this, DeletePayConfirmationActivity::class.java)
 
-                //인증 방법 선택 화면으로 넘어가기
-                val intent = Intent(this, AuthWayActivity::class.java)
-
-                //SharedPrefrence에 데이터 저장하기
-                val sharedPreferences = getSharedPreferences("sp3", Context.MODE_PRIVATE)
+               //SharedPrefrence에 데이터 저장하기
+                val sharedPreferences = getSharedPreferences("deleteInfo", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
 
                 //은행이름과 계좌번호 저장 : paymentMethod 데이터 클래스 참고
-                editor.putString("selectedAccountName", selectedPaymentMethod!!.korBank)
-                editor.putString("selectedAccountNumber", selectedPaymentMethod!!.accountNumber)
+                editor.putString("bankName", selectedPaymentMethod!!.korBank)
+                editor.putString("accountNum", selectedPaymentMethod!!.accountNumber)
                 editor.apply()
 
                 //은행별로 다른 소리 출력
@@ -199,5 +173,10 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mtts.shutdown()
+
+    }
 }
 

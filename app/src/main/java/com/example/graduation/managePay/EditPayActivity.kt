@@ -49,10 +49,11 @@ class EditPayActivity : AppCompatActivity() {
 
         binding.deletePayBtn.setOnClickListener {
             if (soundState) {
-                onSpeech(binding.addPayBtn.text)
+                onSpeech(binding.deletePayBtn.text)
             }
 
-
+            val intent = Intent(this, DeletePayMethodActivity::class.java)
+            startActivity(intent)
         }
     }
     private fun onSpeech(text: CharSequence) {

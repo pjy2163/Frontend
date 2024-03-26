@@ -181,4 +181,9 @@ class RegisterAccountCheckPwdActivity : AppCompatActivity() {
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        mtts.shutdown()
+
+    }
 }
