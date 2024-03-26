@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import com.example.graduation.MainActivity
 import com.example.graduation.R
 import com.example.graduation.databinding.ActivityTransferEnterAccountNumberBinding
@@ -39,9 +40,18 @@ class TransferEnterAccountNumberActivity : AppCompatActivity() {
         playSuccessSound() //완료되었다는 띠링 소리
 
         //화면 정보 읽기
-        if (soundState) {
-            onSpeech(binding.titleTv.text)
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val titleText = binding.titleTv.text.toString()
+                val explainText = binding.explainTv.text.toString()
+                val textToSpeak = "$titleText $explainText"
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
         }
+
 
         binding.prevBtn.setOnClickListener {
             if (soundState) {
@@ -130,7 +140,6 @@ class TransferEnterAccountNumberActivity : AppCompatActivity() {
                 onSpeech(binding.sevenTv.text)
             }
 
-            binding.accountNumberTv.text = ""
             if (AccountNum.text=="계좌번호 입력"){
                 binding.accountNumberTv.text = ""
                 AccountNum.text = "${binding.sevenTv.text}"
@@ -176,7 +185,7 @@ class TransferEnterAccountNumberActivity : AppCompatActivity() {
         }
         binding.hyphenTv.setOnClickListener {
             if (soundState) {
-                onSpeech(binding.hyphenTv.text)
+                onSpeech("하이픈")
             }
 
             if (AccountNum.text=="계좌번호 입력"){
@@ -204,7 +213,9 @@ class TransferEnterAccountNumberActivity : AppCompatActivity() {
                 onSpeech(binding.nextBtn.text)
             }
             // 입력된 계좌번호를 SharedPreferences에 저장하기
+            val sharedPreferences = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
+            editor.remove("ReceiverAccountNumber") // ReceiverAccountNumber 키에 해당하는 이전 데이터 삭제
             editor.putString("ReceiverAccountNumber", AccountNum.text.toString())
             editor.apply()
             

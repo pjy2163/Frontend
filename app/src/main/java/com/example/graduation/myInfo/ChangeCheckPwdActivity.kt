@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import com.example.graduation.R
 import com.example.graduation.SignupDialog
 import com.example.graduation.SignupDialogInterface
 import com.example.graduation.databinding.ActivityChangeCheckPwdBinding
@@ -38,6 +39,17 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
+        //화면 정보 읽기
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val textToSpeak = "비밀번호를 다시 한번 입력해주세요."
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
+        }
+
         //지문 관련 변수
         biometricPrompt = setBiometricPrompt()
         promptInfo = setPromptInfo()
@@ -47,21 +59,17 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
             mtts.language = Locale.KOREAN //언어:한국어
         }
 
-        //화면 정보 읽기
-        if (soundState) {
-            onSpeech("회원가입 이메일 입력 화면입니다.")
-        }
+        // 효과음 초기화
+        mediaPlayerSuccess = MediaPlayer.create(this, R.raw.success_sound)
+        mediaPlayerFailure = MediaPlayer.create(this, R.raw.failure_sound)
 
-        binding.enterButton.setOnClickListener {
+        binding.nextBtn.setOnClickListener {
             val checkpwd = binding.signupInputCheckpwd.text.toString().trim()
             val pwd = intent.getStringExtra("pwd").toString()
+
             if (isPwdIdentified(checkpwd, pwd)) {
-                //비밀번호 일치하면 계정 생성 후 로그인 화면으로 이동
-                val email = intent.getStringExtra("email").toString()
-                val name = intent.getStringExtra("name").toString()
-                makeUser(name, email, pwd)
-                val intent = Intent(this, ChangePwdCompletedFragment::class.java)
-                startActivity(intent)
+                authenticateToEncrypt()  //생체 인증 가능 여부확인
+
             } else {
                 //비밀번호 불일치 시
                 run {
@@ -81,10 +89,7 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
         return pwd == checkpwd
     }
 
-    //계정 생성
-    private fun makeUser(name: String, email: String, pwd: String): Boolean {
-        return TODO("서버에 입력받은 email, pwd로 사용자 계정 생성")
-    }
+
 
     override fun onDialogButtonClick() {
         finish()
@@ -120,9 +125,12 @@ class ChangeCheckPwdActivity : AppCompatActivity(), SignupDialogInterface {
                 playSuccessSound()
                 Toast.makeText(this@ChangeCheckPwdActivity, "지문 인증에 성공하였습니다.", Toast.LENGTH_SHORT).show()
 
-                //송금완료 화면으로 이동
-                val intent = Intent(this@ChangeCheckPwdActivity, ChangeCheckPwdActivity::class.java)
-                startActivity(intent)
+                //비밀번호 변경 완료 화면으로 이동
+                supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fl_basic, ChangePwdCompletedFragment())
+                        .commit()
+
             }
 
             //지문 인식 실패시

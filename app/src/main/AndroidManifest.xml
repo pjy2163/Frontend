@@ -30,32 +30,44 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".managePay.DeletePayConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".managePay.DeletePayMethodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".managePay.RegisterAccountNumberActivity"
+            android:exported="false" />
+        <activity
+            android:name=".transfer.TransferEnterReceiverByHandActivity"
+            android:exported="false" />
+        <activity
+            android:name=".transfer.TransferHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.Splash1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".splash.Splash2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.SplashSoundActivity"
+            android:exported="false" />
+        <activity
             android:name=".transfer.TransferEnterAccountNumberActivity"
             android:exported="false" />
         <activity
             android:name=".transfer.TransferMoneyAmountActivity"
-            android:exported="true" >
-
-
-        </activity>
+            android:exported="true" />
         <activity
-            android:name=".signUp.SignUpAccountCheckPwdActivity"
+            android:name=".managePay.RegisterAccountCheckPwdActivity"
             android:exported="false" />
         <activity
-            android:name=".signUp.SignUpAccountPwdActivity"
-            android:exported="false" />
+            android:name=".managePay.RegisterAccountPwdActivity"
+            android:exported="true" />
         <activity
             android:name=".transfer.TransferChooseBankActivity"
             android:exported="false" />
-
-        <activity
-            android:name=".myInfo.EnterFingerprintActivity"
-            android:exported="false" />
-
-        <!-- 저장소 읽기 권한
-        <activity
-            android:name=".managePay.RegisterAccountVoiceActivity"
-            android:exported="false" />-->
         <activity
             android:name=".myInfo.ChangeCheckPwdActivity"
             android:exported="false" />
@@ -70,11 +82,11 @@
             android:exported="false" />
         <activity
             android:name=".Signup_Checkpwd"
-            android:exported="true"
+            android:exported="false"
             android:parentActivityName=".Signup_Pwd" />
         <activity
             android:name=".Signup_Pwd"
-            android:exported="true"
+            android:exported="false"
             android:parentActivityName=".Signup_Email" />
         <activity
             android:name=".Signup_Email"
@@ -86,23 +98,15 @@
             android:parentActivityName=".Login" />
         <activity
             android:name=".Login_Pwd"
-            android:exported="true"
+            android:exported="false"
             android:parentActivityName=".Login_Email" />
         <activity
             android:name=".Login_Email"
-            android:exported="true"
+            android:exported="false"
             android:parentActivityName=".Login" />
         <activity
             android:name=".Login"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
+            android:exported="true" />
         <activity
             android:name=".myInfo.ChangePwdActivity"
             android:exported="true"
@@ -135,7 +139,7 @@
             android:name=".managePay.RegisterChooseBankActivity"
             android:exported="true" />
         <activity
-            android:name=".managePay.RegisterAccountInfoCheckActivity"
+            android:name=".managePay.RegisterAccountConfirmationActivity"
             android:exported="true" />
         <activity
             android:name=".managePay.EditPayActivity"
@@ -160,8 +164,13 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
@@ -45,6 +46,17 @@ class PayConfirmationActivity : AppCompatActivity() {
             mtts.language = Locale.KOREAN //언어:한국어
         }
 
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                // 화면 정보 읽어주기
+                val textToSpeak ="결제 승인하시겠습니까?"+binding.productPlaceTv.text+"에서"+price+"원을 결제합니다. 출금계좌는"+binding.chosenPaymentNameText.text+"의"+binding.chosenPaymentNumberText.text+"입니다."
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
+        }
+
         binding.prevBtn.setOnClickListener {
             if (soundState) {
                 onSpeech(binding.prevBtn.text)
@@ -55,6 +67,7 @@ class PayConfirmationActivity : AppCompatActivity() {
         }
 
         //TODO:결제승인 과정에서 오류시 else 처리
+        //결제승인 버튼 이벤트 처리
         binding.approveBtn.setOnClickListener {
 
             if (soundState) {
@@ -67,6 +80,13 @@ class PayConfirmationActivity : AppCompatActivity() {
 
 
         }
+
+        //결제 승인했으니 결제 내역을 담은 PayHistoryActivity로 데이터를 보내야함
+        val spPay = getSharedPreferences("PayInfo", Context.MODE_PRIVATE)
+        val editor = spPay.edit()
+        editor.putString("storeName", storeName)
+        editor.putInt("price", price)
+        editor.apply()
     }
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)

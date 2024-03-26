@@ -55,6 +55,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1"/>
 
+
     <android.widget.Button
         android:id="@+id/enterButton"
         android:layout_width="match_parent"
@@ -65,6 +66,8 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".splash.Splash2Activity"
+    android:orientation="vertical"
+
+    android:gravity="center"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소리로 듣는 안전결제"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp">
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/explain_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="보이지 않아도 믿을 수 있는 선택!\n카드 결제의 새로운 차원을 열다"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+    </TextView>
+    <ImageView
+        android:id="@+id/img_splash_wallet"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/img_wallet" />
+
+</LinearLayout>
+
+

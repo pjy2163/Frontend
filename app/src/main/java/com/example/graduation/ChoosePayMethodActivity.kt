@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -13,19 +14,19 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.graduation.databinding.ActivityChoosePayMethodBinding
 import java.util.Locale
 
-//TODO:뷰페이저에서 통장 이미지 선택 후 인증화면으로 넘어가는 처리중
-//결제수단 등록에서 계좌를 입력하면-> 여기로 넘어와야 하는데 인디케이터는 어떻게하냐..
 
 class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
 
     lateinit var mtts: TextToSpeech
     private lateinit var binding: ActivityChoosePayMethodBinding
     private var selectedPaymentMethod: PaymentMethod? = null
+
+
     private var paymentMethods: List<PaymentMethod> = listOf(
-        PaymentMethod(R.drawable.img_bank_hana, "Hana Bank","하나은행", "0123456-0123456",false),
-        PaymentMethod(R.drawable.img_bank_shinhan,"Shinhan Bank","신한은행", "0123456-0123456",false),
-        PaymentMethod(R.drawable.img_bank_kookmin,"Kookmin Bank","국민은행", "0123456-0123456",false)
-            //필요한 리스트가 있으면 여기
+        PaymentMethod(R.drawable.img_bank_hana, "Hana Bank","하나은행", "799-325-231583",false),
+        PaymentMethod(R.drawable.img_bank_shinhan,"Shinhan Bank","신한은행", "110-345-126543",false),
+        PaymentMethod(R.drawable.img_bank_kookmin,"Kookmin Bank","국민은행", "209124-01-399201",false)
+        //필요한 리스트가 있으면 여기
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,19 +41,60 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
-
-        //화면 정보 읽기
-        if (soundState) {
-            onSpeech("결제 수단 선택 화면입니다")
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                // 화면 정보 읽어주기
+                val textToSpeak ="결제 수단 선택 화면입니다"+binding.explainTv.text
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
         }
 
-/*        var paymentMethods = listOf(
-            PaymentMethod(R.drawable.img_hana_bankbook, "하나은행", "0123456-0123456"),
-            PaymentMethod(R.drawable.img_hana_bankbook2, "하나은행", "0123456-0123456"),
-            PaymentMethod(R.drawable.img_kookmin_bankbook, "국민은행", "0123456-0123456"),
-            //여기서 입력한 정보가 PayConfirmationActivity로 넘어가게 됨
+        //계좌등록에서 등록된게 있으면
+        val sharedPreferences2 = getSharedPreferences("registerInfo", Context.MODE_PRIVATE)
+        val bankName = sharedPreferences2.getString("bankName", "")
+        val accountNumber = sharedPreferences2.getString("accountNum", "")
+        // 새로운 PaymentMethod를 생성하여 기존의 리스트에 추가
+        if (!bankName.isNullOrEmpty() && !accountNumber.isNullOrEmpty()) {
+            if (bankName=="하나은행"){
+                val newPaymentMethod = PaymentMethod(R.drawable.img_bank_hana, "Hana Bank", bankName, accountNumber, false)
+                paymentMethods += newPaymentMethod // 기존 리스트에 추가
+            }
+            else if (bankName=="신한은행"){
+                val newPaymentMethod = PaymentMethod(R.drawable.img_bank_shinhan, "Shinhan Bank", bankName, accountNumber, false)
+                paymentMethods += newPaymentMethod // 기존 리스트에 추가
+            }
+            else if (bankName=="국민은행"){
+                val newPaymentMethod = PaymentMethod(R.drawable.img_bank_kookmin, "Kookmin Bank", bankName, accountNumber, false)
+                paymentMethods += newPaymentMethod // 기존 리스트에 추가
+            }
+        }
 
-        )*/
+        //TODO:0326 삭제
+        //계좌삭제에서 삭제한게있으면
+        var spDelete = getSharedPreferences("deleteInfo", Context.MODE_PRIVATE)
+        var deleteBankName =  spDelete.getString("bankName", "")
+        var deleteAccountNumber =  spDelete.getString("accountNum", "")
+        // PaymentMethod 리스트에서 해당 은행과 계좌를 찾아 삭제
+        if (! deleteBankName.isNullOrEmpty() && !deleteAccountNumber.isNullOrEmpty()) {
+            if (bankName=="하나은행"){
+                var objPaymentMethod = PaymentMethod(R.drawable.img_bank_hana, "Hana Bank", deleteBankName,deleteAccountNumber, false)
+                paymentMethods -= objPaymentMethod // 기존 리스트에서 삭제
+            }
+            else if (bankName=="신한은행"){
+                var objPaymentMethod=PaymentMethod(R.drawable.img_bank_shinhan, "Shinhan Bank",deleteBankName, deleteAccountNumber, false)
+                paymentMethods -= objPaymentMethod // 기존 리스트에서 삭제
+            }
+            else if (bankName=="국민은행"){
+                var objPaymentMethod= PaymentMethod(R.drawable.img_bank_kookmin, "Kookmin Bank",deleteBankName,deleteAccountNumber, false)
+                paymentMethods-= objPaymentMethod // 기존 리스트에서 삭제
+            }
+        }
+
+
+
 
         val adapter = PaymentMethodAdapter(paymentMethods, this)
         binding.viewPagerCard.adapter = adapter
@@ -66,14 +108,14 @@ class ChoosePayMethodActivity : AppCompatActivity(),PaymentMethodClickListener {
                 binding.indicator0IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
                 binding.indicator1IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
                 binding.indicator2IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
-                /* binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
-    */
+                binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_grey))
+
                 when (position) {
                     0 -> binding.indicator0IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_blue))
                     1 -> binding.indicator1IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_blue))
                     2 -> binding.indicator2IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_blue))
-                    /*3 -> binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_purple))
-    */
+                    3 -> binding.indicator3IvMain.setImageDrawable(getDrawable(R.drawable.shape_circle_blue))
+
                 }
             }
         })

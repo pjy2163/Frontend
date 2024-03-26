@@ -14,5 +14,7 @@
     <color name="background_grey">#F4F5FA</color>
     <color name="background">#FAFAFD</color>
     <color name="orange">#FF4500</color>
+    <color name="alice_blue">#F0F8FF</color>
+
 
 </resources>

@@ -41,6 +41,17 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
             onSpeech("회원가입 이메일 입력 화면입니다.")
         }
 
+        //화면 정보 읽기
+        if (soundState) {
+            onSpeech("회원가입 이메일 입력 화면입니다.")
+        }
+
+        //TODO:0325 해당 회원의 이메일과 이름 가져오기
+        val sharedPreferences2 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        val email = sharedPreferences2.getString("email", "")
+        val name = sharedPreferences2.getString("name", "")
+        binding.emailTv.text=email //해당 회원의 이메일을 가져와서 이메일 텍스트뷰에 반영
+        binding.nameTv.text=name //해당 회원의 이름을 가져와서 이메일 텍스트뷰에 반영
 
 
         binding.enterButton.setOnClickListener {

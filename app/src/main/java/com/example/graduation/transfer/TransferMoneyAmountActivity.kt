@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import com.example.graduation.MainActivity
 import com.example.graduation.R
 import com.example.graduation.databinding.ActivityTransferMoneyAmountBinding
@@ -31,12 +32,19 @@ class TransferMoneyAmountActivity : AppCompatActivity() {
         val sharedPreferences =getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
-
-
         //화면 정보 읽기
-        if (soundState) {
-            onSpeech(binding.titleTv.text)
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val titleText = binding.titleTv.text.toString()
+                val explainText = binding.explainTv.text.toString()
+                val textToSpeak = "$titleText $explainText"
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
         }
+
 
         binding.prevBtn.setOnClickListener {
             if (soundState) {
@@ -162,7 +170,7 @@ class TransferMoneyAmountActivity : AppCompatActivity() {
         }
         binding.hyphenTv.setOnClickListener {
             if (soundState) {
-                onSpeech(binding.hyphenTv.text)
+                onSpeech("하이픈")
             }
 
             if (moneyNum.text=="금액 입력"){
@@ -189,17 +197,15 @@ class TransferMoneyAmountActivity : AppCompatActivity() {
                 onSpeech(binding.nextBtn.text)
             }
             // 입력된 액수를 SharedPreferences에 저장하기
+            val sharedPreferences = getSharedPreferences("transferInfo", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
+            editor.remove("moneyAmount") // moneyAmount 키에 해당하는 이전 데이터 삭제
             editor.putString("moneyAmount", moneyNum.text.toString())
             editor.apply()
 
             startActivity(Intent(this, TransferConfirmationActivity::class.java))
         }
-
-
-
     }
-
 
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)

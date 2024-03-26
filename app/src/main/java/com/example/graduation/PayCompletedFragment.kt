@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,9 +52,17 @@ class PayCompletedFragment : Fragment() {
         playSuccessSound() //완료되었다는 띠링 소리
 
         //화면 정보 읽기
-        if (soundState) {
-            onSpeech(binding.payCompletedTv.text)
+        mtts = TextToSpeech(requireActivity()) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                // 화면 정보 읽어주기
+                val textToSpeak =binding.explainTv.text
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
         }
+
 
         binding.nextBtn.setOnClickListener {
             if (soundState) {

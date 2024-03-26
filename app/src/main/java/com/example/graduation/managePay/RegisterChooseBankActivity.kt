@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
+import com.example.graduation.MainActivity
 import com.example.graduation.databinding.ActivityRegisterChooseBankBinding
 import java.util.Locale
 
@@ -26,32 +27,52 @@ class RegisterChooseBankActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
-        //화면 정보 읽기
+      /*  //화면 정보 읽기
         if (soundState) {
             onSpeech("계좌 선택 화면입니다")
         }
-
-
+*/
 
         binding.hanaBtn.setOnClickListener{
             if (soundState) {
                 onSpeech(binding.hanaBtn.text)
             }
+            // 입력된 은행을 SharedPreferences에 저장하기
+            val sharedPreferences = getSharedPreferences("registerInfo", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("bankName", "하나은행")
+            editor.apply()
 
-
-
+            val intent = Intent(this, RegisterAccountNumberActivity::class.java)
+            startActivity(intent)
         }
 
         binding.shinhanBtn.setOnClickListener{
             if (soundState) {
                 onSpeech(binding.shinhanBtn.text)
             }
+            // 입력된 은행을 SharedPreferences에 저장하기
+            val sharedPreferences = getSharedPreferences("registerInfo", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("bankName", "신한은행")
+            editor.apply()
+
+            val intent = Intent(this, RegisterAccountNumberActivity::class.java)
+            startActivity(intent)
         }
 
         binding.kookminBtn.setOnClickListener{
             if (soundState) {
                 onSpeech(binding.kookminBtn.text)
             }
+            // 입력된 은행을 SharedPreferences에 저장하기
+            val sharedPreferences = getSharedPreferences("registerInfo", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("bankName", "국민은행")
+            editor.apply()
+
+            val intent = Intent(this, RegisterAccountNumberActivity::class.java)
+            startActivity(intent)
         }
 
     }
