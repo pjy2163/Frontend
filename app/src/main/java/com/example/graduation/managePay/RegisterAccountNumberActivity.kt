@@ -205,7 +205,7 @@ class RegisterAccountNumberActivity : AppCompatActivity() {
             // 입력된 계좌번호를 SharedPreferences에 저장하기
             val sharedPreferences = getSharedPreferences("registerInfo", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
-            editor.putString("bankName", AccountNum.toString())
+            editor.putString("accountNum", AccountNum.text.toString())
             editor.apply()
 
             startActivity(Intent(this, RegisterAccountPwdActivity::class.java))

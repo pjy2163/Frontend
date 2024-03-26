@@ -48,7 +48,9 @@
             android:gravity="left"
             android:paddingLeft="20dp"
             android:text="계좌 정보 입력(최초 1회만)\n가상 계좌 및 적금 펀드 계좌는 등록 불가"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,7 +65,8 @@
             android:paddingLeft="20dp"
             android:layout_marginTop="10dp"
             android:text="은행명"
-            android:textColor="@color/black">
+            android:textColor="@color/black"
+            android:textSize="18sp">
         </TextView>
 
         <TextView
@@ -73,7 +76,9 @@
             android:paddingLeft="20dp"
             android:layout_marginBottom="10dp"
             android:text="00은행"
-            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
             >
         </TextView>
         </LinearLayout>
@@ -84,6 +89,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:text="계좌번호"
+            android:textSize="18sp"
             android:textColor="@color/black">
         </TextView>
 
@@ -94,7 +100,9 @@
             android:paddingLeft="20dp"
             android:paddingBottom="20dp"
             android:text="123-456-78910"
-            android:textColor="@color/black">
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue">
 
 
         </TextView>
@@ -110,7 +118,7 @@
         android:layout_weight="1"/>
 
     <android.widget.Button
-        android:id="@+id/enter_btn"
+        android:id="@+id/next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
