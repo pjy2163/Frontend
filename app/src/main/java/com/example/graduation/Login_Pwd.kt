@@ -61,7 +61,7 @@ class Login_Pwd : AppCompatActivity() {
                         val user: User? = response.body()
                         if (user != null) {
                             val intent = Intent(applicationContext, Login::class.java)
-                            intent.putExtra("user", user)
+                           // intent.putExtra("user", user)
                             startActivity(intent)
                         } else {
                             Toast.makeText(applicationContext, "회원가입을 해주세요.", Toast.LENGTH_SHORT).show()

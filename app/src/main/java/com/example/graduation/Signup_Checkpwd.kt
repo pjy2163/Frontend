@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Toast
+import com.example.graduation.LoginUser.Companion.email
 import com.example.graduation.databinding.ActivitySignupCheckpwdBinding
 import com.example.graduation.model.User
 import com.example.graduation.retrofit.RetrofitService
@@ -48,16 +49,15 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
 
         //TODO:0325 해당 회원의 이메일과 이름 가져오기
         val sharedPreferences2 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
-        val email = sharedPreferences2.getString("email", "")
+        val id = sharedPreferences2.getString("id", "")
         val name = sharedPreferences2.getString("name", "")
-        binding.emailTv.text=email //해당 회원의 이메일을 가져와서 이메일 텍스트뷰에 반영
+        binding.emailTv.text=id //해당 회원의 이메일을 가져와서 이메일 텍스트뷰에 반영
         binding.nameTv.text=name //해당 회원의 이름을 가져와서 이메일 텍스트뷰에 반영
 
 
         binding.enterButton.setOnClickListener {
 
-            val id = intent.getStringExtra("id").toString()
-            val name = intent.getStringExtra("name").toString()
+
             val password = intent.getStringExtra("password").toString()
             val checkpwd = binding.signupInputCheckpwd.text.toString().trim()
 
